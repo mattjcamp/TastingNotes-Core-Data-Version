@@ -47,13 +47,15 @@
 }
 
 -(void)testWineNotebook{
-    [self testThisNotebookHierarchy:[self.content newWineNotebook]];
+    [self checkThisNotebookHierarchy:[self.content newWineNotebook]];
 }
 
--(void)testThisNotebookHierarchy:(Notebook *)notebook{
+-(void)checkThisNotebookHierarchy:(Notebook *)notebook{
+    
     NSMutableString *log = [[NSMutableString alloc] init];
     [log appendString:@"\n\n"];
     [log appendString:@"------------------------\n"];
+    
     XCTAssertNotNil(notebook, @"Notebook didn't get created");
     [log appendFormat:@"notebook.name = %@\n", notebook.name];
     [log appendFormat:@"notebook.order = %@\n", notebook.order];
@@ -61,9 +63,10 @@
     [log appendFormat:@"notebook.template.name = %@\n", notebook.template.name];
     [log appendFormat:@"notebook.template.belongsToNotebook.name = %@\n", notebook.template.belongsToNotebook.name];
     XCTAssertNotNil(notebook.template.groups, @"No Group Templates");
-    [notebook.template.groups enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
+    
+    [notebook.template.groups enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         Group_Template *g = (Group_Template *)obj;
-        [log appendFormat:@"notebook.template.groups[].name = %@\n", g.name];
+        [log appendFormat:@"notebook.template.groups[%i].name = %@\n", idx, g.name];
     }];
     
     [log appendString:@"------------------------\n\n"];

@@ -15,7 +15,7 @@
 
 @dynamic name;
 @dynamic order;
-@dynamic contentTypes;
 @dynamic belongsToNotebook;
+@dynamic contentTypes;
 
 @end

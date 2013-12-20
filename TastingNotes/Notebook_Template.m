@@ -14,7 +14,13 @@
 @implementation Notebook_Template
 
 @dynamic name;
-@dynamic groups;
 @dynamic belongsToNotebook;
+@dynamic groups;
+
+-(void)addGroupsObject:(Group_Template *)value {
+    NSMutableOrderedSet* tempSet = [NSMutableOrderedSet orderedSetWithOrderedSet:self.groups];
+    [tempSet addObject:value];
+    self.groups = tempSet;
+}
 
 @end

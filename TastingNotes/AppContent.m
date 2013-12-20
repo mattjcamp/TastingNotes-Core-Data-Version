@@ -72,7 +72,6 @@
     
     [notebook.template addGroupsObject:g_d];
     
-    
     return notebook;
 }
 

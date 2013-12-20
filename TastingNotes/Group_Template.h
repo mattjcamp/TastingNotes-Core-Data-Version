@@ -15,8 +15,8 @@
 
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * order;
-@property (nonatomic, retain) NSSet *contentTypes;
 @property (nonatomic, retain) Notebook_Template *belongsToNotebook;
+@property (nonatomic, retain) NSSet *contentTypes;
 @end
 
 @interface Group_Template (CoreDataGeneratedAccessors)
