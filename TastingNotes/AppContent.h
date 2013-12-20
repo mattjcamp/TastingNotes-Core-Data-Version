@@ -10,10 +10,11 @@
 
 @interface AppContent : NSObject
 
-@property(strong,readonly) NSString *test;
 @property(strong,readonly) NSMutableArray *notebooks;
 
 -(void)save;
+
+-(Notebook *)newWineNotebook;
 
 /* -(Note *)addNote;
  -(void)removeThisNote:(Note *)note;

@@ -27,48 +27,47 @@
     [super tearDown];
 }
 
--(void)testNotebookCreation{
-    NSMutableString *log = [[NSMutableString alloc] init];
-    [log appendString:@"\n\n"];
-    [log appendString:@"------------------------\n"];
+-(void)testCoreDataStack{
     XCTAssertNotNil(self.content, "AppContent is not initializing");
-    if(![self.content.test isEqualToString:@"TEST"])
-        XCTFail(@"content.test is not the right value");
-    
     XCTAssertNotNil(self.content.notebooks, @"Notebooks are not getting created");
-    
-    Notebook *notebook = [self.content.notebooks firstObject];
-    [log appendFormat:@"notebook = %@\n", notebook];
-    [log appendFormat:@"notebook.name = %@\n", notebook.name];
-    [log appendFormat:@"notebook.order = %@\n", notebook.order];
-    notebook.order = [NSNumber numberWithInt:[notebook.order integerValue] + 1];
-    
     XCTAssertNoThrow(self.content.save, @"Can't save and the data model is probably out of sync");
-    
-    [log appendString:@"------------------------\n\n"];
-    NSLog(@"%@", log);
-
 }
 
--(void)testTemplateHierarchy{
+-(void)testNotebookArray{
     NSMutableString *log = [[NSMutableString alloc] init];
     [log appendString:@"\n\n"];
     [log appendString:@"------------------------\n"];
-    XCTAssertNotNil(self.content, "AppContent is not initializing");
-    
-    XCTAssertNotNil(self.content.notebooks, @"Notebooks are not getting created");
-    
-    Notebook *notebook = [self.content.notebooks firstObject];
-    [log appendFormat:@"notebook = %@\n", notebook];
-    [log appendFormat:@"notebook.name = %@\n", notebook.name];
-    [log appendFormat:@"notebook.order = %@\n", notebook.order];
-    notebook.order = [NSNumber numberWithInt:[notebook.order integerValue] + 1];
-    
-    XCTAssertNoThrow(self.content.save, @"Can't save and the data model is probably out of sync");
+    [self.content.notebooks enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [log appendFormat:@"notebook.name = %@\n", [obj name]];
+        [log appendFormat:@"notebook.order = %@\n", [obj order]];
+    }];
     
     [log appendString:@"------------------------\n\n"];
     NSLog(@"%@", log);
+}
+
+-(void)testWineNotebook{
+    [self testThisNotebookHierarchy:[self.content newWineNotebook]];
+}
+
+-(void)testThisNotebookHierarchy:(Notebook *)notebook{
+    NSMutableString *log = [[NSMutableString alloc] init];
+    [log appendString:@"\n\n"];
+    [log appendString:@"------------------------\n"];
+    XCTAssertNotNil(notebook, @"Notebook didn't get created");
+    [log appendFormat:@"notebook.name = %@\n", notebook.name];
+    [log appendFormat:@"notebook.order = %@\n", notebook.order];
+    XCTAssertNotNil(notebook.template, @"No Notebook Template");
+    [log appendFormat:@"notebook.template.name = %@\n", notebook.template.name];
+    [log appendFormat:@"notebook.template.belongsToNotebook.name = %@\n", notebook.template.belongsToNotebook.name];
+    XCTAssertNotNil(notebook.template.groups, @"No Group Templates");
+    [notebook.template.groups enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
+        Group_Template *g = (Group_Template *)obj;
+        [log appendFormat:@"notebook.template.groups[].name = %@\n", g.name];
+    }];
     
+    [log appendString:@"------------------------\n\n"];
+    NSLog(@"%@", log);
 }
 
 @end

@@ -38,11 +38,6 @@
  }
  */
 
-/*-(id)init{
- self = [super init];
- return nil;
- }*/
-
 -(void)save{
     NSError *error = nil;
     NSManagedObjectContext *context = [self managedObjectContext];
@@ -53,14 +48,32 @@
     }
 }
 
-
-NSString *_test;
--(NSString *)test{
-    if(_test)
-        return _test;
-    _test = @"TEST";
+-(Notebook *)newWineNotebook{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    Notebook *notebook = [NSEntityDescription insertNewObjectForEntityForName:@"Notebook"
+                                                       inManagedObjectContext:context];
+    notebook.name = @"Wine Notes";
+    notebook.order = [NSNumber numberWithInt: _notebooks.count];
+    notebook.template =[NSEntityDescription insertNewObjectForEntityForName:@"Notebook_Template"
+                                                     inManagedObjectContext:context];
+    notebook.template.name = @"Wine Notebook Template";
     
-    return _test;
+    Group_Template *g_o = [NSEntityDescription insertNewObjectForEntityForName:@"Group_Template"
+                                                      inManagedObjectContext:context];
+    g_o.name = @"Overview";
+    g_o.order = @0;
+    
+    [notebook.template addGroupsObject:g_o];
+    
+    Group_Template *g_d = [NSEntityDescription insertNewObjectForEntityForName:@"Group_Template"
+                                                        inManagedObjectContext:context];
+    g_d.name = @"Description";
+    g_d.order = @1;
+    
+    [notebook.template addGroupsObject:g_d];
+    
+    
+    return notebook;
 }
 
 NSMutableArray *_notebooks;
@@ -86,11 +99,7 @@ NSMutableArray *_notebooks;
         return _notebooks;
     }
     
-    id notebook = [NSEntityDescription insertNewObjectForEntityForName:@"Notebook"
-                                                inManagedObjectContext:context];
-    [notebook setValue:@"Wine Notes"
-                forKey:@"name"];
-    _notebooks = [[NSMutableArray alloc]initWithObjects:notebook, nil];
+    _notebooks = [[NSMutableArray alloc]initWithObjects:[self newWineNotebook], nil];
     
     return _notebooks;
 }

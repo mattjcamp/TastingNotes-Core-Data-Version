@@ -15,7 +15,7 @@
 
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSSet *groups;
-@property (nonatomic, retain) NSSet *belongsToNotebook;
+@property (nonatomic, retain) Notebook *belongsToNotebook;
 @end
 
 @interface Notebook_Template (CoreDataGeneratedAccessors)
@@ -24,10 +24,5 @@
 - (void)removeGroupsObject:(Group_Template *)value;
 - (void)addGroups:(NSSet *)values;
 - (void)removeGroups:(NSSet *)values;
-
-- (void)addBelongsToNotebookObject:(Notebook *)value;
-- (void)removeBelongsToNotebookObject:(Notebook *)value;
-- (void)addBelongsToNotebook:(NSSet *)values;
-- (void)removeBelongsToNotebook:(NSSet *)values;
 
 @end
