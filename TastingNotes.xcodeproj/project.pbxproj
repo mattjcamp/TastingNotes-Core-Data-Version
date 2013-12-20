@@ -22,6 +22,9 @@
 		C9C02D2F18645EC200739C36 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C02D0E18645EC200739C36 /* UIKit.framework */; };
 		C9C02D3718645EC200739C36 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C9C02D3518645EC200739C36 /* InfoPlist.strings */; };
 		C9C02D3918645EC200739C36 /* TastingNotesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C02D3818645EC200739C36 /* TastingNotesTests.m */; };
+		C9C02D8818648F5D00739C36 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C02D8718648F5D00739C36 /* CoreData.framework */; };
+		C9C02D8B18648F7500739C36 /* AppContent.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C02D8A18648F7500739C36 /* AppContent.m */; };
+		C9C02D8E18648F9000739C36 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C9C02D8C18648F9000739C36 /* DataModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +58,10 @@
 		C9C02D3418645EC200739C36 /* TastingNotesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TastingNotesTests-Info.plist"; sourceTree = "<group>"; };
 		C9C02D3618645EC200739C36 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C9C02D3818645EC200739C36 /* TastingNotesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TastingNotesTests.m; sourceTree = "<group>"; };
+		C9C02D8718648F5D00739C36 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		C9C02D8918648F7500739C36 /* AppContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppContent.h; sourceTree = "<group>"; };
+		C9C02D8A18648F7500739C36 /* AppContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppContent.m; sourceTree = "<group>"; };
+		C9C02D8D18648F9000739C36 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9C02D8818648F5D00739C36 /* CoreData.framework in Frameworks */,
 				C9C02D0D18645EC200739C36 /* CoreGraphics.framework in Frameworks */,
 				C9C02D0F18645EC200739C36 /* UIKit.framework in Frameworks */,
 				C9C02D0B18645EC200739C36 /* Foundation.framework in Frameworks */,
@@ -103,6 +111,7 @@
 		C9C02D0918645EC200739C36 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C9C02D8718648F5D00739C36 /* CoreData.framework */,
 				C9C02D0A18645EC200739C36 /* Foundation.framework */,
 				C9C02D0C18645EC200739C36 /* CoreGraphics.framework */,
 				C9C02D0E18645EC200739C36 /* UIKit.framework */,
@@ -117,6 +126,8 @@
 				C9C02D8618648EC700739C36 /* Notebooks */,
 				C9C02D1918645EC200739C36 /* AppDelegate.h */,
 				C9C02D1A18645EC200739C36 /* AppDelegate.m */,
+				C9C02D8918648F7500739C36 /* AppContent.h */,
+				C9C02D8A18648F7500739C36 /* AppContent.m */,
 				C9C02D1C18645EC200739C36 /* Main_iPhone.storyboard */,
 				C9C02D1F18645EC200739C36 /* Main_iPad.storyboard */,
 				C9C02D2218645EC200739C36 /* ViewController.h */,
@@ -159,6 +170,7 @@
 		C9C02D8618648EC700739C36 /* Notebooks */ = {
 			isa = PBXGroup;
 			children = (
+				C9C02D8C18648F9000739C36 /* DataModel.xcdatamodeld */,
 			);
 			name = Notebooks;
 			sourceTree = "<group>";
@@ -262,8 +274,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9C02D2418645EC200739C36 /* ViewController.m in Sources */,
+				C9C02D8E18648F9000739C36 /* DataModel.xcdatamodeld in Sources */,
 				C9C02D1B18645EC200739C36 /* AppDelegate.m in Sources */,
 				C9C02D1718645EC200739C36 /* main.m in Sources */,
+				C9C02D8B18648F7500739C36 /* AppContent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,6 +508,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C9C02D8C18648F9000739C36 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C9C02D8D18648F9000739C36 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = C9C02D8D18648F9000739C36 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C9C02CFF18645EC200739C36 /* Project object */;
 }
