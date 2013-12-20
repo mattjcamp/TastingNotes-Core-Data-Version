@@ -26,16 +26,7 @@
  [self.notebook removeNotesObject:note];
  }
  
- -(Note *)addNote{
- NSManagedObjectContext *context = [self managedObjectContext];
- Note *n = (Note *)[NSEntityDescription insertNewObjectForEntityForName:@"Note"
- inManagedObjectContext:context];
- n.timeStamp = [NSDate date];
- n.content = @"ABCDefghijklmnop";
- [self.notebook addNotesObject:n];
- 
- return n;
- }
+
  */
 
 -(void)save{
@@ -48,6 +39,15 @@
     }
 }
 
+-(Note *)addNoteToThisNotebook:(Notebook *)notebook{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    Note *note = [NSEntityDescription insertNewObjectForEntityForName:@"Note"
+                                               inManagedObjectContext:context];
+    [notebook addNotesObject:note];
+    
+    return note;
+}
+
 -(Notebook *)newWineNotebook{
     NSManagedObjectContext *context = [self managedObjectContext];
     Notebook *notebook = [NSEntityDescription insertNewObjectForEntityForName:@"Notebook"
@@ -58,19 +58,36 @@
                                                      inManagedObjectContext:context];
     notebook.template.name = @"Wine Notebook Template";
     
-    Group_Template *g_o = [NSEntityDescription insertNewObjectForEntityForName:@"Group_Template"
+    Group_Template *g = [NSEntityDescription insertNewObjectForEntityForName:@"Group_Template"
                                                       inManagedObjectContext:context];
-    g_o.name = @"Overview";
-    g_o.order = @0;
+    g.name = @"Overview";
+    g.order = @0;
     
-    [notebook.template addGroupsObject:g_o];
+    ContentType_Template *c = [NSEntityDescription insertNewObjectForEntityForName:@"ContentType_Template"inManagedObjectContext:context];
     
-    Group_Template *g_d = [NSEntityDescription insertNewObjectForEntityForName:@"Group_Template"
-                                                        inManagedObjectContext:context];
-    g_d.name = @"Description";
-    g_d.order = @1;
+    c.name = @"Wine Name";
+    c.order = @0;
+    c.type = @"smalltext";
+    [g addContentTypesObject:c];
     
-    [notebook.template addGroupsObject:g_d];
+    c = [NSEntityDescription insertNewObjectForEntityForName:@"ContentType_Template"inManagedObjectContext:context];
+    
+    c.name = @"Wine Type";
+    c.order = @1;
+    c.type = @"list";
+    
+    [g addContentTypesObject:c];
+    
+    [notebook.template addGroupsObject:g];
+    
+    
+    
+    g = [NSEntityDescription insertNewObjectForEntityForName:@"Group_Template"
+                                      inManagedObjectContext:context];
+    g.name = @"Description";
+    g.order = @1;
+    
+    [notebook.template addGroupsObject:g];
     
     return notebook;
 }

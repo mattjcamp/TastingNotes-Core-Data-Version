@@ -9,12 +9,21 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Notebook_Template;
+@class Note, Notebook_Template;
 
 @interface Notebook : NSManagedObject
 
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * order;
 @property (nonatomic, retain) Notebook_Template *template;
+@property (nonatomic, retain) NSSet *notes;
+@end
+
+@interface Notebook (CoreDataGeneratedAccessors)
+
+- (void)addNotesObject:(Note *)value;
+- (void)removeNotesObject:(Note *)value;
+- (void)addNotes:(NSSet *)values;
+- (void)removeNotes:(NSSet *)values;
 
 @end

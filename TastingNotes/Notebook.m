@@ -7,6 +7,7 @@
 //
 
 #import "Notebook.h"
+#import "Note.h"
 #import "Notebook_Template.h"
 
 
@@ -15,5 +16,6 @@
 @dynamic name;
 @dynamic order;
 @dynamic template;
+@dynamic notes;
 
 @end

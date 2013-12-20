@@ -7,8 +7,6 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "AppContent.h"
-#import "Notebook.h"
 
 @interface TastingNotesTests : XCTestCase
 
@@ -33,17 +31,40 @@
     XCTAssertNoThrow(self.content.save, @"Can't save and the data model is probably out of sync");
 }
 
--(void)testNotebookArray{
+-(void)createNotebookArrayTestData{
     NSMutableString *log = [[NSMutableString alloc] init];
-    [log appendString:@"\n\n"];
-    [log appendString:@"------------------------\n"];
     [self.content.notebooks enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         [log appendFormat:@"notebook.name = %@\n", [obj name]];
         [log appendFormat:@"notebook.order = %@\n", [obj order]];
+        if([[obj notesByOrder]count] == 0){
+            for(int i=0;i<5;i++){
+                Note *n = [self.content addNoteToThisNotebook:obj];
+                n.order = [NSNumber numberWithInt:i];
+            }
+        }
+    }];
+    [self.content save];
+}
+
+-(void)testNotebookArray{
+    NSMutableString *log = [[NSMutableString alloc] init];
+    [self createNotebookArrayTestData];
+    [self.content.notebooks enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [log appendString:@"\n\n"];
+        [log appendString:@"------------------------\n"];
+        Notebook *notebook = (Notebook *)obj;
+        [log appendFormat:@"notebook.name = %@\n", notebook.name];
+        [notebook.notesByOrder enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            Note *note = (Note *)obj;
+            [log appendFormat:@"    note.order = %@\n", note.order];
+            Group_Template *g = [note.belongsToNotebook.template.groupsByOrder firstObject];
+            [log appendFormat:@"    note's first group = %@\n", g.name];
+        }];
+        [log appendString:@"------------------------\n\n"];
     }];
     
-    [log appendString:@"------------------------\n\n"];
     NSLog(@"%@", log);
+    
 }
 
 -(void)testWineNotebook{
@@ -67,6 +88,15 @@
     [[notebook.template groupsByOrder] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         Group_Template *g = (Group_Template *)obj;
         [log appendFormat:@"notebook.template.groups[%i].name = %@\n", idx, g.name];
+        int gi = idx;
+        [[g contentTypesByOrder] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            ContentType_Template *c = (ContentType_Template *)obj;
+            XCTAssertNotNil(c.order, @"No ContentType Order Defined For %@", c.name);
+            XCTAssertNotNil(c.type, @"No ContentType Type Defined For %@", c.name);
+            
+            [log appendFormat:@"notebook.template.groups[%i].contentTypes[%i] = %@\n", gi, idx, c.name];
+        }];
+        
     }];
     
     [log appendString:@"------------------------\n\n"];

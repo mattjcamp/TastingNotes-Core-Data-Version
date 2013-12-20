@@ -1,18 +1,15 @@
 //
-//  Note.m
+//  Notebook+Notebook_Helper.h
 //  TastingNotes
 //
 //  Created by Matt on 12/20/13.
 //  Copyright (c) 2013 Mobile App Mastery. All rights reserved.
 //
 
-#import "Note.h"
 #import "Notebook.h"
 
+@interface Notebook (Notebook_Helper)
 
-@implementation Note
-
-@dynamic order;
-@dynamic belongsToNotebook;
+-(NSArray *) notesByOrder;
 
 @end

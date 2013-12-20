@@ -1,0 +1,20 @@
+//
+//  Group_Template+Group_Template_Helper.m
+//  TastingNotes
+//
+//  Created by Matt on 12/20/13.
+//  Copyright (c) 2013 Mobile App Mastery. All rights reserved.
+//
+
+#import "Group_Template+Group_Template_Helper.h"
+
+@implementation Group_Template (Group_Template_Helper)
+
+-(NSArray *) contentTypesByOrder{
+    NSSortDescriptor *sorter = [NSSortDescriptor sortDescriptorWithKey:@"order"
+                                                             ascending:YES];
+    
+    return [self.contentTypes sortedArrayUsingDescriptors:@[sorter]];
+}
+
+@end

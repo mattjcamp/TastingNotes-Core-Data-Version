@@ -9,8 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+@class Notebook;
 
 @interface Note : NSManagedObject
 
+@property (nonatomic, retain) NSNumber * order;
+@property (nonatomic, retain) Notebook *belongsToNotebook;
 
 @end

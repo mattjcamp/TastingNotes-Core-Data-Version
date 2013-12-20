@@ -16,8 +16,9 @@
 
 -(Notebook *)newWineNotebook;
 
-/* -(Note *)addNote;
- -(void)removeThisNote:(Note *)note;
- */
+-(Note *)addNoteToThisNotebook:(Notebook *)notebook;
+
+//-(void)removeThisNote:(Note *)note;
+
 
 @end

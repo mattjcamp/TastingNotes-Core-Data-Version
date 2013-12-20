@@ -12,10 +12,14 @@
         <relationship name="belongsToNotebook" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Notebook_Template" inverseName="groups" inverseEntity="Notebook_Template" syncable="YES"/>
         <relationship name="contentTypes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ContentType_Template" inverseName="belongsToGroup" inverseEntity="ContentType_Template" syncable="YES"/>
     </entity>
-    <entity name="Note" representedClassName="Note" syncable="YES"/>
+    <entity name="Note" representedClassName="Note" syncable="YES">
+        <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="belongsToNotebook" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Notebook" inverseName="notes" inverseEntity="Notebook" syncable="YES"/>
+    </entity>
     <entity name="Notebook" representedClassName="Notebook" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Note" inverseName="belongsToNotebook" inverseEntity="Note" syncable="YES"/>
         <relationship name="template" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Notebook_Template" inverseName="belongsToNotebook" inverseEntity="Notebook_Template" syncable="YES"/>
     </entity>
     <entity name="Notebook_Template" representedClassName="Notebook_Template" syncable="YES">
@@ -24,10 +28,10 @@
         <relationship name="groups" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Group_Template" inverseName="belongsToNotebook" inverseEntity="Group_Template" syncable="YES"/>
     </entity>
     <elements>
-        <element name="ContentType_Template" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Group_Template" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Note" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Notebook" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Notebook_Template" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="ContentType_Template" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="Group_Template" positionX="-405" positionY="3" width="128" height="105"/>
+        <element name="Note" positionX="187" positionY="-27" width="128" height="45"/>
+        <element name="Notebook" positionX="187" positionY="-180" width="128" height="90"/>
+        <element name="Notebook_Template" positionX="-81" positionY="-171" width="128" height="90"/>
     </elements>
 </model>
