@@ -7,8 +7,12 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "AppContent.h"
+#import "Notebook.h"
 
 @interface TastingNotesTests : XCTestCase
+
+@property AppContent *content;
 
 @end
 
@@ -16,14 +20,32 @@
 
 -(void)setUp{
     [super setUp];
+    self.content = [[AppContent alloc]init];
 }
 
 -(void)tearDown{
     [super tearDown];
 }
 
--(void)testExample{
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+-(void)testNotebookCreation{
+    NSMutableString *log = [[NSMutableString alloc] init];
+    [log appendString:@"\n\n"];
+    [log appendString:@"------------------------\n"];
+    XCTAssertNotNil(self.content, "AppContent is not initializing");
+    if(![self.content.test isEqualToString:@"TEST"])
+        XCTFail(@"content.test is not the right value");
+    
+    XCTAssertNotNil(self.content.notebooks, @"Notebooks are not getting created");
+    
+    Notebook *notebook = [self.content.notebooks firstObject];
+    [log appendFormat:@"notebook = %@\n", notebook];
+    [log appendFormat:@"notebook.name = %@\n", notebook.name];
+    
+    XCTAssertNoThrow(self.content.save, @"Can't save and the data model is probably out of sync");
+    
+    [log appendString:@"------------------------\n\n"];
+    NSLog(@"%@", log);
+
 }
 
 @end

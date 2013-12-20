@@ -25,6 +25,7 @@
 		C9C02D8818648F5D00739C36 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C02D8718648F5D00739C36 /* CoreData.framework */; };
 		C9C02D8B18648F7500739C36 /* AppContent.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C02D8A18648F7500739C36 /* AppContent.m */; };
 		C9C02D8E18648F9000739C36 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C9C02D8C18648F9000739C36 /* DataModel.xcdatamodeld */; };
+		C9C02D91186490A900739C36 /* Notebook.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C02D90186490A900739C36 /* Notebook.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,8 @@
 		C9C02D8918648F7500739C36 /* AppContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppContent.h; sourceTree = "<group>"; };
 		C9C02D8A18648F7500739C36 /* AppContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppContent.m; sourceTree = "<group>"; };
 		C9C02D8D18648F9000739C36 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		C9C02D8F186490A900739C36 /* Notebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notebook.h; sourceTree = "<group>"; };
+		C9C02D90186490A900739C36 /* Notebook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notebook.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +174,8 @@
 			isa = PBXGroup;
 			children = (
 				C9C02D8C18648F9000739C36 /* DataModel.xcdatamodeld */,
+				C9C02D8F186490A900739C36 /* Notebook.h */,
+				C9C02D90186490A900739C36 /* Notebook.m */,
 			);
 			name = Notebooks;
 			sourceTree = "<group>";
@@ -275,6 +280,7 @@
 			files = (
 				C9C02D2418645EC200739C36 /* ViewController.m in Sources */,
 				C9C02D8E18648F9000739C36 /* DataModel.xcdatamodeld in Sources */,
+				C9C02D91186490A900739C36 /* Notebook.m in Sources */,
 				C9C02D1B18645EC200739C36 /* AppDelegate.m in Sources */,
 				C9C02D1718645EC200739C36 /* main.m in Sources */,
 				C9C02D8B18648F7500739C36 /* AppContent.m in Sources */,
