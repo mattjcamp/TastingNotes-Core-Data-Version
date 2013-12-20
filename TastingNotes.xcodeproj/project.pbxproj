@@ -114,6 +114,7 @@
 		C9C02D1018645EC200739C36 /* TastingNotes */ = {
 			isa = PBXGroup;
 			children = (
+				C9C02D8618648EC700739C36 /* Notebooks */,
 				C9C02D1918645EC200739C36 /* AppDelegate.h */,
 				C9C02D1A18645EC200739C36 /* AppDelegate.m */,
 				C9C02D1C18645EC200739C36 /* Main_iPhone.storyboard */,
@@ -153,6 +154,13 @@
 				C9C02D3518645EC200739C36 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C9C02D8618648EC700739C36 /* Notebooks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Notebooks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -474,6 +482,7 @@
 				C9C02D3E18645EC200739C36 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C9C02D3F18645EC200739C36 /* Build configuration list for PBXNativeTarget "TastingNotesTests" */ = {
 			isa = XCConfigurationList;
@@ -482,6 +491,7 @@
 				C9C02D4118645EC200739C36 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
