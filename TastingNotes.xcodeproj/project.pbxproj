@@ -30,6 +30,7 @@
 		C9C02DD61864D64E00739C36 /* Notebook_Template.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C02DD51864D64E00739C36 /* Notebook_Template.m */; };
 		C9C02DD91864D64E00739C36 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C02DD81864D64E00739C36 /* Note.m */; };
 		C9C02DDC1864D64E00739C36 /* Notebook.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C02DDB1864D64E00739C36 /* Notebook.m */; };
+		C9C02DDF1864D92C00739C36 /* Notebook_Template+Notebook_Template_Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C02DDE1864D92C00739C36 /* Notebook_Template+Notebook_Template_Helper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,8 @@
 		C9C02DD81864D64E00739C36 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
 		C9C02DDA1864D64E00739C36 /* Notebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notebook.h; sourceTree = "<group>"; };
 		C9C02DDB1864D64E00739C36 /* Notebook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notebook.m; sourceTree = "<group>"; };
+		C9C02DDD1864D92C00739C36 /* Notebook_Template+Notebook_Template_Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Notebook_Template+Notebook_Template_Helper.h"; sourceTree = "<group>"; };
+		C9C02DDE1864D92C00739C36 /* Notebook_Template+Notebook_Template_Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Notebook_Template+Notebook_Template_Helper.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +199,8 @@
 				C9C02DD81864D64E00739C36 /* Note.m */,
 				C9C02DDA1864D64E00739C36 /* Notebook.h */,
 				C9C02DDB1864D64E00739C36 /* Notebook.m */,
+				C9C02DDD1864D92C00739C36 /* Notebook_Template+Notebook_Template_Helper.h */,
+				C9C02DDE1864D92C00739C36 /* Notebook_Template+Notebook_Template_Helper.m */,
 			);
 			name = Notebooks;
 			sourceTree = "<group>";
@@ -307,6 +312,7 @@
 				C9C02DD31864D64E00739C36 /* ContentType_Template.m in Sources */,
 				C9C02D8B18648F7500739C36 /* AppContent.m in Sources */,
 				C9C02DD61864D64E00739C36 /* Notebook_Template.m in Sources */,
+				C9C02DDF1864D92C00739C36 /* Notebook_Template+Notebook_Template_Helper.m in Sources */,
 				C9C02DD01864D64D00739C36 /* Group_Template.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

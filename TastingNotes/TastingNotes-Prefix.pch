@@ -17,4 +17,5 @@
     #import "Notebook_Template.h"
     #import "Group_Template.h"
     #import "ContentType_Template.h"
+    #import "Notebook_Template+Notebook_Template_Helper.h"
 #endif
