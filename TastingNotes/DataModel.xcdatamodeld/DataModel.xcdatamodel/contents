@@ -21,13 +21,13 @@
     <entity name="Notebook_Template" representedClassName="Notebook_Template" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="belongsToNotebook" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Notebook" inverseName="template" inverseEntity="Notebook" syncable="YES"/>
-        <relationship name="groups" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Group_Template" inverseName="belongsToNotebook" inverseEntity="Group_Template" syncable="YES"/>
+        <relationship name="groups" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Group_Template" inverseName="belongsToNotebook" inverseEntity="Group_Template" syncable="YES"/>
     </entity>
     <elements>
         <element name="ContentType_Template" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Group_Template" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Note" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Notebook" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Notebook_Template" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Note" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

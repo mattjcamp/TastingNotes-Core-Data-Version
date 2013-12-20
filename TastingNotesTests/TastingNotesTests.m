@@ -64,9 +64,9 @@
     [log appendFormat:@"notebook.template.belongsToNotebook.name = %@\n", notebook.template.belongsToNotebook.name];
     XCTAssertNotNil(notebook.template.groups, @"No Group Templates");
     
-    [notebook.template.groups enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+    [notebook.template.groups enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
         Group_Template *g = (Group_Template *)obj;
-        [log appendFormat:@"notebook.template.groups[%i].name = %@\n", idx, g.name];
+        [log appendFormat:@"notebook.template.groups[].name = %@\n", g.name];
     }];
     
     [log appendString:@"------------------------\n\n"];
