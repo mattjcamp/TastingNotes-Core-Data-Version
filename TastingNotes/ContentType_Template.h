@@ -1,5 +1,5 @@
 //
-//  Notebook.h
+//  ContentType_Template.h
 //  TastingNotes
 //
 //  Created by Matt on 12/20/13.
@@ -9,12 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Notebook_Template;
+@class Group_Template;
 
-@interface Notebook : NSManagedObject
+@interface ContentType_Template : NSManagedObject
 
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * order;
-@property (nonatomic, retain) Notebook_Template *template;
+@property (nonatomic, retain) NSString * type;
+@property (nonatomic, retain) Group_Template *belongsToGroup;
 
 @end

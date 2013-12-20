@@ -1,19 +1,20 @@
 //
-//  Notebook.m
+//  Notebook_Template.m
 //  TastingNotes
 //
 //  Created by Matt on 12/20/13.
 //  Copyright (c) 2013 Mobile App Mastery. All rights reserved.
 //
 
-#import "Notebook.h"
 #import "Notebook_Template.h"
+#import "Group_Template.h"
+#import "Notebook.h"
 
 
-@implementation Notebook
+@implementation Notebook_Template
 
 @dynamic name;
-@dynamic order;
-@dynamic template;
+@dynamic groups;
+@dynamic belongsToNotebook;
 
 @end

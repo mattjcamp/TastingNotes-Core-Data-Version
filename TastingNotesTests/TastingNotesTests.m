@@ -40,12 +40,35 @@
     Notebook *notebook = [self.content.notebooks firstObject];
     [log appendFormat:@"notebook = %@\n", notebook];
     [log appendFormat:@"notebook.name = %@\n", notebook.name];
+    [log appendFormat:@"notebook.order = %@\n", notebook.order];
+    notebook.order = [NSNumber numberWithInt:[notebook.order integerValue] + 1];
     
     XCTAssertNoThrow(self.content.save, @"Can't save and the data model is probably out of sync");
     
     [log appendString:@"------------------------\n\n"];
     NSLog(@"%@", log);
 
+}
+
+-(void)testTemplateHierarchy{
+    NSMutableString *log = [[NSMutableString alloc] init];
+    [log appendString:@"\n\n"];
+    [log appendString:@"------------------------\n"];
+    XCTAssertNotNil(self.content, "AppContent is not initializing");
+    
+    XCTAssertNotNil(self.content.notebooks, @"Notebooks are not getting created");
+    
+    Notebook *notebook = [self.content.notebooks firstObject];
+    [log appendFormat:@"notebook = %@\n", notebook];
+    [log appendFormat:@"notebook.name = %@\n", notebook.name];
+    [log appendFormat:@"notebook.order = %@\n", notebook.order];
+    notebook.order = [NSNumber numberWithInt:[notebook.order integerValue] + 1];
+    
+    XCTAssertNoThrow(self.content.save, @"Can't save and the data model is probably out of sync");
+    
+    [log appendString:@"------------------------\n\n"];
+    NSLog(@"%@", log);
+    
 }
 
 @end
