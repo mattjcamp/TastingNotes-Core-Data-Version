@@ -7,6 +7,7 @@
 //
 
 #import "ContentType_Template.h"
+#import "Content.h"
 #import "Group_Template.h"
 
 
@@ -16,5 +17,6 @@
 @dynamic order;
 @dynamic type;
 @dynamic belongsToGroup;
+@dynamic contentInThisContent_Type;
 
 @end

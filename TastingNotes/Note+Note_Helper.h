@@ -16,4 +16,7 @@
 
 -(NSArray *) contentInThisGroup:(Group_Template *)group;
 
+-(Content *) contentInThisGroup:(Group_Template *)group
+             andThisContentType:(ContentType_Template *)contentType;
+
 @end

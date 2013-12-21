@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Group_Template;
+@class Content, Group_Template;
 
 @interface ContentType_Template : NSManagedObject
 
@@ -17,5 +17,14 @@
 @property (nonatomic, retain) NSNumber * order;
 @property (nonatomic, retain) NSString * type;
 @property (nonatomic, retain) Group_Template *belongsToGroup;
+@property (nonatomic, retain) NSSet *contentInThisContent_Type;
+@end
+
+@interface ContentType_Template (CoreDataGeneratedAccessors)
+
+- (void)addContentInThisContent_TypeObject:(Content *)value;
+- (void)removeContentInThisContent_TypeObject:(Content *)value;
+- (void)addContentInThisContent_Type:(NSSet *)values;
+- (void)removeContentInThisContent_Type:(NSSet *)values;
 
 @end

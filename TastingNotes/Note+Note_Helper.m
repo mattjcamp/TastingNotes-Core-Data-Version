@@ -16,8 +16,8 @@
     
     content.belongsToNote = self;
     content.inThisGroup = group;
+    content.inThisContent_Type = contentType;
     [self addContentObject:content];
-    
     
 }
 
@@ -32,6 +32,20 @@
     }];
     
     return a;
+}
+
+-(Content *) contentInThisGroup:(Group_Template *)group
+             andThisContentType:(ContentType_Template *)contentType{
+    
+    NSArray *a = [self contentInThisGroup:group];
+    __block Content *returnContent;
+    [a enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        Content *c = (Content *)obj;
+        if([c.inThisContent_Type isEqual:contentType])
+            returnContent = c;
+    }];
+    
+    return returnContent;
 }
 
 @end

@@ -9,12 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Group_Template, Note;
+@class ContentType_Template, Group_Template, Note;
 
 @interface Content : NSManagedObject
 
 @property (nonatomic, retain) NSString * data;
 @property (nonatomic, retain) Note *belongsToNote;
 @property (nonatomic, retain) Group_Template *inThisGroup;
+@property (nonatomic, retain) ContentType_Template *inThisContent_Type;
 
 @end

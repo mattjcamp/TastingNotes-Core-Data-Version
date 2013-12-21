@@ -44,7 +44,7 @@
                 n.order = [NSNumber numberWithInt:i];
                 for(int y=0;y<3;y++){
                     Content *c = [self.contentApp getNewContent];
-                    c.data = [NSString stringWithFormat:@"note[%@].c=%i", n.order, y];
+                    c.data = @"Red";
                     [n addThisContent:c
                           ToThisGroup:g
                     inThisContentType:ct];
@@ -76,18 +76,14 @@
                     ContentType_Template *ct = (ContentType_Template *)obj;
                     [log appendFormat:@"            content_type[%@]\n", ct.name];
                     
+                    Content *c = [note contentInThisGroup:g
+                                      andThisContentType:ct];
+                    if(c)
+                        [log appendFormat:@"               content[%i].data =  %@\n", idx, c.data];
+
                     
                 }];
-                
-                /*[[note contentInThisGroup:g] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                 Content *c = (Content *)obj;
-                 [log appendFormat:@"            content[%i].data =  %@\n", idx, c.data];
-                 }];*/
-                
             }];
-            
-            
-            
         }];
         [log appendString:@"------------------------\n\n"];
     }];

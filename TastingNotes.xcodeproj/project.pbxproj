@@ -30,12 +30,12 @@
 		C9C02DE51864DFFC00739C36 /* Group_Template+Group_Template_Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C02DE41864DFFC00739C36 /* Group_Template+Group_Template_Helper.m */; };
 		C9C02DF71864E80A00739C36 /* Notebook+Notebook_Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C02DF61864E80A00739C36 /* Notebook+Notebook_Helper.m */; };
 		C9C02E091865107F00739C36 /* Note+Note_Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C02E081865107F00739C36 /* Note+Note_Helper.m */; };
-		C9C02E1E1865123600739C36 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C02E1D1865123600739C36 /* Note.m */; };
-		C9C02E211865123700739C36 /* Group_Template.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C02E201865123700739C36 /* Group_Template.m */; };
-		C9C02E241865123700739C36 /* Notebook_Template.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C02E231865123700739C36 /* Notebook_Template.m */; };
-		C9C02E271865123700739C36 /* Notebook.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C02E261865123700739C36 /* Notebook.m */; };
-		C9C02E2A1865123700739C36 /* Content.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C02E291865123700739C36 /* Content.m */; };
-		C9C02E2D1865123700739C36 /* ContentType_Template.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C02E2C1865123700739C36 /* ContentType_Template.m */; };
+		C9C02E30186523C500739C36 /* ContentType_Template.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C02E2F186523C500739C36 /* ContentType_Template.m */; };
+		C9C02E33186523C600739C36 /* Notebook.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C02E32186523C600739C36 /* Notebook.m */; };
+		C9C02E36186523C600739C36 /* Notebook_Template.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C02E35186523C600739C36 /* Notebook_Template.m */; };
+		C9C02E39186523C600739C36 /* Content.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C02E38186523C600739C36 /* Content.m */; };
+		C9C02E3C186523C600739C36 /* Group_Template.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C02E3B186523C600739C36 /* Group_Template.m */; };
+		C9C02E3F186523C600739C36 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C02E3E186523C600739C36 /* Note.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,18 +83,18 @@
 		C9C02DF61864E80A00739C36 /* Notebook+Notebook_Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Notebook+Notebook_Helper.m"; sourceTree = "<group>"; };
 		C9C02E071865107F00739C36 /* Note+Note_Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Note+Note_Helper.h"; sourceTree = "<group>"; };
 		C9C02E081865107F00739C36 /* Note+Note_Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Note+Note_Helper.m"; sourceTree = "<group>"; };
-		C9C02E1C1865123600739C36 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
-		C9C02E1D1865123600739C36 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
-		C9C02E1F1865123700739C36 /* Group_Template.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group_Template.h; sourceTree = "<group>"; };
-		C9C02E201865123700739C36 /* Group_Template.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group_Template.m; sourceTree = "<group>"; };
-		C9C02E221865123700739C36 /* Notebook_Template.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notebook_Template.h; sourceTree = "<group>"; };
-		C9C02E231865123700739C36 /* Notebook_Template.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notebook_Template.m; sourceTree = "<group>"; };
-		C9C02E251865123700739C36 /* Notebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notebook.h; sourceTree = "<group>"; };
-		C9C02E261865123700739C36 /* Notebook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notebook.m; sourceTree = "<group>"; };
-		C9C02E281865123700739C36 /* Content.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Content.h; sourceTree = "<group>"; };
-		C9C02E291865123700739C36 /* Content.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Content.m; sourceTree = "<group>"; };
-		C9C02E2B1865123700739C36 /* ContentType_Template.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentType_Template.h; sourceTree = "<group>"; };
-		C9C02E2C1865123700739C36 /* ContentType_Template.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentType_Template.m; sourceTree = "<group>"; };
+		C9C02E2E186523C500739C36 /* ContentType_Template.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentType_Template.h; sourceTree = "<group>"; };
+		C9C02E2F186523C500739C36 /* ContentType_Template.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentType_Template.m; sourceTree = "<group>"; };
+		C9C02E31186523C600739C36 /* Notebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notebook.h; sourceTree = "<group>"; };
+		C9C02E32186523C600739C36 /* Notebook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notebook.m; sourceTree = "<group>"; };
+		C9C02E34186523C600739C36 /* Notebook_Template.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notebook_Template.h; sourceTree = "<group>"; };
+		C9C02E35186523C600739C36 /* Notebook_Template.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notebook_Template.m; sourceTree = "<group>"; };
+		C9C02E37186523C600739C36 /* Content.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Content.h; sourceTree = "<group>"; };
+		C9C02E38186523C600739C36 /* Content.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Content.m; sourceTree = "<group>"; };
+		C9C02E3A186523C600739C36 /* Group_Template.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group_Template.h; sourceTree = "<group>"; };
+		C9C02E3B186523C600739C36 /* Group_Template.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group_Template.m; sourceTree = "<group>"; };
+		C9C02E3D186523C600739C36 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
+		C9C02E3E186523C600739C36 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,18 +204,18 @@
 			isa = PBXGroup;
 			children = (
 				C9C02D8C18648F9000739C36 /* DataModel.xcdatamodeld */,
-				C9C02E1C1865123600739C36 /* Note.h */,
-				C9C02E1D1865123600739C36 /* Note.m */,
-				C9C02E1F1865123700739C36 /* Group_Template.h */,
-				C9C02E201865123700739C36 /* Group_Template.m */,
-				C9C02E221865123700739C36 /* Notebook_Template.h */,
-				C9C02E231865123700739C36 /* Notebook_Template.m */,
-				C9C02E251865123700739C36 /* Notebook.h */,
-				C9C02E261865123700739C36 /* Notebook.m */,
-				C9C02E281865123700739C36 /* Content.h */,
-				C9C02E291865123700739C36 /* Content.m */,
-				C9C02E2B1865123700739C36 /* ContentType_Template.h */,
-				C9C02E2C1865123700739C36 /* ContentType_Template.m */,
+				C9C02E3D186523C600739C36 /* Note.h */,
+				C9C02E3E186523C600739C36 /* Note.m */,
+				C9C02E3A186523C600739C36 /* Group_Template.h */,
+				C9C02E3B186523C600739C36 /* Group_Template.m */,
+				C9C02E37186523C600739C36 /* Content.h */,
+				C9C02E38186523C600739C36 /* Content.m */,
+				C9C02E34186523C600739C36 /* Notebook_Template.h */,
+				C9C02E35186523C600739C36 /* Notebook_Template.m */,
+				C9C02E31186523C600739C36 /* Notebook.h */,
+				C9C02E32186523C600739C36 /* Notebook.m */,
+				C9C02E2E186523C500739C36 /* ContentType_Template.h */,
+				C9C02E2F186523C500739C36 /* ContentType_Template.m */,
 				C9C02DDD1864D92C00739C36 /* Notebook_Template+Notebook_Template_Helper.h */,
 				C9C02DDE1864D92C00739C36 /* Notebook_Template+Notebook_Template_Helper.m */,
 				C9C02DE01864DFAC00739C36 /* ContentType_Template+ContentType_Template_Helper.h */,
@@ -331,19 +331,19 @@
 				C9C02D2418645EC200739C36 /* ViewController.m in Sources */,
 				C9C02DE51864DFFC00739C36 /* Group_Template+Group_Template_Helper.m in Sources */,
 				C9C02D8E18648F9000739C36 /* DataModel.xcdatamodeld in Sources */,
-				C9C02E211865123700739C36 /* Group_Template.m in Sources */,
+				C9C02E3C186523C600739C36 /* Group_Template.m in Sources */,
 				C9C02DF71864E80A00739C36 /* Notebook+Notebook_Helper.m in Sources */,
-				C9C02E271865123700739C36 /* Notebook.m in Sources */,
-				C9C02E1E1865123600739C36 /* Note.m in Sources */,
+				C9C02E33186523C600739C36 /* Notebook.m in Sources */,
 				C9C02DE21864DFAC00739C36 /* ContentType_Template+ContentType_Template_Helper.m in Sources */,
+				C9C02E3F186523C600739C36 /* Note.m in Sources */,
 				C9C02D1B18645EC200739C36 /* AppDelegate.m in Sources */,
-				C9C02E2D1865123700739C36 /* ContentType_Template.m in Sources */,
-				C9C02E241865123700739C36 /* Notebook_Template.m in Sources */,
+				C9C02E30186523C500739C36 /* ContentType_Template.m in Sources */,
+				C9C02E36186523C600739C36 /* Notebook_Template.m in Sources */,
 				C9C02D1718645EC200739C36 /* main.m in Sources */,
 				C9C02D8B18648F7500739C36 /* AppContent.m in Sources */,
 				C9C02DDF1864D92C00739C36 /* Notebook_Template+Notebook_Template_Helper.m in Sources */,
 				C9C02E091865107F00739C36 /* Note+Note_Helper.m in Sources */,
-				C9C02E2A1865123700739C36 /* Content.m in Sources */,
+				C9C02E39186523C600739C36 /* Content.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

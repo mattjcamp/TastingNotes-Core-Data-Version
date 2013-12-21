@@ -3,6 +3,7 @@
     <entity name="Content" representedClassName="Content" syncable="YES">
         <attribute name="data" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="belongsToNote" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Note" inverseName="content" inverseEntity="Note" syncable="YES"/>
+        <relationship name="inThisContent_Type" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ContentType_Template" inverseName="contentInThisContent_Type" inverseEntity="ContentType_Template" syncable="YES"/>
         <relationship name="inThisGroup" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Group_Template" inverseName="contentInThisGroup" inverseEntity="Group_Template" syncable="YES"/>
     </entity>
     <entity name="ContentType_Template" representedClassName="ContentType_Template" syncable="YES">
@@ -10,6 +11,7 @@
         <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="belongsToGroup" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Group_Template" inverseName="contentTypes" inverseEntity="Group_Template" syncable="YES"/>
+        <relationship name="contentInThisContent_Type" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Content" inverseName="inThisContent_Type" inverseEntity="Content" syncable="YES"/>
     </entity>
     <entity name="Group_Template" representedClassName="Group_Template" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>

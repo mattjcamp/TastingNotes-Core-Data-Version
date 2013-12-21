@@ -7,6 +7,7 @@
 //
 
 #import "Content.h"
+#import "ContentType_Template.h"
 #import "Group_Template.h"
 #import "Note.h"
 
@@ -16,5 +17,6 @@
 @dynamic data;
 @dynamic belongsToNote;
 @dynamic inThisGroup;
+@dynamic inThisContent_Type;
 
 @end
