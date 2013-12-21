@@ -14,7 +14,13 @@
 
 -(void)save;
 
+-(NSNumber *)maxNotebookOrder;
+-(Notebook *)newNotebookWithThisName:(NSString *)name;
 -(Notebook *)newWineNotebook;
+-(void)addThisNotebookToList:(Notebook *)notebook;
+-(Notebook_Template *)newNotebookTemplateWithThisName:(NSString *)name;
+-(Group_Template *)newGroupTemplateWithThisName:(NSString *)name;
+-(ContentType_Template *)newContentType_TemplateWithThisName:(NSString *)name;
 
 -(Note *)addNoteToThisNotebook:(Notebook *)notebook;
 -(Content *)newContent;

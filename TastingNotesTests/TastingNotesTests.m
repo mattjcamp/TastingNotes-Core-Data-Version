@@ -11,6 +11,7 @@
 @interface TastingNotesTests : XCTestCase
 
 @property AppContent *contentApp;
+@property NSMutableString *log;
 
 @end
 
@@ -19,6 +20,7 @@
 -(void)setUp{
     [super setUp];
     self.contentApp = [[AppContent alloc]init];
+    self.log = [[NSMutableString alloc] init];
 }
 
 -(void)tearDown{
@@ -31,101 +33,117 @@
     XCTAssertNoThrow(self.contentApp.save, @"Can't save and the data model is probably out of sync");
 }
 
--(void)createNotebookArrayTestData{
-    [self.contentApp.notebooks enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        
-        Notebook *notebook = (Notebook *)obj;
-        Group_Template *g = [[notebook.template groupsByOrder] objectAtIndex:0];
-        ContentType_Template *ct = [[g contentTypesByOrder] objectAtIndex:0];
-        
-        if([[obj notesByOrder]count] == 0){
-            for(int i=0;i<2;i++){
-                Note *n = [self.contentApp addNoteToThisNotebook:obj];
-                n.order = [NSNumber numberWithInt:i];
-                for(int y=0;y<3;y++){
-                    Content *c = [self.contentApp newContent];
-                    c.data = @"Red";
-                    [n addThisContent:c
-                          ToThisGroup:g
-                    inThisContentType:ct];
-                }
-                
-            }
-        }
-    }];
-}
-
 -(void)testNotebookArray{
-    NSMutableString *log = [[NSMutableString alloc] init];
     [self createNotebookArrayTestData];
+    
+    [self.log appendString:@"\n\n"];
+    [self.log appendString:@"------------------------\n"];
+    [self.log appendFormat:@"self.contentApp.notebooks.count: %i\n", self.contentApp.notebooks.count];
+    [self.log appendString:@"------------------------\n\n"];
+    
     [self.contentApp.notebooks enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        [log appendString:@"\n\n"];
-        [log appendString:@"------------------------\n"];
-        Notebook *notebook = (Notebook *)obj;
-        [log appendFormat:@"%@[%@]\n", notebook.name, notebook.order];
-        
-        [notebook.notesByOrder enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            Note *note = (Note *)obj;
-            [log appendFormat:@"    note[%@]\n", note.order];
-            
-            [[note.belongsToNotebook.template groupsByOrder] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                Group_Template *g = (Group_Template *)obj;
-                [log appendFormat:@"        group[%@]\n", g.name];
-                
-                [[g contentTypesByOrder]enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                    ContentType_Template *ct = (ContentType_Template *)obj;
-                    [log appendFormat:@"            content_type[%@]\n", ct.name];
-                    
-                    Content *c = [note contentInThisGroup:g
-                                       andThisContentType:ct];
-                    //if(c)
-                        [log appendFormat:@"               content[%i].data =  %@\n", idx, c.data];
-                    
-                    
-                }];
-            }];
-        }];
-        [log appendString:@"------------------------\n\n"];
+        [self.log appendString:@"\n\n"];
+        [self.log appendString:@"------------------------\n"];
+        [self inspectThisNotebook:obj];
+        [self.log appendString:@"------------------------\n\n"];
     }];
-    
-    NSLog(@"%@", log);
-    
+    NSLog(@"%@", self.log);
 }
 
 -(void)testWineNotebook{
-    [self checkThisNotebookHierarchy:[self.contentApp newWineNotebook]];
+    [self.log appendString:@"\n\n"];
+    [self.log appendString:@"------------------------\n"];
+    [self inspectThisNotebook:[self.contentApp newWineNotebook]];
+    [self.log appendString:@"------------------------\n\n"];
+    NSLog(@"%@", self.log);
 }
 
--(void)checkThisNotebookHierarchy:(Notebook *)notebook{
+-(void)createNotebookArrayTestData{
+    Notebook *nb1 = [self.contentApp newNotebookWithThisName:@"NB1"];
+    Notebook_Template *nbt = [self.contentApp newNotebookTemplateWithThisName:@"NB1_NBT"];
+    nb1.template = nbt;
+    Group_Template *gt1 = [self.contentApp newGroupTemplateWithThisName:@"NB1_GT1"];
+    [nbt addGroupsObject:gt1];
+    ContentType_Template *ct1 = [self.contentApp newContentType_TemplateWithThisName:@"NB1_GT1_CT1"];
+    ct1.type = @"smalltext";
+    [gt1 addContentTypesObject:ct1];
+    ContentType_Template *ct2 = [self.contentApp newContentType_TemplateWithThisName:@"NB1_GT1_CT2"];
+    ct2.type = @"largetext";
+    [gt1 addContentTypesObject:ct2];
+}
+
+-(void)inspectThisNotebook:(Notebook *)notebook{
+    //Notebook Template
+    XCTAssertNotNil(notebook, "No notebook");
+    XCTAssertNotNil(notebook.name, "No notebook name");
+    XCTAssertNotNil(notebook.order, "No notebook order");
+    XCTAssertNotNil(notebook.template, "No notebook template");
+    [self.log appendString:@"NOTEBOOK\n"];
+    [self.log appendFormat:@"%@[%@]\n", notebook.name, notebook.order];
     
-    NSMutableString *log = [[NSMutableString alloc] init];
-    [log appendString:@"\n\n"];
-    [log appendString:@"------------------------\n"];
+    //Notebook Template Tests
+    [self.log appendString:@"   NOTEBOOK.TEMPLATE\n"];
+    XCTAssertNotNil(notebook.template.belongsToNotebook, "No notebook template parent notebook");
+    [self.log appendFormat:@"   %@\n", notebook.template.name];
     
-    XCTAssertNotNil(notebook, @"Notebook didn't get created");
-    [log appendFormat:@"notebook.name = %@\n", notebook.name];
-    [log appendFormat:@"notebook.order = %@\n", notebook.order];
-    XCTAssertNotNil(notebook.template, @"No Notebook Template");
-    [log appendFormat:@"notebook.template.name = %@\n", notebook.template.name];
-    [log appendFormat:@"notebook.template.belongsToNotebook.name = %@\n", notebook.template.belongsToNotebook.name];
-    XCTAssertNotNil(notebook.template.groups, @"No Group Templates");
-    
+    //Notebook Group Template Tests
+    [self.log appendString:@"       GROUP TEMPLATES\n"];
+    XCTAssertNotNil([notebook.template groupsByOrder], "No notebook groups");
     [[notebook.template groupsByOrder] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        Group_Template *g = (Group_Template *)obj;
-        [log appendFormat:@"notebook.template.groups[%i].name = %@\n", idx, g.name];
-        int gi = idx;
-        [[g contentTypesByOrder] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            ContentType_Template *c = (ContentType_Template *)obj;
-            XCTAssertNotNil(c.order, @"No ContentType Order Defined For %@", c.name);
-            XCTAssertNotNil(c.type, @"No ContentType Type Defined For %@", c.name);
-            
-            [log appendFormat:@"notebook.template.groups[%i].contentTypes[%i] = %@\n", gi, idx, c.name];
-        }];
+        Group_Template *gt = (Group_Template *)obj;
+        XCTAssertNotNil(gt.name, "No group template name");
+        XCTAssertNotNil(gt.order, "No group template order");
+        XCTAssertNotNil(gt.belongsToNotebook, "No group template parent notebook");
+        [self.log appendFormat:@"       %@[%@]\n", gt.name, gt.order];
         
+        //Notebook Group Template Content_Type Template Tests
+        [self.log appendString:@"           CONTENT_TYPE TEMPLATES\n"];
+        XCTAssertNotNil([gt contentTypesByOrder], "No contentTypes for group %@", gt.name);
+        
+        [[gt contentTypesByOrder] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            ContentType_Template *ct = (ContentType_Template *)obj;
+            XCTAssertNotNil(ct.name, "No contentTypes template name");
+            XCTAssertNotNil(ct.order, "No contentTypes template order");
+            XCTAssertNotNil(ct.type, "No contentTypes template type");
+            if(!([ct.type isEqualToString:@"smalltext"] || [ct.type isEqualToString:@"largetext"])){
+                XCTFail(@"%@ is an unsupported ContentType", ct.type);
+            }
+            
+            XCTAssertNotNil(ct.belongsToGroup, "No contentTypes template group template");
+            [self.log appendFormat:@"               %@[%@]\n", ct.name, ct.order];
+            [self.log appendFormat:@"               type = %@\n", ct.type];
+        }];
     }];
     
-    [log appendString:@"------------------------\n\n"];
-    NSLog(@"%@", log);
+    //Notebook Content
+    [self.log appendString:@"\nNOTES\n"];
+    [notebook.notesByOrder enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        Note *note = (Note *)obj;
+        XCTAssertNotNil(note.order, "No note order");
+        [self.log appendFormat:@"NOTE[%@]\n", note.order];
+        
+        [[note.belongsToNotebook.template groupsByOrder] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            Group_Template *g = (Group_Template *)obj;
+            [self.log appendFormat:@"        %@[%@]\n", g.name.uppercaseString, g.order];
+            
+            [[g contentTypesByOrder]enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                ContentType_Template *ct = (ContentType_Template *)obj;
+                [self.log appendFormat:@"               %@[%@]\n", ct.name.uppercaseString, ct.order];
+                
+                Content *c = [note contentInThisGroup:g
+                                   andThisContentType:ct];
+                if(c){
+                    XCTAssertNotNil(c.data, "No content data");
+                    XCTAssertNotNil(c.belongsToNote, "Content doesn't belong to a note");
+                    XCTAssertNotNil(c.inThisGroup, "Content doesn't belong to a group");
+                    XCTAssertNotNil(c.inThisContent_Type, "Content doesn't belong to a contentType");
+                    [self.log appendString:@"                   CONTENT\n"];
+                    [self.log appendFormat:@"                   data =  %@\n", c.data];
+                }
+                
+            }];
+        }];
+    }];
 }
 
 @end

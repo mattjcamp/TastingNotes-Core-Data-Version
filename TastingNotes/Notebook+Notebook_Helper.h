@@ -11,5 +11,6 @@
 @interface Notebook (Notebook_Helper)
 
 -(NSArray *) notesByOrder;
+-(NSNumber *)maxNoteOrder;
 
 @end

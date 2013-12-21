@@ -17,4 +17,10 @@
     return [self.notes sortedArrayUsingDescriptors:@[sorter]];
 }
 
+-(NSNumber *)maxNoteOrder{
+    NSNumber *max = [self.notes valueForKeyPath:@"@max.order"];
+    
+    return max;
+}
+
 @end

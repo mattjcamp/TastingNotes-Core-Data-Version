@@ -43,6 +43,7 @@
     NSManagedObjectContext *context = [self managedObjectContext];
     Note *note = [NSEntityDescription insertNewObjectForEntityForName:@"Note"
                                                inManagedObjectContext:context];
+    note.order = [NSNumber numberWithInt:[[notebook maxNoteOrder] integerValue] + 1];
     [notebook addNotesObject:note];
     
     return note;
@@ -56,55 +57,79 @@
     return content;
 }
 
--(Notebook *)newWineNotebook{
+-(NSNumber *)maxNotebookOrder{
+    NSNumber *max = [self.notebooks valueForKeyPath:@"@max.order"];
+    
+    return max;
+}
+
+-(Notebook *)newNotebookWithThisName:(NSString *)name{
     NSManagedObjectContext *context = [self managedObjectContext];
     Notebook *notebook = [NSEntityDescription insertNewObjectForEntityForName:@"Notebook"
-                                                       inManagedObjectContext:context];
-    notebook.name = @"Wine Notes";
-    notebook.order = [NSNumber numberWithInt: _notebooks.count];
-    notebook.template =[NSEntityDescription insertNewObjectForEntityForName:@"Notebook_Template"
+                                                    inManagedObjectContext:context];
+    notebook.name = name;
+    notebook.order = [NSNumber numberWithInt:[[self maxNotebookOrder] integerValue] + 1];
+    
+    return notebook;
+}
+
+-(Notebook_Template *)newNotebookTemplateWithThisName:(NSString *)name{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    Notebook_Template *template =[NSEntityDescription insertNewObjectForEntityForName:@"Notebook_Template"
                                                      inManagedObjectContext:context];
-    notebook.template.name = @"Wine Notebook Template";
+    template.name = name;
     
-    Group_Template *g = [NSEntityDescription insertNewObjectForEntityForName:@"Group_Template"
-                                                      inManagedObjectContext:context];
-    g.name = @"Overview";
-    g.order = @0;
+    return template;
+}
+
+-(Group_Template *)newGroupTemplateWithThisName:(NSString *)name{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    Group_Template *template =[NSEntityDescription insertNewObjectForEntityForName:@"Group_Template"
+                                                               inManagedObjectContext:context];
+    template.name = name;
     
-    ContentType_Template *c = [NSEntityDescription insertNewObjectForEntityForName:@"ContentType_Template"
+    return template;
+}
+
+-(ContentType_Template *)newContentType_TemplateWithThisName:(NSString *)name{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    ContentType_Template *template =[NSEntityDescription insertNewObjectForEntityForName:@"ContentType_Template"
                                                             inManagedObjectContext:context];
+    template.name = name;
     
-    c.name = @"Wine Name";
+    return template;
+}
+
+-(Notebook *)newWineNotebook{
+    Notebook *notebook = [self newNotebookWithThisName:@"Wine Notes"];
+    notebook.template = [self newNotebookTemplateWithThisName:@"Wine Notebook Template"];
+    
+    Group_Template *g = [self newGroupTemplateWithThisName:@"Overview"];
+    g.order = @0;
+    ContentType_Template *c = [self newContentType_TemplateWithThisName:@"Wine Name"];
     c.order = @0;
     c.type = @"smalltext";
     [g addContentTypesObject:c];
-    
-    c = [NSEntityDescription insertNewObjectForEntityForName:@"ContentType_Template"
-                                      inManagedObjectContext:context];
-    
+    c = [self newContentType_TemplateWithThisName:@"Wine Type"];
     c.name = @"Wine Type";
     c.order = @1;
     c.type = @"list";
-    
     [g addContentTypesObject:c];
-    
     [notebook.template addGroupsObject:g];
     
-    g = [NSEntityDescription insertNewObjectForEntityForName:@"Group_Template"
-                                      inManagedObjectContext:context];
-    g.name = @"Description";
+    g = [self newGroupTemplateWithThisName:@"Description"];
     g.order = @1;
-    
     [notebook.template addGroupsObject:g];
     
-    g = [NSEntityDescription insertNewObjectForEntityForName:@"Group_Template"
-                                      inManagedObjectContext:context];
-    g.name = @"Ratings";
+    g = [self newGroupTemplateWithThisName:@"Ratings"];
     g.order = @2;
-    
     [notebook.template addGroupsObject:g];
     
     return notebook;
+}
+
+-(void)addThisNotebookToList:(Notebook *)notebook{
+    [self.notebooks addObject:notebook];
 }
 
 NSMutableArray *_notebooks;
@@ -125,18 +150,12 @@ NSMutableArray *_notebooks;
         return nil;
     }
     
-    if(listOfNotebooks.count > 0){;
-        _notebooks = [[NSMutableArray alloc] initWithArray:listOfNotebooks];
-        return _notebooks;
-    }
-    
-    _notebooks = [[NSMutableArray alloc]initWithObjects:[self newWineNotebook], nil];
+    _notebooks = [[NSMutableArray alloc]initWithArray:listOfNotebooks];
     
     return _notebooks;
 }
 
 -(NSURL *)dataStoreURL {
-    
     NSString *docDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
     
     return [NSURL fileURLWithPath:[docDir stringByAppendingPathComponent:@"data.sql"]];
