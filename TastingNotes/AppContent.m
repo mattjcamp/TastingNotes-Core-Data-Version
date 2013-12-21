@@ -48,7 +48,7 @@
     return note;
 }
 
--(Content *)getNewContent{
+-(Content *)newContent{
     NSManagedObjectContext *context = [self managedObjectContext];
     Content *content = [NSEntityDescription insertNewObjectForEntityForName:@"Content"
                                                inManagedObjectContext:context];
@@ -71,14 +71,16 @@
     g.name = @"Overview";
     g.order = @0;
     
-    ContentType_Template *c = [NSEntityDescription insertNewObjectForEntityForName:@"ContentType_Template"inManagedObjectContext:context];
+    ContentType_Template *c = [NSEntityDescription insertNewObjectForEntityForName:@"ContentType_Template"
+                                                            inManagedObjectContext:context];
     
     c.name = @"Wine Name";
     c.order = @0;
     c.type = @"smalltext";
     [g addContentTypesObject:c];
     
-    c = [NSEntityDescription insertNewObjectForEntityForName:@"ContentType_Template"inManagedObjectContext:context];
+    c = [NSEntityDescription insertNewObjectForEntityForName:@"ContentType_Template"
+                                      inManagedObjectContext:context];
     
     c.name = @"Wine Type";
     c.order = @1;
@@ -87,8 +89,6 @@
     [g addContentTypesObject:c];
     
     [notebook.template addGroupsObject:g];
-    
-    
     
     g = [NSEntityDescription insertNewObjectForEntityForName:@"Group_Template"
                                       inManagedObjectContext:context];

@@ -39,11 +39,11 @@
         ContentType_Template *ct = [[g contentTypesByOrder] objectAtIndex:0];
         
         if([[obj notesByOrder]count] == 0){
-            for(int i=0;i<5;i++){
+            for(int i=0;i<2;i++){
                 Note *n = [self.contentApp addNoteToThisNotebook:obj];
                 n.order = [NSNumber numberWithInt:i];
                 for(int y=0;y<3;y++){
-                    Content *c = [self.contentApp getNewContent];
+                    Content *c = [self.contentApp newContent];
                     c.data = @"Red";
                     [n addThisContent:c
                           ToThisGroup:g
@@ -77,10 +77,10 @@
                     [log appendFormat:@"            content_type[%@]\n", ct.name];
                     
                     Content *c = [note contentInThisGroup:g
-                                      andThisContentType:ct];
-                    if(c)
+                                       andThisContentType:ct];
+                    //if(c)
                         [log appendFormat:@"               content[%i].data =  %@\n", idx, c.data];
-
+                    
                     
                 }];
             }];
