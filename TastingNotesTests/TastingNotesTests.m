@@ -105,7 +105,8 @@
             XCTAssertNotNil(ct.name, "No contentTypes template name");
             XCTAssertNotNil(ct.order, "No contentTypes template order");
             XCTAssertNotNil(ct.type, "No contentTypes template type");
-            if(!([ct.type isEqualToString:@"smalltext"] || [ct.type isEqualToString:@"largetext"])){
+            if(!([ct.type isEqualToString:@"smalltext"] || [ct.type isEqualToString:@"largetext"]
+                 || [ct.type isEqualToString:@"list"])){
                 XCTFail(@"%@ is an unsupported ContentType", ct.type);
             }
             
