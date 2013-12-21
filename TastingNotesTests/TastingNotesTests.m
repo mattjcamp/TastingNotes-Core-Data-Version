@@ -10,7 +10,7 @@
 
 @interface TastingNotesTests : XCTestCase
 
-@property AppContent *content;
+@property AppContent *contentApp;
 
 @end
 
@@ -18,7 +18,7 @@
 
 -(void)setUp{
     [super setUp];
-    self.content = [[AppContent alloc]init];
+    self.contentApp = [[AppContent alloc]init];
 }
 
 -(void)tearDown{
@@ -26,39 +26,68 @@
 }
 
 -(void)testCoreDataStack{
-    XCTAssertNotNil(self.content, "AppContent is not initializing");
-    XCTAssertNotNil(self.content.notebooks, @"Notebooks are not getting created");
-    XCTAssertNoThrow(self.content.save, @"Can't save and the data model is probably out of sync");
+    XCTAssertNotNil(self.contentApp, "AppContent is not initializing");
+    XCTAssertNotNil(self.contentApp.notebooks, @"Notebooks are not getting created");
+    XCTAssertNoThrow(self.contentApp.save, @"Can't save and the data model is probably out of sync");
 }
 
 -(void)createNotebookArrayTestData{
-    NSMutableString *log = [[NSMutableString alloc] init];
-    [self.content.notebooks enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        [log appendFormat:@"notebook.name = %@\n", [obj name]];
-        [log appendFormat:@"notebook.order = %@\n", [obj order]];
+    [self.contentApp.notebooks enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        
+        Notebook *notebook = (Notebook *)obj;
+        Group_Template *g = [[notebook.template groupsByOrder] objectAtIndex:0];
+        ContentType_Template *ct = [[g contentTypesByOrder] objectAtIndex:0];
+        
         if([[obj notesByOrder]count] == 0){
             for(int i=0;i<5;i++){
-                Note *n = [self.content addNoteToThisNotebook:obj];
+                Note *n = [self.contentApp addNoteToThisNotebook:obj];
                 n.order = [NSNumber numberWithInt:i];
+                for(int y=0;y<3;y++){
+                    Content *c = [self.contentApp getNewContent];
+                    c.data = [NSString stringWithFormat:@"note[%@].c=%i", n.order, y];
+                    [n addThisContent:c
+                          ToThisGroup:g
+                    inThisContentType:ct];
+                }
+                
             }
         }
     }];
-    [self.content save];
 }
 
 -(void)testNotebookArray{
     NSMutableString *log = [[NSMutableString alloc] init];
     [self createNotebookArrayTestData];
-    [self.content.notebooks enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+    [self.contentApp.notebooks enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         [log appendString:@"\n\n"];
         [log appendString:@"------------------------\n"];
         Notebook *notebook = (Notebook *)obj;
-        [log appendFormat:@"notebook.name = %@\n", notebook.name];
+        [log appendFormat:@"%@[%@]\n", notebook.name, notebook.order];
+        
         [notebook.notesByOrder enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             Note *note = (Note *)obj;
-            [log appendFormat:@"    note.order = %@\n", note.order];
-            Group_Template *g = [note.belongsToNotebook.template.groupsByOrder firstObject];
-            [log appendFormat:@"    note's first group = %@\n", g.name];
+            [log appendFormat:@"    note[%@]\n", note.order];
+            
+            [[note.belongsToNotebook.template groupsByOrder] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                Group_Template *g = (Group_Template *)obj;
+                [log appendFormat:@"        group[%@]\n", g.name];
+                
+                [[g contentTypesByOrder]enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                    ContentType_Template *ct = (ContentType_Template *)obj;
+                    [log appendFormat:@"            content_type[%@]\n", ct.name];
+                    
+                    
+                }];
+                
+                /*[[note contentInThisGroup:g] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                 Content *c = (Content *)obj;
+                 [log appendFormat:@"            content[%i].data =  %@\n", idx, c.data];
+                 }];*/
+                
+            }];
+            
+            
+            
         }];
         [log appendString:@"------------------------\n\n"];
     }];
@@ -68,7 +97,7 @@
 }
 
 -(void)testWineNotebook{
-    [self checkThisNotebookHierarchy:[self.content newWineNotebook]];
+    [self checkThisNotebookHierarchy:[self.contentApp newWineNotebook]];
 }
 
 -(void)checkThisNotebookHierarchy:(Notebook *)notebook{

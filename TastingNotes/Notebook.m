@@ -15,7 +15,7 @@
 
 @dynamic name;
 @dynamic order;
-@dynamic template;
 @dynamic notes;
+@dynamic template;
 
 @end

@@ -48,6 +48,14 @@
     return note;
 }
 
+-(Content *)getNewContent{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    Content *content = [NSEntityDescription insertNewObjectForEntityForName:@"Content"
+                                               inManagedObjectContext:context];
+    
+    return content;
+}
+
 -(Notebook *)newWineNotebook{
     NSManagedObjectContext *context = [self managedObjectContext];
     Notebook *notebook = [NSEntityDescription insertNewObjectForEntityForName:@"Notebook"
@@ -86,6 +94,13 @@
                                       inManagedObjectContext:context];
     g.name = @"Description";
     g.order = @1;
+    
+    [notebook.template addGroupsObject:g];
+    
+    g = [NSEntityDescription insertNewObjectForEntityForName:@"Group_Template"
+                                      inManagedObjectContext:context];
+    g.name = @"Ratings";
+    g.order = @2;
     
     [notebook.template addGroupsObject:g];
     

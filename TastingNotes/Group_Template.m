@@ -7,6 +7,7 @@
 //
 
 #import "Group_Template.h"
+#import "Content.h"
 #import "ContentType_Template.h"
 #import "Notebook_Template.h"
 
@@ -17,5 +18,6 @@
 @dynamic order;
 @dynamic belongsToNotebook;
 @dynamic contentTypes;
+@dynamic contentInThisGroup;
 
 @end

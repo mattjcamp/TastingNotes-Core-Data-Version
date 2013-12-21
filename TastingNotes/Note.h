@@ -9,11 +9,20 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Notebook;
+@class Content, Notebook;
 
 @interface Note : NSManagedObject
 
 @property (nonatomic, retain) NSNumber * order;
 @property (nonatomic, retain) Notebook *belongsToNotebook;
+@property (nonatomic, retain) NSSet *content;
+@end
+
+@interface Note (CoreDataGeneratedAccessors)
+
+- (void)addContentObject:(Content *)value;
+- (void)removeContentObject:(Content *)value;
+- (void)addContent:(NSSet *)values;
+- (void)removeContent:(NSSet *)values;
 
 @end

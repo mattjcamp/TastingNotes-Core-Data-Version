@@ -1,20 +1,20 @@
 //
-//  Note.m
+//  Content.m
 //  TastingNotes
 //
 //  Created by Matt on 12/20/13.
 //  Copyright (c) 2013 Mobile App Mastery. All rights reserved.
 //
 
-#import "Note.h"
 #import "Content.h"
-#import "Notebook.h"
+#import "Group_Template.h"
+#import "Note.h"
 
 
-@implementation Note
+@implementation Content
 
-@dynamic order;
-@dynamic belongsToNotebook;
-@dynamic content;
+@dynamic data;
+@dynamic belongsToNote;
+@dynamic inThisGroup;
 
 @end
