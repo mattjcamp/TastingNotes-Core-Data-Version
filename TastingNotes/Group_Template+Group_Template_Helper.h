@@ -12,4 +12,6 @@
 
 -(NSArray *) contentTypesByOrder;
 
+-(NSNumber *)maxContentTypeOrder;
+
 @end

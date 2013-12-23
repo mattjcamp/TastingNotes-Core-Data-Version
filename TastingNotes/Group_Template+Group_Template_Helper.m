@@ -17,4 +17,10 @@
     return [self.contentTypes sortedArrayUsingDescriptors:@[sorter]];
 }
 
+-(NSNumber *)maxContentTypeOrder{
+    NSNumber *max = [self.contentTypes valueForKeyPath:@"@max.order"];
+    
+    return max;
+}
+
 @end

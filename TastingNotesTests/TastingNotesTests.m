@@ -59,17 +59,42 @@
 }
 
 -(void)createNotebookArrayTestData{
+    //Notebook
     Notebook *nb1 = [self.contentApp newNotebookWithThisName:@"NB1"];
+    
+    //Notebook Templates
     Notebook_Template *nbt = [self.contentApp newNotebookTemplateWithThisName:@"NB1_NBT"];
     nb1.template = nbt;
-    Group_Template *gt1 = [self.contentApp newGroupTemplateWithThisName:@"NB1_GT1"];
-    [nbt addGroupsObject:gt1];
-    ContentType_Template *ct1 = [self.contentApp newContentType_TemplateWithThisName:@"NB1_GT1_CT1"];
+    
+    [self addToThisNotebookTemplate:nbt thisGroupNum:1 andThisContentTypeNum:1];
+    [self addToThisNotebookTemplate:nbt thisGroupNum:1 andThisContentTypeNum:2];
+    [self addToThisNotebookTemplate:nbt thisGroupNum:2 andThisContentTypeNum:3];
+    
+    //Add Notes
+    Note *n1 = [self.contentApp addNoteToThisNotebook:nb1];
+    
+    Content *c1 = [self.contentApp newContent];
+    c1.data = @"NB1_GT1_CT1_C1";
+    c1.belongsToNote = n1;
+    c1.inThisGroup = [[n1.belongsToNotebook.template groupsByOrder] objectAtIndex:0];
+    c1.inThisContent_Type = [[c1.inThisGroup contentTypesByOrder] objectAtIndex:0];
+    
+}
+
+-(void)addToThisNotebookTemplate:(Notebook_Template *)template
+                    thisGroupNum:(int)gtnum
+           andThisContentTypeNum:(int)ctnum{
+    
+    NSString *gts = [NSString stringWithFormat: @"%@_GT%i", template.belongsToNotebook.name, gtnum];
+    NSString *cts = [NSString stringWithFormat: @"%@_CT%i", gts, ctnum];
+    
+    Group_Template *gt1 = [self.contentApp addGroupTemplateWithThisName:gts
+                                                 toThisNotebookTemplate:template];
+    [template addGroupsObject:gt1];
+    ContentType_Template *ct1 = [self.contentApp addContentTypeTemplateWithThisName:cts
+                                                                toThisGroupTemplate:gt1];
     ct1.type = @"smalltext";
     [gt1 addContentTypesObject:ct1];
-    ContentType_Template *ct2 = [self.contentApp newContentType_TemplateWithThisName:@"NB1_GT1_CT2"];
-    ct2.type = @"largetext";
-    [gt1 addContentTypesObject:ct2];
 }
 
 -(void)inspectThisNotebook:(Notebook *)notebook{

@@ -17,4 +17,10 @@
     return [self.groups sortedArrayUsingDescriptors:@[sorter]];
 }
 
+-(NSNumber *)maxGroupOrder{
+    NSNumber *max = [self.groups valueForKeyPath:@"@max.order"];
+    
+    return max;
+}
+
 @end

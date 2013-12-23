@@ -19,8 +19,10 @@
 -(Notebook *)newWineNotebook;
 -(void)addThisNotebookToList:(Notebook *)notebook;
 -(Notebook_Template *)newNotebookTemplateWithThisName:(NSString *)name;
--(Group_Template *)newGroupTemplateWithThisName:(NSString *)name;
--(ContentType_Template *)newContentType_TemplateWithThisName:(NSString *)name;
+-(Group_Template *) addGroupTemplateWithThisName:(NSString *)name
+                          toThisNotebookTemplate:(Notebook_Template *)nt;
+-(ContentType_Template *)addContentTypeTemplateWithThisName:(NSString *)name
+                                        toThisGroupTemplate:(Group_Template* )gt;
 
 -(Note *)addNoteToThisNotebook:(Notebook *)notebook;
 -(Content *)newContent;

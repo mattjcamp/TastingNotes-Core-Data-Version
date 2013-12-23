@@ -11,5 +11,6 @@
 @interface Notebook_Template (Notebook_Template_Helper)
 
 -(NSArray *) groupsByOrder;
+-(NSNumber *)maxGroupOrder;
 
 @end
