@@ -15,17 +15,19 @@
 -(void)save;
 
 -(NSNumber *)maxNotebookOrder;
--(Notebook *)newNotebookWithThisName:(NSString *)name;
+-(Notebook *)addNewNotebookWithThisName:(NSString *)name;
 -(Notebook *)newWineNotebook;
--(void)addThisNotebookToList:(Notebook *)notebook;
--(Notebook_Template *)newNotebookTemplateWithThisName:(NSString *)name;
+-(Notebook_Template *)addNewNotebookTemplateWithThisName:(NSString *)name
+                                          toThisNotebook:(Notebook *)notebook;
 -(Group_Template *) addGroupTemplateWithThisName:(NSString *)name
                           toThisNotebookTemplate:(Notebook_Template *)nt;
 -(ContentType_Template *)addContentTypeTemplateWithThisName:(NSString *)name
                                         toThisGroupTemplate:(Group_Template* )gt;
 
 -(Note *)addNoteToThisNotebook:(Notebook *)notebook;
--(Content *)newContent;
+-(Content *)addNewContentToThisNote:(Note *)note
+                inThisGroupTemplate:(Group_Template *)gt
+                 andThisContentType:(ContentType_Template *)ct;
 
 //-(void)removeThisNote:(Note *)note;
 

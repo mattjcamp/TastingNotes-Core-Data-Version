@@ -59,26 +59,37 @@
 }
 
 -(void)createNotebookArrayTestData{
-    //Notebook
-    Notebook *nb1 = [self.contentApp newNotebookWithThisName:@"NB1"];
-    
-    //Notebook Templates
-    Notebook_Template *nbt = [self.contentApp newNotebookTemplateWithThisName:@"NB1_NBT"];
-    nb1.template = nbt;
-    
-    [self addToThisNotebookTemplate:nbt thisGroupNum:1 andThisContentTypeNum:1];
-    [self addToThisNotebookTemplate:nbt thisGroupNum:1 andThisContentTypeNum:2];
-    [self addToThisNotebookTemplate:nbt thisGroupNum:2 andThisContentTypeNum:3];
-    
-    //Add Notes
-    Note *n1 = [self.contentApp addNoteToThisNotebook:nb1];
-    
-    Content *c1 = [self.contentApp newContent];
-    c1.data = @"NB1_GT1_CT1_C1";
-    c1.belongsToNote = n1;
-    c1.inThisGroup = [[n1.belongsToNotebook.template groupsByOrder] objectAtIndex:0];
-    c1.inThisContent_Type = [[c1.inThisGroup contentTypesByOrder] objectAtIndex:0];
-    
+    //Make notebooks
+    for(int ni=1;ni<3;ni++){
+        NSString *notebookName = [NSString stringWithFormat:@"NB%i", ni];
+        Notebook *nb = [self.contentApp addNewNotebookWithThisName:notebookName];
+        
+        //Add Notebook Templates
+        NSString *notebookTemplateName = [NSString stringWithFormat:@"%@_NBT", notebookName];
+        Notebook_Template *nbt = [self.contentApp addNewNotebookTemplateWithThisName:notebookTemplateName
+                                                                      toThisNotebook:nb];
+        
+        for(int i=1;i<3;i++)
+            [self addToThisNotebookTemplate:nbt thisGroupNum:i andThisContentTypeNum:1];
+        
+        //Add Note Content to each content type in notebook
+        for(int i=0;i<3;i++){
+            Note *n;
+            n = [self.contentApp addNoteToThisNotebook:nb];
+            
+            [[nbt groupsByOrder] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                int gi = [[obj order]integerValue];
+                Group_Template *gt = obj;
+                [[obj contentTypesByOrder] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                    int ci = [[obj order]integerValue];
+                    Content *c = [self.contentApp addNewContentToThisNote:n
+                                                      inThisGroupTemplate:gt
+                                                       andThisContentType:obj];
+                    c.data = [NSString stringWithFormat:@"NB%@_GT%i_CT%i_C", n.belongsToNotebook.order, gi, ci];
+                }];
+            }];
+        }
+    }
 }
 
 -(void)addToThisNotebookTemplate:(Notebook_Template *)template
@@ -86,15 +97,17 @@
            andThisContentTypeNum:(int)ctnum{
     
     NSString *gts = [NSString stringWithFormat: @"%@_GT%i", template.belongsToNotebook.name, gtnum];
-    NSString *cts = [NSString stringWithFormat: @"%@_CT%i", gts, ctnum];
     
     Group_Template *gt1 = [self.contentApp addGroupTemplateWithThisName:gts
                                                  toThisNotebookTemplate:template];
     [template addGroupsObject:gt1];
-    ContentType_Template *ct1 = [self.contentApp addContentTypeTemplateWithThisName:cts
-                                                                toThisGroupTemplate:gt1];
-    ct1.type = @"smalltext";
-    [gt1 addContentTypesObject:ct1];
+    for(int i=0;i<3;i++){
+        NSString *cts = [NSString stringWithFormat: @"%@_CT%i", gts, i + 1];
+        ContentType_Template *c = [self.contentApp addContentTypeTemplateWithThisName:cts
+                                                                  toThisGroupTemplate:gt1];
+        c.type = @"smalltext";
+        [gt1 addContentTypesObject:c];
+    }
 }
 
 -(void)inspectThisNotebook:(Notebook *)notebook{
@@ -103,7 +116,7 @@
     XCTAssertNotNil(notebook.name, "No notebook name");
     XCTAssertNotNil(notebook.order, "No notebook order");
     XCTAssertNotNil(notebook.template, "No notebook template");
-    [self.log appendString:@"NOTEBOOK\n"];
+    [self.log appendString:@"NOTEBOOKS\n"];
     [self.log appendFormat:@"%@[%@]\n", notebook.name, notebook.order];
     
     //Notebook Template Tests

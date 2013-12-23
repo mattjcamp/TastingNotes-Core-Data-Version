@@ -49,10 +49,15 @@
     return note;
 }
 
--(Content *)newContent{
+-(Content *)addNewContentToThisNote:(Note *)note
+                inThisGroupTemplate:(Group_Template *)gt
+                 andThisContentType:(ContentType_Template *)ct{
     NSManagedObjectContext *context = [self managedObjectContext];
     Content *content = [NSEntityDescription insertNewObjectForEntityForName:@"Content"
                                                      inManagedObjectContext:context];
+    content.belongsToNote = note;
+    content.inThisGroup = gt;
+    content.inThisContent_Type = ct;
     
     return content;
 }
@@ -63,21 +68,27 @@
     return max;
 }
 
--(Notebook *)newNotebookWithThisName:(NSString *)name{
+-(Notebook *)addNewNotebookWithThisName:(NSString *)name{
+    if(!_notebooks)
+        [self.notebooks count];
+    
     NSManagedObjectContext *context = [self managedObjectContext];
     Notebook *notebook = [NSEntityDescription insertNewObjectForEntityForName:@"Notebook"
                                                        inManagedObjectContext:context];
     notebook.name = name;
     notebook.order = [NSNumber numberWithInt:[[self maxNotebookOrder] integerValue] + 1];
+    [self.notebooks addObject:notebook];
     
     return notebook;
 }
 
--(Notebook_Template *)newNotebookTemplateWithThisName:(NSString *)name{
+-(Notebook_Template *)addNewNotebookTemplateWithThisName:(NSString *)name
+                                          toThisNotebook:(Notebook *)notebook{
     NSManagedObjectContext *context = [self managedObjectContext];
     Notebook_Template *template =[NSEntityDescription insertNewObjectForEntityForName:@"Notebook_Template"
                                                                inManagedObjectContext:context];
     template.name = name;
+    notebook.template = template;
     
     return template;
 }
@@ -101,14 +112,16 @@
                                                                   inManagedObjectContext:context];
     template.name = name;
     template.order = [NSNumber numberWithInt:[[gt maxContentTypeOrder] integerValue] + 1];
+    template.type = @"smalltext";
     [gt addContentTypesObject:template];
     
     return template;
 }
 
 -(Notebook *)newWineNotebook{
-    Notebook *notebook = [self newNotebookWithThisName:@"Wine Notes"];
-    notebook.template = [self newNotebookTemplateWithThisName:@"Wine Notebook Template"];
+    Notebook *notebook = [self addNewNotebookWithThisName:@"Wine Notes"];
+    [self addNewNotebookTemplateWithThisName:@"Wine Notebook Template"
+                              toThisNotebook:notebook];
     
     Group_Template *g = [self addGroupTemplateWithThisName:@"Overview"
                                     toThisNotebookTemplate:notebook.template];
