@@ -29,6 +29,17 @@
  
  */
 
+static AppContent *singletonInstance = nil;
+
++ (AppContent *)sharedContent{
+    @synchronized(self){
+        if (singletonInstance == nil)
+            singletonInstance = [[self alloc] init];
+        
+        return(singletonInstance);
+    }
+}
+
 -(void)save{
     NSError *error = nil;
     NSManagedObjectContext *context = [self managedObjectContext];

@@ -10,6 +10,8 @@
 
 @interface AppContent : NSObject
 
++(AppContent *)sharedContent;
+
 @property(strong,readonly) NSMutableArray *notebooks;
 
 -(void)save;
