@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <XCTest/XCTest.h>
+#import "Dump.h"
+#import "AppContent+ContentUtilities.h"
 
 @interface TastingNotesTests : XCTestCase
 

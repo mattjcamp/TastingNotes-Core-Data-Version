@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C9000DE718738D290002C170 /* Dump.m in Sources */ = {isa = PBXBuildFile; fileRef = C9000DE618738D290002C170 /* Dump.m */; };
+		C9000DEA187395990002C170 /* AppContent+ContentUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = C9000DE9187395990002C170 /* AppContent+ContentUtilities.m */; };
 		C9C02D0B18645EC200739C36 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C02D0A18645EC200739C36 /* Foundation.framework */; };
 		C9C02D0D18645EC200739C36 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C02D0C18645EC200739C36 /* CoreGraphics.framework */; };
 		C9C02D0F18645EC200739C36 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C02D0E18645EC200739C36 /* UIKit.framework */; };
@@ -49,6 +51,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C9000DE518738D290002C170 /* Dump.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dump.h; sourceTree = "<group>"; };
+		C9000DE618738D290002C170 /* Dump.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dump.m; sourceTree = "<group>"; };
+		C9000DE8187395990002C170 /* AppContent+ContentUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppContent+ContentUtilities.h"; sourceTree = "<group>"; };
+		C9000DE9187395990002C170 /* AppContent+ContentUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppContent+ContentUtilities.m"; sourceTree = "<group>"; };
 		C963023218735290001C483C /* TastingNotesTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TastingNotesTests.h; sourceTree = "<group>"; };
 		C9C02D0718645EC200739C36 /* TastingNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TastingNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9C02D0A18645EC200739C36 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -188,6 +194,10 @@
 			children = (
 				C963023218735290001C483C /* TastingNotesTests.h */,
 				C9C02D3818645EC200739C36 /* TastingNotesTests.m */,
+				C9000DE518738D290002C170 /* Dump.h */,
+				C9000DE618738D290002C170 /* Dump.m */,
+				C9000DE8187395990002C170 /* AppContent+ContentUtilities.h */,
+				C9000DE9187395990002C170 /* AppContent+ContentUtilities.m */,
 				C9C02D3318645EC200739C36 /* Supporting Files */,
 			);
 			path = TastingNotesTests;
@@ -354,6 +364,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9C02D3918645EC200739C36 /* TastingNotesTests.m in Sources */,
+				C9000DE718738D290002C170 /* Dump.m in Sources */,
+				C9000DEA187395990002C170 /* AppContent+ContentUtilities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
