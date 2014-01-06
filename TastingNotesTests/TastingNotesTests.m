@@ -6,7 +6,18 @@
 //  Copyright (c) 2013 Mobile App Mastery. All rights reserved.
 //
 
-#import "TastingNotesTests.h"
+#import <Foundation/Foundation.h>
+#import <XCTest/XCTest.h>
+#import "Dump.h"
+#import "AppContent+ContentUtilities.h"
+#import "SQLiteDB.h"
+
+@interface TastingNotesTests : XCTestCase
+
+@property AppContent *ac;
+@property NSMutableString *log;
+
+@end
 
 @implementation TastingNotesTests
 
@@ -26,6 +37,17 @@ int testNum = 0;
                    atomically:NO
                      encoding:NSStringEncodingConversionAllowLossy
                         error:nil];
+}
+
+-(void)testSQLite{
+    SQLiteDB *database = [SQLiteDB sharedDatabase];
+    
+    NSArray *listOfTables = [database getListOfTableNamesInDatabase];
+    
+    [listOfTables enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [self.log appendFormat:@"%@\n", obj];
+    }];
+    
 }
 
 -(void)testCoreDataStack{

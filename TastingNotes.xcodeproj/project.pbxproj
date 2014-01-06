@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		C9000DE718738D290002C170 /* Dump.m in Sources */ = {isa = PBXBuildFile; fileRef = C9000DE618738D290002C170 /* Dump.m */; };
 		C9000DEA187395990002C170 /* AppContent+ContentUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = C9000DE9187395990002C170 /* AppContent+ContentUtilities.m */; };
+		C962FEC3187B57F100208180 /* SQLiteColumnMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = C962FEC0187B57F100208180 /* SQLiteColumnMetaData.m */; };
+		C962FEC4187B57F100208180 /* SQLiteDB.m in Sources */ = {isa = PBXBuildFile; fileRef = C962FEC2187B57F100208180 /* SQLiteDB.m */; };
+		C962FEC6187B583E00208180 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C962FEC5187B583E00208180 /* libsqlite3.0.dylib */; };
+		C962FEC8187B58B500208180 /* tasting-notes-database-paddb.sql in Resources */ = {isa = PBXBuildFile; fileRef = C962FEC7187B58B500208180 /* tasting-notes-database-paddb.sql */; };
+		C962FECA187B5AB400208180 /* SQLiteUpgrade.m in Sources */ = {isa = PBXBuildFile; fileRef = C962FEC9187B5AB400208180 /* SQLiteUpgrade.m */; };
 		C9C02D0B18645EC200739C36 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C02D0A18645EC200739C36 /* Foundation.framework */; };
 		C9C02D0D18645EC200739C36 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C02D0C18645EC200739C36 /* CoreGraphics.framework */; };
 		C9C02D0F18645EC200739C36 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C02D0E18645EC200739C36 /* UIKit.framework */; };
@@ -55,7 +60,13 @@
 		C9000DE618738D290002C170 /* Dump.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dump.m; sourceTree = "<group>"; };
 		C9000DE8187395990002C170 /* AppContent+ContentUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppContent+ContentUtilities.h"; sourceTree = "<group>"; };
 		C9000DE9187395990002C170 /* AppContent+ContentUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppContent+ContentUtilities.m"; sourceTree = "<group>"; };
-		C963023218735290001C483C /* TastingNotesTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TastingNotesTests.h; sourceTree = "<group>"; };
+		C962FEBF187B57F100208180 /* SQLiteColumnMetaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteColumnMetaData.h; sourceTree = "<group>"; };
+		C962FEC0187B57F100208180 /* SQLiteColumnMetaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteColumnMetaData.m; sourceTree = "<group>"; };
+		C962FEC1187B57F100208180 /* SQLiteDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteDB.h; sourceTree = "<group>"; };
+		C962FEC2187B57F100208180 /* SQLiteDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteDB.m; sourceTree = "<group>"; };
+		C962FEC5187B583E00208180 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		C962FEC7187B58B500208180 /* tasting-notes-database-paddb.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tasting-notes-database-paddb.sql"; sourceTree = "<group>"; };
+		C962FEC9187B5AB400208180 /* SQLiteUpgrade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteUpgrade.m; sourceTree = "<group>"; };
 		C9C02D0718645EC200739C36 /* TastingNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TastingNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9C02D0A18645EC200739C36 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C9C02D0C18645EC200739C36 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -109,6 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C962FEC6187B583E00208180 /* libsqlite3.0.dylib in Frameworks */,
 				C9C02D8818648F5D00739C36 /* CoreData.framework in Frameworks */,
 				C9C02D0D18645EC200739C36 /* CoreGraphics.framework in Frameworks */,
 				C9C02D0F18645EC200739C36 /* UIKit.framework in Frameworks */,
@@ -129,6 +141,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C962FEBE187B57A500208180 /* SQLite */ = {
+			isa = PBXGroup;
+			children = (
+				C962FEBF187B57F100208180 /* SQLiteColumnMetaData.h */,
+				C962FEC0187B57F100208180 /* SQLiteColumnMetaData.m */,
+				C962FEC1187B57F100208180 /* SQLiteDB.h */,
+				C962FEC2187B57F100208180 /* SQLiteDB.m */,
+			);
+			name = SQLite;
+			sourceTree = "<group>";
+		};
 		C9C02CFE18645EC200739C36 = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +174,7 @@
 		C9C02D0918645EC200739C36 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C962FEC5187B583E00208180 /* libsqlite3.0.dylib */,
 				C9C02D8718648F5D00739C36 /* CoreData.framework */,
 				C9C02D0A18645EC200739C36 /* Foundation.framework */,
 				C9C02D0C18645EC200739C36 /* CoreGraphics.framework */,
@@ -163,6 +187,7 @@
 		C9C02D1018645EC200739C36 /* TastingNotes */ = {
 			isa = PBXGroup;
 			children = (
+				C962FEBE187B57A500208180 /* SQLite */,
 				C9C02D8618648EC700739C36 /* Notebooks */,
 				C9C02D1918645EC200739C36 /* AppDelegate.h */,
 				C9C02D1A18645EC200739C36 /* AppDelegate.m */,
@@ -185,6 +210,7 @@
 				C9C02D1318645EC200739C36 /* InfoPlist.strings */,
 				C9C02D1618645EC200739C36 /* main.m */,
 				C9C02D1818645EC200739C36 /* TastingNotes-Prefix.pch */,
+				C962FEC7187B58B500208180 /* tasting-notes-database-paddb.sql */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -192,8 +218,8 @@
 		C9C02D3218645EC200739C36 /* TastingNotesTests */ = {
 			isa = PBXGroup;
 			children = (
-				C963023218735290001C483C /* TastingNotesTests.h */,
 				C9C02D3818645EC200739C36 /* TastingNotesTests.m */,
+				C962FEC9187B5AB400208180 /* SQLiteUpgrade.m */,
 				C9000DE518738D290002C170 /* Dump.h */,
 				C9000DE618738D290002C170 /* Dump.m */,
 				C9000DE8187395990002C170 /* AppContent+ContentUtilities.h */,
@@ -321,6 +347,7 @@
 				C9C02D2118645EC200739C36 /* Main_iPad.storyboard in Resources */,
 				C9C02D2618645EC200739C36 /* Images.xcassets in Resources */,
 				C9C02D1E18645EC200739C36 /* Main_iPhone.storyboard in Resources */,
+				C962FEC8187B58B500208180 /* tasting-notes-database-paddb.sql in Resources */,
 				C9C02D1518645EC200739C36 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,7 +382,9 @@
 				C9C02D8B18648F7500739C36 /* AppContent.m in Sources */,
 				C9C02DDF1864D92C00739C36 /* Notebook_Template+Notebook_Template_Helper.m in Sources */,
 				C9C02E091865107F00739C36 /* Note+Note_Helper.m in Sources */,
+				C962FEC4187B57F100208180 /* SQLiteDB.m in Sources */,
 				C9C02E39186523C600739C36 /* Content.m in Sources */,
+				C962FEC3187B57F100208180 /* SQLiteColumnMetaData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,6 +392,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C962FECA187B5AB400208180 /* SQLiteUpgrade.m in Sources */,
 				C9C02D3918645EC200739C36 /* TastingNotesTests.m in Sources */,
 				C9000DE718738D290002C170 /* Dump.m in Sources */,
 				C9000DEA187395990002C170 /* AppContent+ContentUtilities.m in Sources */,
