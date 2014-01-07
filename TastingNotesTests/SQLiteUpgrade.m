@@ -37,13 +37,16 @@
 }
 
 -(void)testSQLite{
-    [self.log appendFormat:@"notebooks.count = %i\n", [self.ac notebooks].count];
     
     SQLiteUpdater *se = [[SQLiteUpdater alloc]init];
     [se importSQLtoCoreData];
     
-    [self.log appendFormat:@"notebooks.count = %i\n", [self.ac notebooks].count];
+    [[self.ac notebooks] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [Dump dumpThisNotebookTemplate:obj
+                           intoThisLog:self.log];
+    }];
     
+    //[self.ac save];
 }
 
 -(void)testCoreData{
