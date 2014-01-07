@@ -51,10 +51,9 @@
 
 -(void)testCoreData{
     NSArray *n1 = [self.ac notebooks];
-    [self.log appendFormat:@"n1.count = %i\n", n1.count];
     [n1 enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         [Dump dumpThisNotebookTemplate:obj
-                   intoThisLog:self.log];
+                           intoThisLog:self.log];
     }];
     
 }
