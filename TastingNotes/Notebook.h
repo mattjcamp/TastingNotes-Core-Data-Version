@@ -17,6 +17,7 @@
 @property (nonatomic, retain) NSNumber * order;
 @property (nonatomic, retain) NSSet *notes;
 @property (nonatomic, retain) Notebook_Template *template;
+@property (strong) NSNumber *pk;
 
 @end
 

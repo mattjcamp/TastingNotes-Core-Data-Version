@@ -37,19 +37,12 @@
 }
 
 -(void)testSQLite{
-    
-    NSArray *n1 = [self.ac notebooks];
-    [self.log appendFormat:@"n1.count = %i\n", n1.count];
+    [self.log appendFormat:@"notebooks.count = %i\n", [self.ac notebooks].count];
     
     SQLiteUpdater *se = [[SQLiteUpdater alloc]init];
     [se importSQLtoCoreData];
     
-    [[self.ac notebooks] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        [self.log appendFormat:@"[self.ac notebooks][%u].pk = %@\n", idx, [obj valueForKey:@"pk"]];
-    }];
-    
-    NSArray *n2 = [self.ac notebooks];
-    [self.log appendFormat:@"n2.count = %i\n", n2.count];
+    [self.log appendFormat:@"notebooks.count = %i\n", [self.ac notebooks].count];
     
 }
 

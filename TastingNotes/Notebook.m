@@ -12,7 +12,7 @@
 
 
 @implementation Notebook
-
+@synthesize  pk;
 @dynamic name;
 @dynamic order;
 @dynamic notes;
