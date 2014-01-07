@@ -39,17 +39,6 @@ int testNum = 0;
                         error:nil];
 }
 
--(void)testSQLite{
-    SQLiteDB *database = [SQLiteDB sharedDatabase];
-    
-    NSArray *listOfTables = [database getListOfTableNamesInDatabase];
-    
-    [listOfTables enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        [self.log appendFormat:@"%@\n", obj];
-    }];
-    
-}
-
 -(void)testCoreDataStack{
     XCTAssertNotNil(self.ac, "AppContent is not initializing");
     [self.ac generateTestDataForThisManyNotebooks:1
@@ -64,12 +53,20 @@ int testNum = 0;
                          withThisManyContentTypes:6
                              andWithThisManyNotes:1];
     
+    //Dumps
     [self.ac.notebooks enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         Notebook *notebook = (Notebook *)obj;
-        [Dump dumpThisNotebook:notebook
+        [Dump dumpThisNotebookTemplate:notebook
                    intoThisLog:self.log];
     }];
     
+    [self.ac.notebooks enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        Notebook *notebook = (Notebook *)obj;
+        [Dump dumpThisNotebookContent:notebook
+                           intoThisLog:self.log];
+    }];
+    
+    //Tests
     [self.ac.notebooks enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         Notebook *notebook = (Notebook *)obj;
         [[notebook.template groupsByOrder] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {

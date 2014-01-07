@@ -10,7 +10,7 @@
 #import <XCTest/XCTest.h>
 #import "Dump.h"
 #import "AppContent+ContentUtilities.h"
-#import "SQLiteDB.h"
+#import "SQLiteUpdater.h"
 
 @interface SQLiteUpgrade : XCTestCase
 
@@ -21,11 +21,8 @@
 
 @implementation SQLiteUpgrade
 
-int testNum2 = 0;
-
 -(void)setUp{
     [super setUp];
-    testNum2++;
     self.ac = [AppContent sharedContent];
     self.log = [[NSMutableString alloc] init];
 }
@@ -33,19 +30,31 @@ int testNum2 = 0;
 -(void)tearDown{
     [super tearDown];
     if([self.log length] > 0)
-        [self.log writeToFile:[NSString stringWithFormat:@"/Users/matt/desktop/SQLiteUpgrade-log-%i.txt", testNum2]
+        [self.log writeToFile:@"/Users/matt/desktop/SQLiteUpgrade-log.txt"
                    atomically:NO
                      encoding:NSStringEncodingConversionAllowLossy
                         error:nil];
 }
 
 -(void)testSQLite{
-    SQLiteDB *database = [SQLiteDB sharedDatabase];
     
-    NSArray *listOfTables = [database getListOfTableNamesInDatabase];
+    NSArray *n1 = [self.ac notebooks];
+    [self.log appendFormat:@"n1.count = %i\n", n1.count];
     
-    [listOfTables enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        [self.log appendFormat:@"%@\n", obj];
+    SQLiteUpdater *se = [[SQLiteUpdater alloc]init];
+    [se importSQLtoCoreData];
+    
+    NSArray *n2 = [self.ac notebooks];
+    [self.log appendFormat:@"n2.count = %i\n", n2.count];
+    
+}
+
+-(void)testCoreData{
+    NSArray *n1 = [self.ac notebooks];
+    [self.log appendFormat:@"n1.count = %i\n", n1.count];
+    [n1 enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [Dump dumpThisNotebookTemplate:obj
+                   intoThisLog:self.log];
     }];
     
 }

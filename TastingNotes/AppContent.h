@@ -19,8 +19,7 @@
 -(NSNumber *)maxNotebookOrder;
 -(Notebook *)addNewNotebookWithThisName:(NSString *)name;
 -(Notebook *)newWineNotebook;
--(Notebook_Template *)addNewNotebookTemplateWithThisName:(NSString *)name
-                                          toThisNotebook:(Notebook *)notebook;
+-(Notebook_Template *)addNewNotebookTemplateToThisNotebook:(Notebook *)notebook;
 -(Group_Template *) addGroupTemplateWithThisName:(NSString *)name
                           toThisNotebookTemplate:(Notebook_Template *)nt;
 -(ContentType_Template *)addContentTypeTemplateWithThisName:(NSString *)name

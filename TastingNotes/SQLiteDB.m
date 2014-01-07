@@ -25,6 +25,8 @@ NSString *writableDatabaseFullFileName;
 
 #pragma mark Database initialization and setup
 
+#warning This will have to change to not copy the database from the bundle
+
 -(void) copyDatabaseIfAbsent{
 	NSFileManager *fileManager = [NSFileManager defaultManager];
 	BOOL isDatabaseAlreadyPresent;

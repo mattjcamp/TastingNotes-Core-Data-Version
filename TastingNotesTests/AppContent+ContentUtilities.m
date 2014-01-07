@@ -37,9 +37,7 @@
         Notebook *nb = [self addNewNotebookWithThisName:notebookName];
         
         //Add Notebook Templates
-        NSString *notebookTemplateName = [NSString stringWithFormat:@"%@_NBT", notebookName];
-        Notebook_Template *nbt = [self addNewNotebookTemplateWithThisName:notebookTemplateName
-                                                              toThisNotebook:nb];
+        Notebook_Template *nbt = [self addNewNotebookTemplateToThisNotebook:nb];
         
         for(int i=1;i<=contentTypes;i++)
             [self addToThisNotebookTemplate:nbt thisGroupNum:i

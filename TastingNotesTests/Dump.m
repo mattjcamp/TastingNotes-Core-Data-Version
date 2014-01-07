@@ -10,56 +10,53 @@
 
 @implementation Dump
 
-+(void)dumpThisNotebook:(Notebook *)notebook
-            intoThisLog:(NSMutableString *)log{
++(void)dumpThisNotebookTemplate:(Notebook *)notebook
+                    intoThisLog:(NSMutableString *)log{
+    //Notebook
+    [log appendFormat:@"NOTEBOOKS[%@].%@\n", notebook.order, notebook.name];
+    
     //Notebook Template
-    [log appendString:@"NOTEBOOKS\n"];
-    [log appendFormat:@"%@[%@]\n", notebook.name, notebook.order];
-    
-    //Notebook Template Tests
-    [log appendString:@"   NOTEBOOK.TEMPLATE\n"];
-    [log appendFormat:@"   %@\n", notebook.template.name];
-    
-    //Notebook Group Template Tests
-    [log appendString:@"       GROUP TEMPLATES\n"];
-    [[notebook.template groupsByOrder] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        Group_Template *gt = (Group_Template *)obj;
-         [log appendFormat:@"       %@[%@]\n", gt.name, gt.order];
+    if(notebook.template){
+        [log appendFormat:@"   NOTEBOOK.TEMPLATE.%@\n", notebook.template.name];
         
-        //Notebook Group Template Content_Type Template Tests
-        [log appendString:@"           CONTENT_TYPE TEMPLATES\n"];
-        
-        [[gt contentTypesByOrder] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            ContentType_Template *ct = (ContentType_Template *)obj;
-            [log appendFormat:@"               %@[%@]\n", ct.name, ct.order];
-            [log appendFormat:@"               type = %@\n", ct.type];
+        //Notebook Group Templates
+        [[notebook.template groupsByOrder] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            Group_Template *gt = (Group_Template *)obj;
+            [log appendFormat:@"       GROUP[%@].%@\n", gt.order, gt.name];
+            [[gt contentTypesByOrder] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                ContentType_Template *ct = (ContentType_Template *)obj;
+                [log appendFormat:@"               CONTENT_TYPE[%@].%@.%@\n", ct.order, ct.name, ct.type];
+            }];
         }];
-    }];
+    }
+}
+
++(void)dumpThisNotebookContent:(Notebook *)notebook
+                   intoThisLog:(NSMutableString *)log{
+    //Notebook
+    [log appendFormat:@"NOTEBOOKS[%@].%@\n", notebook.order, notebook.name];
     
-    //Notebook Content
-    [log appendString:@"\nNOTES\n"];
     [notebook.notesByOrder enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         Note *note = (Note *)obj;
-        [log appendFormat:@"NOTE[%@]\n", note.order];
+        [log appendFormat:@"    NOTE[%@]\n", note.order];
         
         [[note.belongsToNotebook.template groupsByOrder] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             Group_Template *g = (Group_Template *)obj;
-            [log appendFormat:@"        %@[%@]\n", g.name.uppercaseString, g.order];
             
             [[g contentTypesByOrder]enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
                 ContentType_Template *ct = (ContentType_Template *)obj;
-                [log appendFormat:@"               %@[%@]\n", ct.name.uppercaseString, ct.order];
                 
                 Content *c = [note contentInThisGroup:g
                                    andThisContentType:ct];
-                if(c){
-                    [log appendString:@"                   CONTENT\n"];
-                    [log appendFormat:@"                   data =  %@\n", c.data];
-                }
+                if(c)
+                    [log appendFormat:@"        %@[%@].%@[%@] = %@\n", g.name.uppercaseString, g.order,
+                     ct.name.uppercaseString, ct.order,
+                     c.data];
                 
             }];
         }];
     }];
+    
 }
 
 @end

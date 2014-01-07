@@ -93,12 +93,11 @@ static AppContent *singletonInstance = nil;
     return notebook;
 }
 
--(Notebook_Template *)addNewNotebookTemplateWithThisName:(NSString *)name
-                                          toThisNotebook:(Notebook *)notebook{
+-(Notebook_Template *)addNewNotebookTemplateToThisNotebook:(Notebook *)notebook{
     NSManagedObjectContext *context = [self managedObjectContext];
     Notebook_Template *template =[NSEntityDescription insertNewObjectForEntityForName:@"Notebook_Template"
                                                                inManagedObjectContext:context];
-    template.name = name;
+    template.name = [NSString stringWithFormat:@"%@ Template", notebook.name];
     notebook.template = template;
     
     return template;
@@ -131,8 +130,7 @@ static AppContent *singletonInstance = nil;
 
 -(Notebook *)newWineNotebook{
     Notebook *notebook = [self addNewNotebookWithThisName:@"Wine Notes"];
-    [self addNewNotebookTemplateWithThisName:@"Wine Notebook Template"
-                              toThisNotebook:notebook];
+    [self addNewNotebookTemplateToThisNotebook:notebook];
     
     Group_Template *g = [self addGroupTemplateWithThisName:@"Overview"
                                     toThisNotebookTemplate:notebook.template];

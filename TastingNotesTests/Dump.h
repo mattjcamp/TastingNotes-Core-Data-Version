@@ -10,7 +10,9 @@
 
 @interface Dump : NSObject
 
-+(void)dumpThisNotebook:(Notebook *)notebook
++(void)dumpThisNotebookTemplate:(Notebook *)notebook
             intoThisLog:(NSMutableString *)log;
++(void)dumpThisNotebookContent:(Notebook *)notebook
+                   intoThisLog:(NSMutableString *)log;
 
 @end
