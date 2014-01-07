@@ -67,7 +67,7 @@ NSNumber *_pk;
     
     [self.ac addNewNotebookWithThisName:[notebookData objectAtIndex:1]];
     Notebook *n = [[self.ac notebooks]lastObject];
-
+    Notebook_Template *nt = [self.ac addNewNotebookTemplateToThisNotebook:n];
 }
 
 @end

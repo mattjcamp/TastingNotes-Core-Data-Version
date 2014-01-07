@@ -168,6 +168,10 @@ NSMutableArray *_notebooks;
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Notebook"
                                               inManagedObjectContext:context];
     request.entity = entity;
+    
+    NSSortDescriptor *sd = [NSSortDescriptor sortDescriptorWithKey:@"order"
+                                                         ascending:YES];
+    request.sortDescriptors = @[sd];
     NSError *error = nil;
     NSArray *listOfNotebooks = [context executeFetchRequest:request
                                                       error:&error];
