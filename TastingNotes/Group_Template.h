@@ -2,8 +2,8 @@
 //  Group_Template.h
 //  TastingNotes
 //
-//  Created by Matt on 12/20/13.
-//  Copyright (c) 2013 Mobile App Mastery. All rights reserved.
+//  Created by Matt on 1/7/14.
+//  Copyright (c) 2014 Mobile App Mastery. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -15,21 +15,21 @@
 
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * order;
-@property (nonatomic, retain) Notebook_Template *belongsToNotebook;
-@property (nonatomic, retain) NSSet *contentTypes;
+@property (nonatomic, retain) Notebook_Template *belongsToTemplate;
 @property (nonatomic, retain) NSSet *contentInThisGroup;
+@property (nonatomic, retain) NSSet *contentTypes;
 @end
 
 @interface Group_Template (CoreDataGeneratedAccessors)
-
-- (void)addContentTypesObject:(ContentType_Template *)value;
-- (void)removeContentTypesObject:(ContentType_Template *)value;
-- (void)addContentTypes:(NSSet *)values;
-- (void)removeContentTypes:(NSSet *)values;
 
 - (void)addContentInThisGroupObject:(Content *)value;
 - (void)removeContentInThisGroupObject:(Content *)value;
 - (void)addContentInThisGroup:(NSSet *)values;
 - (void)removeContentInThisGroup:(NSSet *)values;
+
+- (void)addContentTypesObject:(ContentType_Template *)value;
+- (void)removeContentTypesObject:(ContentType_Template *)value;
+- (void)addContentTypes:(NSSet *)values;
+- (void)removeContentTypes:(NSSet *)values;
 
 @end

@@ -2,8 +2,8 @@
 //  Notebook.h
 //  TastingNotes
 //
-//  Created by Matt on 12/20/13.
-//  Copyright (c) 2013 Mobile App Mastery. All rights reserved.
+//  Created by Matt on 1/7/14.
+//  Copyright (c) 2014 Mobile App Mastery. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -17,6 +17,7 @@
 @property (nonatomic, retain) NSNumber * order;
 @property (nonatomic, retain) NSSet *notes;
 @property (nonatomic, retain) Notebook_Template *template;
+
 @end
 
 @interface Notebook (CoreDataGeneratedAccessors)

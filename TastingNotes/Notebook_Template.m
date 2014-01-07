@@ -2,8 +2,8 @@
 //  Notebook_Template.m
 //  TastingNotes
 //
-//  Created by Matt on 12/20/13.
-//  Copyright (c) 2013 Mobile App Mastery. All rights reserved.
+//  Created by Matt on 1/7/14.
+//  Copyright (c) 2014 Mobile App Mastery. All rights reserved.
 //
 
 #import "Notebook_Template.h"

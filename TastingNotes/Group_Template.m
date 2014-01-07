@@ -2,8 +2,8 @@
 //  Group_Template.m
 //  TastingNotes
 //
-//  Created by Matt on 12/20/13.
-//  Copyright (c) 2013 Mobile App Mastery. All rights reserved.
+//  Created by Matt on 1/7/14.
+//  Copyright (c) 2014 Mobile App Mastery. All rights reserved.
 //
 
 #import "Group_Template.h"
@@ -16,8 +16,8 @@
 
 @dynamic name;
 @dynamic order;
-@dynamic belongsToNotebook;
-@dynamic contentTypes;
+@dynamic belongsToTemplate;
 @dynamic contentInThisGroup;
+@dynamic contentTypes;
 
 @end

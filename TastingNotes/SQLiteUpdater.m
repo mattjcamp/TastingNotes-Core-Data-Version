@@ -8,26 +8,6 @@
 
 #import "SQLiteUpdater.h"
 
-//Helper Categories
-@interface Notebook (Notebook_Importer_Helper)
-
-@property (strong) NSNumber *pk;
-
-@end
-
-@implementation Notebook (Notebook_Importer_Helper)
-
-NSNumber *_pk;
--(NSNumber *)pk {
-    return _pk;
-}
-
--(void)setPk:(NSNumber *)value{
-    _pk = value;
-}
-
-@end
-
 @interface SQLiteUpdater()
 
 @property AppContent *ac;
@@ -58,6 +38,11 @@ NSNumber *_pk;
         [self importNotebookWithThisPrimaryKey:obj];
     }];
     
+    //test notebook pk
+    [[self.ac notebooks]enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        Notebook *tempN = (Notebook *)obj;
+    }];
+    
     [self.ac save];
 }
 
@@ -65,8 +50,9 @@ NSNumber *_pk;
     NSArray *notebookData = [self.db getRowValuesFromThisTable:@"ListsTable"
                                       usingThisSelectStatement:[NSString stringWithFormat:@"SELECT * FROM ListsTable WHERE pk = %@", pk]];
     
-    [self.ac addNewNotebookWithThisName:[notebookData objectAtIndex:1]];
-    Notebook *n = [[self.ac notebooks]lastObject];
+    Notebook *n = [self.ac addNewNotebookWithThisName:[notebookData objectAtIndex:1]];
+    //n->pk = pk;
+    
     Notebook_Template *nt = [self.ac addNewNotebookTemplateToThisNotebook:n];
     
     NSArray *groupPKs = [self.db getColumnValuesFromThisTable:@"SectionTable"
