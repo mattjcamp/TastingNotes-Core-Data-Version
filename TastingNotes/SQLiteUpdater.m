@@ -32,6 +32,11 @@
     [notebookPK enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         [self importNotebookWithThisPrimaryKey:obj];
     }];
+    
+    [[self.ac notebooks] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [self importNotesIntoThisNotebook:obj];
+    }];
+    
     //[self.ac save];
 }
 
@@ -72,6 +77,36 @@
     ContentType_Template *ct = [self.ac addContentTypeTemplateWithThisName:[controlData objectAtIndex:3] toThisGroupTemplate:gt];
     ct.type = [controlData objectAtIndex:2];
     ct.pk = pk;
+}
+
+-(void)importNotesIntoThisNotebook:(Notebook *)notebook{
+    NSArray *notePKs = [self.db getColumnValuesFromThisTable:@"NotesInlistTable"
+                                    usingThisSelectStatement:[NSString stringWithFormat:@"SELECT * FROM NotesInlistTable WHERE fk_ToListsTable = %@ ORDER BY NoteOrder", notebook.pk]
+                                              fromThisColumn:0];
+    [notePKs enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        Note *n = [self.ac addNoteToThisNotebook:notebook];
+        NSNumber *notePK = (NSNumber *)obj;
+        [n.belongsToNotebook.template.groupsByOrder enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            Group_Template *gt = (Group_Template *)obj;
+            [gt.contentTypesByOrder enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                ContentType_Template *ct = (ContentType_Template *)obj;
+                NSArray *noteContent = [self.db getRowValuesFromThisTable:@"ContentInNoteAndControl"
+                                                 usingThisSelectStatement:[NSString stringWithFormat:@"SELECT * FROM ContentInNoteAndControl WHERE fk_ToNotesInlistTable = %@ AND fk_ToControlTable = %@", notePK, ct.pk]];
+                if(noteContent){
+                    if(noteContent.count >=3 ){
+                        if([noteContent objectAtIndex:3] != [NSNull null]){
+                            //NSLog(@"noteContent = %@", [noteContent objectAtIndex:3]);
+                            Content *c = [self.ac addNewContentToThisNote:n
+                                         inThisGroupTemplate:gt
+                                          andThisContentType:ct];
+                            c.data = [noteContent objectAtIndex:3];
+                        }
+                    }
+                }
+            }];
+        }];
+        
+    }];
 }
 
 @end

@@ -50,6 +50,19 @@ static AppContent *singletonInstance = nil;
     }
 }
 
+/*-(Content *)addContentToThisNote:(Note *)note
+              andThisContentType:(ContentType_Template *)ct{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    Content *c = [NSEntityDescription insertNewObjectForEntityForName:@"Content"
+                                               inManagedObjectContext:context];
+    c.inThisContent_Type = ct;
+    c.inThisGroup = ct.belongsToGroup;
+    [note addContentObject:c];
+    
+    return c;
+}*/
+
 -(Note *)addNoteToThisNotebook:(Notebook *)notebook{
     NSManagedObjectContext *context = [self managedObjectContext];
     Note *note = [NSEntityDescription insertNewObjectForEntityForName:@"Note"

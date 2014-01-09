@@ -42,8 +42,10 @@
     [se importSQLtoCoreData];
     
     [[self.ac notebooks] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        [Dump dumpThisNotebookTemplate:obj
-                           intoThisLog:self.log];
+        //[Dump dumpThisNotebookTemplate:obj
+        //                   intoThisLog:self.log];
+        [Dump dumpThisNotebookContent:obj
+                          intoThisLog:self.log];
     }];
     
     //[self.ac save];
