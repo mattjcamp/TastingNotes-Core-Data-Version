@@ -51,17 +51,17 @@ static AppContent *singletonInstance = nil;
 }
 
 /*-(Content *)addContentToThisNote:(Note *)note
-              andThisContentType:(ContentType_Template *)ct{
-    NSManagedObjectContext *context = [self managedObjectContext];
-    
-    Content *c = [NSEntityDescription insertNewObjectForEntityForName:@"Content"
-                                               inManagedObjectContext:context];
-    c.inThisContent_Type = ct;
-    c.inThisGroup = ct.belongsToGroup;
-    [note addContentObject:c];
-    
-    return c;
-}*/
+ andThisContentType:(ContentType_Template *)ct{
+ NSManagedObjectContext *context = [self managedObjectContext];
+ 
+ Content *c = [NSEntityDescription insertNewObjectForEntityForName:@"Content"
+ inManagedObjectContext:context];
+ c.inThisContent_Type = ct;
+ c.inThisGroup = ct.belongsToGroup;
+ [note addContentObject:c];
+ 
+ return c;
+ }*/
 
 -(Note *)addNoteToThisNotebook:(Notebook *)notebook{
     NSManagedObjectContext *context = [self managedObjectContext];
@@ -129,16 +129,28 @@ static AppContent *singletonInstance = nil;
 }
 
 -(ContentType_Template *)addContentTypeTemplateWithThisName:(NSString *)name
-                                        toThisGroupTemplate:(Group_Template* )gt{
+                                        toThisGroupTemplate:(Group_Template *)gt{
     NSManagedObjectContext *context = [self managedObjectContext];
     ContentType_Template *template =[NSEntityDescription insertNewObjectForEntityForName:@"ContentType_Template"
                                                                   inManagedObjectContext:context];
     template.name = name;
     template.order = [NSNumber numberWithInt:[[gt maxContentTypeOrder] integerValue] + 1];
-    template.type = @"smalltext";
+    template.type = @"SmallText";
     [gt addContentTypesObject:template];
     
     return template;
+}
+
+-(ListObject *)addListObjectWithThisName:(NSString *)name
+                       toThisContentType:(ContentType_Template *)ct{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    ListObject *listObject =[NSEntityDescription insertNewObjectForEntityForName:@"ListObject"
+                                                          inManagedObjectContext:context];
+    listObject.name = name;
+    listObject.order = [NSNumber numberWithInt:[[ct maxListObjectOrder] integerValue] + 1];
+    [ct addListObjectsObject:listObject];
+    
+    return listObject;
 }
 
 -(Notebook *)newWineNotebook{
@@ -149,13 +161,13 @@ static AppContent *singletonInstance = nil;
                                     toThisNotebookTemplate:notebook.template];
     ContentType_Template *c = [self addContentTypeTemplateWithThisName:@"Wine Name"
                                                    toThisGroupTemplate:g];
-
-    c.type = @"smalltext";
+    
+    c.type = @"SmallText";
     
     [g addContentTypesObject:c];
     c = [self addContentTypeTemplateWithThisName:@"Wine Type"
                              toThisGroupTemplate:g];
-    c.type = @"list";
+    c.type = @"List";
     [g addContentTypesObject:c];
     
     g = [self addGroupTemplateWithThisName:@"Description"

@@ -24,7 +24,8 @@
                           toThisNotebookTemplate:(Notebook_Template *)nt;
 -(ContentType_Template *)addContentTypeTemplateWithThisName:(NSString *)name
                                         toThisGroupTemplate:(Group_Template* )gt;
-
+-(ListObject *)addListObjectWithThisName:(NSString *)name
+                       toThisContentType:(ContentType_Template *)ct;
 -(Note *)addNoteToThisNotebook:(Notebook *)notebook;
 -(Content *)addNewContentToThisNote:(Note *)note
                 inThisGroupTemplate:(Group_Template *)gt

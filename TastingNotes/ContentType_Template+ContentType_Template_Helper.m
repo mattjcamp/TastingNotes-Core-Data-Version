@@ -10,5 +10,17 @@
 
 @implementation ContentType_Template (ContentType_Template_Helper)
 
+-(NSArray *) listObjectsByOrder{
+    NSSortDescriptor *sorter = [NSSortDescriptor sortDescriptorWithKey:@"order"
+                                                             ascending:YES];
+    
+    return [self.listObjects sortedArrayUsingDescriptors:@[sorter]];
+}
+
+-(NSNumber *)maxListObjectOrder{
+    NSNumber *max = [self.listObjects valueForKeyPath:@"@max.order"];
+    
+    return max;
+}
 
 @end

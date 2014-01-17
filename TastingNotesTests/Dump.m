@@ -26,6 +26,10 @@
             [[gt contentTypesByOrder] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
                 ContentType_Template *ct = (ContentType_Template *)obj;
                 [log appendFormat:@"               CONTENT_TYPE[%@].%@.%@\n", ct.order, ct.name, ct.type];
+                [[ct listObjectsByOrder] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                    ListObject *lo = (ListObject *)obj;
+                    [log appendFormat:@"                    LISTOBJECT[%@].%@\n", lo.order, lo.name];
+                }];
             }];
         }];
     }
@@ -46,12 +50,36 @@
             [[g contentTypesByOrder]enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
                 ContentType_Template *ct = (ContentType_Template *)obj;
                 
+                if([ct.type isEqualToString:@"List"]){
+                    [log appendFormat:@"        %@[%@].%@[%@] = ?\n", g.name.uppercaseString, g.order,
+                     ct.name.uppercaseString, ct.order];
+                }
+                
+                
                 Content *c = [note contentInThisGroup:g
                                    andThisContentType:ct];
-                if(c)
-                    [log appendFormat:@"        %@[%@].%@[%@] = %@\n", g.name.uppercaseString, g.order,
-                     ct.name.uppercaseString, ct.order,
-                     c.stringData];
+                if(c){
+                    if([ct.type isEqualToString:@"SmallText"] || [ct.type isEqualToString:@"MultiText"]){
+                        [log appendFormat:@"        %@[%@].%@[%@] = %@\n", g.name.uppercaseString, g.order,
+                         ct.name.uppercaseString, ct.order,
+                         c.stringData];
+                    }
+                    if([ct.type isEqualToString:@"5StarRating"] || [ct.type isEqualToString:@"Numeric"] || [ct.type isEqualToString:@"Currency"] || [ct.type isEqualToString:@"100PointScale"] || [ct.type isEqualToString:@"Date"]){
+                        [log appendFormat:@"        %@[%@].%@[%@] = %@\n", g.name.uppercaseString, g.order,
+                         ct.name.uppercaseString, ct.order,
+                         c.numberData];
+                    }
+                    if([ct.type isEqualToString:@"List"]){
+                        [log appendFormat:@"        %@[%@].%@[%@] = %@\n", g.name.uppercaseString, g.order,
+                         ct.name.uppercaseString, ct.order,
+                         c.numberData];
+                    }
+                    /*if([ct.type isEqualToString:@"Picture"]){
+                        [log appendFormat:@"        %@[%@].%@[%@] = %@\n", g.name.uppercaseString, g.order,
+                         ct.name.uppercaseString, ct.order,
+                         c.binaryData];
+                    }*/
+                }
                 
             }];
         }];

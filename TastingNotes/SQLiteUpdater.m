@@ -77,6 +77,17 @@
     ContentType_Template *ct = [self.ac addContentTypeTemplateWithThisName:[controlData objectAtIndex:3] toThisGroupTemplate:gt];
     ct.type = [controlData objectAtIndex:2];
     ct.pk = pk;
+    
+    if([ct.type isEqualToString:@"List"]){
+        NSArray *tagValueNames = [[SQLiteDB sharedDatabase] getColumnValuesFromThisTable:@"TagValues"
+                                                                usingThisSelectStatement:[NSString stringWithFormat:@"SELECT TagValueText FROM TagValues WHERE fk_ToControlTable = %@ ORDER BY TagValueOrder", ct.pk]
+                                                                          fromThisColumn:0];
+        [tagValueNames enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            ListObject *lo = [self.ac addListObjectWithThisName:obj
+                                              toThisContentType:ct];
+            lo.order = [NSNumber numberWithInt:idx];
+        }];
+    }
 }
 
 -(void)importNotesIntoThisNotebook:(Notebook *)notebook{
@@ -103,22 +114,62 @@
     }];
 }
 
+//still need list
 -(void)importContentIntoThisNote:(Note *)note
               withThisPrimaryKey:(NSNumber *)notePK
              inThisGroupTemplate:(Group_Template *)gt
               andThisContentType:(ContentType_Template *)ct{
     
-    if([ct.type isEqualToString:@"SmallText"]){
+    if([ct.type isEqualToString:@"SmallText"] || [ct.type isEqualToString:@"MultiText"]){
         NSArray *noteContent = [self.db getRowValuesFromThisTable:@"ContentInNoteAndControl"
                                          usingThisSelectStatement:[NSString stringWithFormat:@"SELECT ContentTextValue FROM ContentInNoteAndControl WHERE fk_ToNotesInlistTable = %@ AND fk_ToControlTable = %@", notePK, ct.pk]];
         if(noteContent){
-            if(noteContent.count == 1){
-                if([noteContent objectAtIndex:0] != [NSNull null]){
-                    Content *c = [self.ac addNewContentToThisNote:note
-                                              inThisGroupTemplate:gt
-                                               andThisContentType:ct];
-                    c.stringData = [noteContent objectAtIndex:0];
-                }
+            if(noteContent.count == 1 && [noteContent objectAtIndex:0] != [NSNull null]){
+                Content *c = [self.ac addNewContentToThisNote:note
+                                          inThisGroupTemplate:gt
+                                           andThisContentType:ct];
+                c.stringData = [noteContent objectAtIndex:0];
+            }
+        }
+    }
+    if([ct.type isEqualToString:@"5StarRating"] || [ct.type isEqualToString:@"Numeric"] || [ct.type isEqualToString:@"Currency"] || [ct.type isEqualToString:@"100PointScale"] || [ct.type isEqualToString:@"Date"]){
+        NSArray *noteContent = [self.db getRowValuesFromThisTable:@"ContentInNoteAndControl"
+                                         usingThisSelectStatement:[NSString stringWithFormat:@"SELECT ContentNumValue FROM ContentInNoteAndControl WHERE fk_ToNotesInlistTable = %@ AND fk_ToControlTable = %@", notePK, ct.pk]];
+        if(noteContent){
+            if(noteContent.count == 1 && [noteContent objectAtIndex:0] != [NSNull null]){
+                Content *c = [self.ac addNewContentToThisNote:note
+                                          inThisGroupTemplate:gt
+                                           andThisContentType:ct];
+                c.numberData = [noteContent objectAtIndex:0];
+            }
+        }
+    }
+    if([ct.type isEqualToString:@"Picture"]){
+        NSArray *noteContent = [self.db getRowValuesFromThisTable:@"ContentInNoteAndControl"
+                                         usingThisSelectStatement:[NSString stringWithFormat:@"SELECT ContentNumValue FROM ContentInNoteAndControl WHERE fk_ToNotesInlistTable = %@ AND fk_ToControlTable = %@", notePK, ct.pk]];
+        if(noteContent){
+            if(noteContent.count == 1 && [noteContent objectAtIndex:0] != [NSNull null]){
+                Content *c = [self.ac addNewContentToThisNote:note
+                                          inThisGroupTemplate:gt
+                                           andThisContentType:ct];
+                c.binaryData = [noteContent objectAtIndex:0];
+            }
+        }
+    }
+    if([ct.type isEqualToString:@"List"]){
+        
+        NSArray *pklist = [[SQLiteDB sharedDatabase] getColumnValuesFromThisTable:@"TagValues"
+                                                         usingThisSelectStatement:[NSString stringWithFormat:@"SELECT pk FROM TagValues WHERE fk_ToControlTable = %@ ORDER BY TagValueOrder", ct.pk]
+                                                                   fromThisColumn:0];
+        
+        NSArray *noteContent = [self.db getRowValuesFromThisTable:@"ContentInNoteAndControl"
+                                         usingThisSelectStatement:[NSString stringWithFormat:@"SELECT ContentNumValue FROM ContentInNoteAndControl WHERE fk_ToNotesInlistTable = %@ AND fk_ToControlTable = %@", notePK, ct.pk]];
+        if(noteContent){
+            if(noteContent.count == 1 && [noteContent objectAtIndex:0] != [NSNull null]){
+                Content *c = [self.ac addNewContentToThisNote:note
+                                          inThisGroupTemplate:gt
+                                           andThisContentType:ct];
+                c.numberData = [noteContent objectAtIndex:0];
             }
         }
     }

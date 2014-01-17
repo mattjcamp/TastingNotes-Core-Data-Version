@@ -14,6 +14,7 @@
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="belongsToGroup" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Group_Template" inverseName="contentTypes" inverseEntity="Group_Template" syncable="YES"/>
         <relationship name="contentInThisContent_Type" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Content" inverseName="inThisContent_Type" inverseEntity="Content" syncable="YES"/>
+        <relationship name="listObjects" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ListObject" inverseName="belongsToThisContentType" inverseEntity="ListObject" syncable="YES"/>
     </entity>
     <entity name="Group_Template" representedClassName="Group_Template" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -21,6 +22,12 @@
         <relationship name="belongsToTemplate" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Notebook_Template" inverseName="groups" inverseEntity="Notebook_Template" syncable="YES"/>
         <relationship name="contentInThisGroup" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Content" inverseName="inThisGroup" inverseEntity="Content" syncable="YES"/>
         <relationship name="contentTypes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ContentType_Template" inverseName="belongsToGroup" inverseEntity="ContentType_Template" syncable="YES"/>
+    </entity>
+    <entity name="ListObject" representedClassName="ListObject" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="objectDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="belongsToThisContentType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ContentType_Template" inverseName="listObjects" inverseEntity="ContentType_Template" syncable="YES"/>
     </entity>
     <entity name="Note" representedClassName="Note" syncable="YES">
         <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -39,11 +46,12 @@
         <relationship name="groups" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Group_Template" inverseName="belongsToTemplate" inverseEntity="Group_Template" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Content" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="ContentType_Template" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Group_Template" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Note" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Notebook" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Notebook_Template" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Content" positionX="-83" positionY="90" width="128" height="135"/>
+        <element name="ContentType_Template" positionX="7" positionY="-144" width="128" height="133"/>
+        <element name="Group_Template" positionX="-173" positionY="-144" width="128" height="120"/>
+        <element name="Note" positionX="-504" positionY="63" width="128" height="90"/>
+        <element name="Notebook" positionX="-540" positionY="-144" width="128" height="105"/>
+        <element name="Notebook_Template" positionX="-353" positionY="-144" width="128" height="90"/>
+        <element name="ListObject" positionX="180" positionY="-144" width="128" height="103"/>
     </elements>
 </model>

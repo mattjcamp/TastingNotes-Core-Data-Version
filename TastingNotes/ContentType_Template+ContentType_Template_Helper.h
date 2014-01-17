@@ -10,4 +10,8 @@
 
 @interface ContentType_Template (ContentType_Template_Helper)
 
+-(NSArray *) listObjectsByOrder;
+
+-(NSNumber *)maxListObjectOrder;
+
 @end
