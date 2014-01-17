@@ -61,8 +61,6 @@
 -(void)testCoreData{
     NSArray *n1 = [self.ac notebooks];
     [n1 enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        /*[Dump dumpThisNotebookTemplate:obj
-                           intoThisLog:self.log];*/
         [Dump dumpThisNotebookContent:obj
                           intoThisLog:self.log];
     }];

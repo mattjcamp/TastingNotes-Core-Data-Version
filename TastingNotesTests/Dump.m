@@ -47,44 +47,38 @@
         [[note.belongsToNotebook.template groupsByOrder] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             Group_Template *g = (Group_Template *)obj;
             
+            [log appendFormat:@"        GROUP[%@].%@\n", g.order, g.name];
+            
             [[g contentTypesByOrder]enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
                 ContentType_Template *ct = (ContentType_Template *)obj;
                 
-                if([ct.type isEqualToString:@"List"]){
-                    [log appendFormat:@"        %@[%@].%@[%@] = ?\n", g.name.uppercaseString, g.order,
-                     ct.name.uppercaseString, ct.order];
-                }
-                
-                
                 Content *c = [note contentInThisGroup:g
                                    andThisContentType:ct];
+                
                 if(c){
+                    [log appendFormat:@"            CONTENT_TYPE[%@].%@", ct.order, ct.name];
                     if([ct.type isEqualToString:@"SmallText"] || [ct.type isEqualToString:@"MultiText"]){
-                        [log appendFormat:@"        %@[%@].%@[%@] = %@\n", g.name.uppercaseString, g.order,
-                         ct.name.uppercaseString, ct.order,
-                         c.stringData];
+                        [log appendFormat:@".%@", c.stringData];
                     }
                     if([ct.type isEqualToString:@"5StarRating"] || [ct.type isEqualToString:@"Numeric"] || [ct.type isEqualToString:@"Currency"] || [ct.type isEqualToString:@"100PointScale"] || [ct.type isEqualToString:@"Date"]){
-                        [log appendFormat:@"        %@[%@].%@[%@] = %@\n", g.name.uppercaseString, g.order,
-                         ct.name.uppercaseString, ct.order,
-                         c.numberData];
+                        [log appendFormat:@".%@", c.numberData];
                     }
+                    
                     if([ct.type isEqualToString:@"List"]){
-                        [log appendFormat:@"        %@[%@].%@[%@] = %@\n", g.name.uppercaseString, g.order,
-                         ct.name.uppercaseString, ct.order,
-                         c.numberData];
+                        [[c.selectedListObjects allObjects] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                            SelectedListObject *slo = (SelectedListObject *)obj;
+                            
+                            ListObject *lo = [ct listObjectsForThisSelectedObject:slo];
+                            
+                            [log appendString:@"\n"];
+                            [log appendFormat:@"                %@", lo.name];
+                        }];
                     }
-                    /*if([ct.type isEqualToString:@"Picture"]){
-                        [log appendFormat:@"        %@[%@].%@[%@] = %@\n", g.name.uppercaseString, g.order,
-                         ct.name.uppercaseString, ct.order,
-                         c.binaryData];
-                    }*/
+                    [log appendString:@"\n"];
                 }
-                
             }];
         }];
     }];
-    
 }
 
 @end

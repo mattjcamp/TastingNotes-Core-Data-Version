@@ -157,13 +157,13 @@
         NSArray *noteContent = [self.db getRowValuesFromThisTable:@"ContentInNoteAndControl"
                                          usingThisSelectStatement:[NSString stringWithFormat:@"SELECT pk FROM ContentInNoteAndControl WHERE fk_ToNotesInlistTable = %@ AND fk_ToControlTable = %@", notePK, ct.pk]];
         if(noteContent){
-            //NSNumber *ContentInNoteAndControlPK = [noteContent firstObject];
+            NSNumber *ContentInNoteAndControlPK = [noteContent firstObject];
             Content *c = [self.ac addNewContentToThisNote:note
                                       inThisGroupTemplate:gt
                                        andThisContentType:ct];
             
             NSArray *fk_To_TagValues = [[SQLiteDB sharedDatabase] getColumnValuesFromThisTable:@"TagValuesInContent"
-                                                                      usingThisSelectStatement:[NSString stringWithFormat:@"SELECT fk_To_TagValues FROM TagValuesInContent WHERE fk_To_ContentInNoteAndControl = %@", ct.pk]
+                                                                      usingThisSelectStatement:[NSString stringWithFormat:@"SELECT fk_To_TagValues FROM TagValuesInContent WHERE fk_To_ContentInNoteAndControl = %@", ContentInNoteAndControlPK]
                                                                                 fromThisColumn:0];
             
             [fk_To_TagValues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -175,8 +175,6 @@
                 
                 [self.ac addSelectedListObjectWithThisIdentifier:lo.identifier
                                                    toThisContent:c];
-                
-                //NSLog(@"a.name = %@", [a valueForKey:@"name"]);
                 
             }];
         }

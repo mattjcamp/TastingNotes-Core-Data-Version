@@ -14,4 +14,6 @@
 
 -(NSNumber *)maxListObjectOrder;
 
+-(ListObject *) listObjectsForThisSelectedObject:(SelectedListObject *)slo;
+
 @end
