@@ -2,7 +2,7 @@
 //  Content.m
 //  TastingNotes
 //
-//  Created by Matt on 1/7/14.
+//  Created by Matt on 1/17/14.
 //  Copyright (c) 2014 Mobile App Mastery. All rights reserved.
 //
 
@@ -14,7 +14,9 @@
 
 @implementation Content
 
-@dynamic data;
+@dynamic stringData;
+@dynamic numberData;
+@dynamic binaryData;
 @dynamic belongsToNote;
 @dynamic inThisContent_Type;
 @dynamic inThisGroup;

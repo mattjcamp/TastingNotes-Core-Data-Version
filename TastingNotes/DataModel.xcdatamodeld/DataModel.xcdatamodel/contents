@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13B3116" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Content" representedClassName="Content" syncable="YES">
-        <attribute name="data" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="binaryData" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="numberData" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="stringData" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="belongsToNote" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Note" inverseName="content" inverseEntity="Note" syncable="YES"/>
         <relationship name="inThisContent_Type" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ContentType_Template" inverseName="contentInThisContent_Type" inverseEntity="ContentType_Template" syncable="YES"/>
         <relationship name="inThisGroup" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Group_Template" inverseName="contentInThisGroup" inverseEntity="Group_Template" syncable="YES"/>

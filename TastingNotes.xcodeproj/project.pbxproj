@@ -11,7 +11,6 @@
 		C9000DEA187395990002C170 /* AppContent+ContentUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = C9000DE9187395990002C170 /* AppContent+ContentUtilities.m */; };
 		C9446045187C8986000502C2 /* ContentType_Template.m in Sources */ = {isa = PBXBuildFile; fileRef = C9446044187C8986000502C2 /* ContentType_Template.m */; };
 		C9446048187C8986000502C2 /* Notebook.m in Sources */ = {isa = PBXBuildFile; fileRef = C9446047187C8986000502C2 /* Notebook.m */; };
-		C944604B187C8986000502C2 /* Content.m in Sources */ = {isa = PBXBuildFile; fileRef = C944604A187C8986000502C2 /* Content.m */; };
 		C944604E187C8986000502C2 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = C944604D187C8986000502C2 /* Note.m */; };
 		C9446051187C8986000502C2 /* Notebook_Template.m in Sources */ = {isa = PBXBuildFile; fileRef = C9446050187C8986000502C2 /* Notebook_Template.m */; };
 		C9446054187C8986000502C2 /* Group_Template.m in Sources */ = {isa = PBXBuildFile; fileRef = C9446053187C8986000502C2 /* Group_Template.m */; };
@@ -44,6 +43,7 @@
 		C9C02DE51864DFFC00739C36 /* Group_Template+Group_Template_Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C02DE41864DFFC00739C36 /* Group_Template+Group_Template_Helper.m */; };
 		C9C02DF71864E80A00739C36 /* Notebook+Notebook_Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C02DF61864E80A00739C36 /* Notebook+Notebook_Helper.m */; };
 		C9C02E091865107F00739C36 /* Note+Note_Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C02E081865107F00739C36 /* Note+Note_Helper.m */; };
+		C9CA9691188989ED00B015BC /* Content.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CA9690188989ED00B015BC /* Content.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,8 +65,6 @@
 		C9446044187C8986000502C2 /* ContentType_Template.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentType_Template.m; sourceTree = "<group>"; };
 		C9446046187C8986000502C2 /* Notebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notebook.h; sourceTree = "<group>"; };
 		C9446047187C8986000502C2 /* Notebook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notebook.m; sourceTree = "<group>"; };
-		C9446049187C8986000502C2 /* Content.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Content.h; sourceTree = "<group>"; };
-		C944604A187C8986000502C2 /* Content.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Content.m; sourceTree = "<group>"; };
 		C944604C187C8986000502C2 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
 		C944604D187C8986000502C2 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
 		C944604F187C8986000502C2 /* Notebook_Template.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notebook_Template.h; sourceTree = "<group>"; };
@@ -116,6 +114,8 @@
 		C9C02DF61864E80A00739C36 /* Notebook+Notebook_Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Notebook+Notebook_Helper.m"; sourceTree = "<group>"; };
 		C9C02E071865107F00739C36 /* Note+Note_Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Note+Note_Helper.h"; sourceTree = "<group>"; };
 		C9C02E081865107F00739C36 /* Note+Note_Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Note+Note_Helper.m"; sourceTree = "<group>"; };
+		C9CA968F188989ED00B015BC /* Content.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Content.h; sourceTree = "<group>"; };
+		C9CA9690188989ED00B015BC /* Content.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Content.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,14 +247,14 @@
 			isa = PBXGroup;
 			children = (
 				C9C02D8C18648F9000739C36 /* DataModel.xcdatamodeld */,
+				C9CA968F188989ED00B015BC /* Content.h */,
+				C9CA9690188989ED00B015BC /* Content.m */,
 				C9446052187C8986000502C2 /* Group_Template.h */,
 				C9446053187C8986000502C2 /* Group_Template.m */,
 				C944604F187C8986000502C2 /* Notebook_Template.h */,
 				C9446050187C8986000502C2 /* Notebook_Template.m */,
 				C944604C187C8986000502C2 /* Note.h */,
 				C944604D187C8986000502C2 /* Note.m */,
-				C9446049187C8986000502C2 /* Content.h */,
-				C944604A187C8986000502C2 /* Content.m */,
 				C9446046187C8986000502C2 /* Notebook.h */,
 				C9446047187C8986000502C2 /* Notebook.m */,
 				C9446043187C8986000502C2 /* ContentType_Template.h */,
@@ -390,7 +390,7 @@
 				C9446048187C8986000502C2 /* Notebook.m in Sources */,
 				C962FEC3187B57F100208180 /* SQLiteColumnMetaData.m in Sources */,
 				C9446051187C8986000502C2 /* Notebook_Template.m in Sources */,
-				C944604B187C8986000502C2 /* Content.m in Sources */,
+				C9CA9691188989ED00B015BC /* Content.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

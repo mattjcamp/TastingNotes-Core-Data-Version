@@ -56,7 +56,7 @@
                     Content *c = [self addNewContentToThisNote:n
                                               inThisGroupTemplate:gt
                                                andThisContentType:obj];
-                    c.data = [NSString stringWithFormat:@"NB%@_GT%i_CT%i_C", n.belongsToNotebook.order, gi, ci];
+                    c.stringData = [NSString stringWithFormat:@"NB%@_GT%i_CT%i_C", n.belongsToNotebook.order, gi, ci];
                 }];
             }];
         }

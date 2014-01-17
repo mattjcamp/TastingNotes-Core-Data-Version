@@ -90,23 +90,38 @@
             Group_Template *gt = (Group_Template *)obj;
             [gt.contentTypesByOrder enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
                 ContentType_Template *ct = (ContentType_Template *)obj;
-                NSArray *noteContent = [self.db getRowValuesFromThisTable:@"ContentInNoteAndControl"
-                                                 usingThisSelectStatement:[NSString stringWithFormat:@"SELECT * FROM ContentInNoteAndControl WHERE fk_ToNotesInlistTable = %@ AND fk_ToControlTable = %@", notePK, ct.pk]];
-                if(noteContent){
-                    if(noteContent.count >=3 ){
-                        if([noteContent objectAtIndex:3] != [NSNull null]){
-                            //NSLog(@"noteContent = %@", [noteContent objectAtIndex:3]);
-                            Content *c = [self.ac addNewContentToThisNote:n
-                                         inThisGroupTemplate:gt
-                                          andThisContentType:ct];
-                            c.data = [noteContent objectAtIndex:3];
-                        }
-                    }
-                }
+                
+                [self importContentIntoThisNote:n
+                             withThisPrimaryKey:notePK
+                            inThisGroupTemplate:gt
+                             andThisContentType:ct];
+                
+                
             }];
         }];
         
     }];
+}
+
+-(void)importContentIntoThisNote:(Note *)note
+              withThisPrimaryKey:(NSNumber *)notePK
+             inThisGroupTemplate:(Group_Template *)gt
+              andThisContentType:(ContentType_Template *)ct{
+    
+    if([ct.type isEqualToString:@"SmallText"]){
+        NSArray *noteContent = [self.db getRowValuesFromThisTable:@"ContentInNoteAndControl"
+                                         usingThisSelectStatement:[NSString stringWithFormat:@"SELECT ContentTextValue FROM ContentInNoteAndControl WHERE fk_ToNotesInlistTable = %@ AND fk_ToControlTable = %@", notePK, ct.pk]];
+        if(noteContent){
+            if(noteContent.count == 1){
+                if([noteContent objectAtIndex:0] != [NSNull null]){
+                    Content *c = [self.ac addNewContentToThisNote:note
+                                              inThisGroupTemplate:gt
+                                               andThisContentType:ct];
+                    c.stringData = [noteContent objectAtIndex:0];
+                }
+            }
+        }
+    }
 }
 
 @end

@@ -51,7 +51,7 @@
                 if(c)
                     [log appendFormat:@"        %@[%@].%@[%@] = %@\n", g.name.uppercaseString, g.order,
                      ct.name.uppercaseString, ct.order,
-                     c.data];
+                     c.stringData];
                 
             }];
         }];

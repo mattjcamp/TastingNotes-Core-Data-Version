@@ -2,7 +2,7 @@
 //  Content.h
 //  TastingNotes
 //
-//  Created by Matt on 1/7/14.
+//  Created by Matt on 1/17/14.
 //  Copyright (c) 2014 Mobile App Mastery. All rights reserved.
 //
 
@@ -13,7 +13,9 @@
 
 @interface Content : NSManagedObject
 
-@property (nonatomic, retain) NSString * data;
+@property (nonatomic, retain) NSString * stringData;
+@property (nonatomic, retain) NSNumber * numberData;
+@property (nonatomic, retain) NSData * binaryData;
 @property (nonatomic, retain) Note *belongsToNote;
 @property (nonatomic, retain) ContentType_Template *inThisContent_Type;
 @property (nonatomic, retain) Group_Template *inThisGroup;

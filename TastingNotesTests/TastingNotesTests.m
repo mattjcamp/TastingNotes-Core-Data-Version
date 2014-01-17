@@ -90,7 +90,7 @@ int testNum = 0;
                     Content *c = [note contentInThisGroup:g
                                        andThisContentType:ct];
                     if(c)
-                        XCTAssertNotNil(c.data, "No content data");
+                        XCTAssertNotNil(c.stringData, "No content data");
                 }];
             }];
         }];
