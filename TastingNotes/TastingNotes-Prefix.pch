@@ -19,6 +19,7 @@
     #import "Group_Template.h"
     #import "ContentType_Template.h"
     #import "ListObject.h"
+    #import "SelectedListObject.h"
     #import "Content.h"
     #import "Notebook_Template+Notebook_Template_Helper.h"
     #import "Group_Template+Group_Template_Helper.h"

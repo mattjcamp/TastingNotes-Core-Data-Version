@@ -13,8 +13,9 @@
 @implementation ListObject
 
 @dynamic name;
-@dynamic order;
 @dynamic objectDescription;
+@dynamic order;
+@dynamic identifier;
 @dynamic belongsToThisContentType;
 
 @end

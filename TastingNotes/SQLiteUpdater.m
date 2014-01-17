@@ -101,13 +101,10 @@
             Group_Template *gt = (Group_Template *)obj;
             [gt.contentTypesByOrder enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
                 ContentType_Template *ct = (ContentType_Template *)obj;
-                
                 [self importContentIntoThisNote:n
                              withThisPrimaryKey:notePK
                             inThisGroupTemplate:gt
                              andThisContentType:ct];
-                
-                
             }];
         }];
         
@@ -157,20 +154,31 @@
         }
     }
     if([ct.type isEqualToString:@"List"]){
-        
-        NSArray *pklist = [[SQLiteDB sharedDatabase] getColumnValuesFromThisTable:@"TagValues"
-                                                         usingThisSelectStatement:[NSString stringWithFormat:@"SELECT pk FROM TagValues WHERE fk_ToControlTable = %@ ORDER BY TagValueOrder", ct.pk]
-                                                                   fromThisColumn:0];
-        
         NSArray *noteContent = [self.db getRowValuesFromThisTable:@"ContentInNoteAndControl"
-                                         usingThisSelectStatement:[NSString stringWithFormat:@"SELECT ContentNumValue FROM ContentInNoteAndControl WHERE fk_ToNotesInlistTable = %@ AND fk_ToControlTable = %@", notePK, ct.pk]];
+                                         usingThisSelectStatement:[NSString stringWithFormat:@"SELECT pk FROM ContentInNoteAndControl WHERE fk_ToNotesInlistTable = %@ AND fk_ToControlTable = %@", notePK, ct.pk]];
         if(noteContent){
-            if(noteContent.count == 1 && [noteContent objectAtIndex:0] != [NSNull null]){
-                Content *c = [self.ac addNewContentToThisNote:note
-                                          inThisGroupTemplate:gt
-                                           andThisContentType:ct];
-                c.numberData = [noteContent objectAtIndex:0];
-            }
+            //NSNumber *ContentInNoteAndControlPK = [noteContent firstObject];
+            Content *c = [self.ac addNewContentToThisNote:note
+                                      inThisGroupTemplate:gt
+                                       andThisContentType:ct];
+            
+            NSArray *fk_To_TagValues = [[SQLiteDB sharedDatabase] getColumnValuesFromThisTable:@"TagValuesInContent"
+                                                                      usingThisSelectStatement:[NSString stringWithFormat:@"SELECT fk_To_TagValues FROM TagValuesInContent WHERE fk_To_ContentInNoteAndControl = %@", ct.pk]
+                                                                                fromThisColumn:0];
+            
+            [fk_To_TagValues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                NSArray *tagValue = [self.db getRowValuesFromThisTable:@"TagValues"
+                                              usingThisSelectStatement:[NSString stringWithFormat:@"SELECT TagValueText FROM TagValues WHERE pk = %@", obj]];
+                NSPredicate *p = [NSPredicate predicateWithFormat:@"name LIKE %@", [tagValue firstObject]];
+                NSArray *a = [ct.listObjectsByOrder filteredArrayUsingPredicate:p];
+                ListObject *lo = (ListObject *)[a firstObject];
+                
+                [self.ac addSelectedListObjectWithThisIdentifier:lo.identifier
+                                                   toThisContent:c];
+                
+                //NSLog(@"a.name = %@", [a valueForKey:@"name"]);
+                
+            }];
         }
     }
 }

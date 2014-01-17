@@ -36,7 +36,7 @@
                         error:nil];
 }
 
--(void)testSQLite{
+-(void)testSQLiteTemplateImport{
     
     SQLiteUpdater *se = [[SQLiteUpdater alloc]init];
     [se importSQLtoCoreData];
@@ -44,12 +44,18 @@
     [[self.ac notebooks] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         [Dump dumpThisNotebookTemplate:obj
                            intoThisLog:self.log];
-        
-         /*Dump dumpThisNotebookContent:obj
-                          intoThisLog:self.log];*/
     }];
+}
+
+-(void)testSQLiteContentImport{
     
-    //[self.ac save];
+    SQLiteUpdater *se = [[SQLiteUpdater alloc]init];
+    [se importSQLtoCoreData];
+    
+    [[self.ac notebooks] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [Dump dumpThisNotebookContent:obj
+                          intoThisLog:self.log];
+    }];
 }
 
 -(void)testCoreData{

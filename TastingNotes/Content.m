@@ -10,15 +10,17 @@
 #import "ContentType_Template.h"
 #import "Group_Template.h"
 #import "Note.h"
+#import "SelectedListObject.h"
 
 
 @implementation Content
 
-@dynamic stringData;
-@dynamic numberData;
 @dynamic binaryData;
+@dynamic numberData;
+@dynamic stringData;
 @dynamic belongsToNote;
 @dynamic inThisContent_Type;
 @dynamic inThisGroup;
+@dynamic selectedListObjects;
 
 @end

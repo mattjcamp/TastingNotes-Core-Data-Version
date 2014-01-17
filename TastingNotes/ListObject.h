@@ -14,8 +14,9 @@
 @interface ListObject : NSManagedObject
 
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSNumber * order;
 @property (nonatomic, retain) NSString * objectDescription;
+@property (nonatomic, retain) NSNumber * order;
+@property (nonatomic, retain) NSNumber * identifier;
 @property (nonatomic, retain) ContentType_Template *belongsToThisContentType;
 
 @end

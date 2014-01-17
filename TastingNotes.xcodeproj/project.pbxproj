@@ -42,9 +42,10 @@
 		C9C02DE51864DFFC00739C36 /* Group_Template+Group_Template_Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C02DE41864DFFC00739C36 /* Group_Template+Group_Template_Helper.m */; };
 		C9C02DF71864E80A00739C36 /* Notebook+Notebook_Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C02DF61864E80A00739C36 /* Notebook+Notebook_Helper.m */; };
 		C9C02E091865107F00739C36 /* Note+Note_Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C02E081865107F00739C36 /* Note+Note_Helper.m */; };
-		C9CA9691188989ED00B015BC /* Content.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CA9690188989ED00B015BC /* Content.m */; };
-		C9CA969718899FF500B015BC /* ListObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CA969618899FF500B015BC /* ListObject.m */; };
 		C9CA969A1889A4AB00B015BC /* ContentType_Template.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CA96991889A4AB00B015BC /* ContentType_Template.m */; };
+		C9CA969D1889BAF300B015BC /* SelectedListObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CA969C1889BAF300B015BC /* SelectedListObject.m */; };
+		C9CA96A01889BAF400B015BC /* Content.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CA969F1889BAF400B015BC /* Content.m */; };
+		C9CA96A31889BB3700B015BC /* ListObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CA96A21889BB3700B015BC /* ListObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,12 +114,14 @@
 		C9C02DF61864E80A00739C36 /* Notebook+Notebook_Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Notebook+Notebook_Helper.m"; sourceTree = "<group>"; };
 		C9C02E071865107F00739C36 /* Note+Note_Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Note+Note_Helper.h"; sourceTree = "<group>"; };
 		C9C02E081865107F00739C36 /* Note+Note_Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Note+Note_Helper.m"; sourceTree = "<group>"; };
-		C9CA968F188989ED00B015BC /* Content.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Content.h; sourceTree = "<group>"; };
-		C9CA9690188989ED00B015BC /* Content.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Content.m; sourceTree = "<group>"; };
-		C9CA969518899FF500B015BC /* ListObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListObject.h; sourceTree = "<group>"; };
-		C9CA969618899FF500B015BC /* ListObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListObject.m; sourceTree = "<group>"; };
 		C9CA96981889A4AB00B015BC /* ContentType_Template.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentType_Template.h; sourceTree = "<group>"; };
 		C9CA96991889A4AB00B015BC /* ContentType_Template.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentType_Template.m; sourceTree = "<group>"; };
+		C9CA969B1889BAF300B015BC /* SelectedListObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedListObject.h; sourceTree = "<group>"; };
+		C9CA969C1889BAF300B015BC /* SelectedListObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedListObject.m; sourceTree = "<group>"; };
+		C9CA969E1889BAF400B015BC /* Content.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Content.h; sourceTree = "<group>"; };
+		C9CA969F1889BAF400B015BC /* Content.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Content.m; sourceTree = "<group>"; };
+		C9CA96A11889BB3700B015BC /* ListObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListObject.h; sourceTree = "<group>"; };
+		C9CA96A21889BB3700B015BC /* ListObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,10 +253,6 @@
 			isa = PBXGroup;
 			children = (
 				C9C02D8C18648F9000739C36 /* DataModel.xcdatamodeld */,
-				C9CA969518899FF500B015BC /* ListObject.h */,
-				C9CA969618899FF500B015BC /* ListObject.m */,
-				C9CA968F188989ED00B015BC /* Content.h */,
-				C9CA9690188989ED00B015BC /* Content.m */,
 				C9446052187C8986000502C2 /* Group_Template.h */,
 				C9446053187C8986000502C2 /* Group_Template.m */,
 				C944604F187C8986000502C2 /* Notebook_Template.h */,
@@ -274,6 +273,12 @@
 				C9C02E081865107F00739C36 /* Note+Note_Helper.m */,
 				C9CA96981889A4AB00B015BC /* ContentType_Template.h */,
 				C9CA96991889A4AB00B015BC /* ContentType_Template.m */,
+				C9CA969E1889BAF400B015BC /* Content.h */,
+				C9CA969F1889BAF400B015BC /* Content.m */,
+				C9CA969B1889BAF300B015BC /* SelectedListObject.h */,
+				C9CA969C1889BAF300B015BC /* SelectedListObject.m */,
+				C9CA96A11889BB3700B015BC /* ListObject.h */,
+				C9CA96A21889BB3700B015BC /* ListObject.m */,
 			);
 			name = Notebooks;
 			sourceTree = "<group>";
@@ -385,6 +390,7 @@
 				C9CA969A1889A4AB00B015BC /* ContentType_Template.m in Sources */,
 				C9C02DE21864DFAC00739C36 /* ContentType_Template+ContentType_Template_Helper.m in Sources */,
 				C9C02D1B18645EC200739C36 /* AppDelegate.m in Sources */,
+				C9CA969D1889BAF300B015BC /* SelectedListObject.m in Sources */,
 				C9C02D1718645EC200739C36 /* main.m in Sources */,
 				C962FED0187B821800208180 /* SQLiteUpdater.m in Sources */,
 				C9C02D8B18648F7500739C36 /* AppContent.m in Sources */,
@@ -394,9 +400,9 @@
 				C9446054187C8986000502C2 /* Group_Template.m in Sources */,
 				C9446048187C8986000502C2 /* Notebook.m in Sources */,
 				C962FEC3187B57F100208180 /* SQLiteColumnMetaData.m in Sources */,
+				C9CA96A31889BB3700B015BC /* ListObject.m in Sources */,
 				C9446051187C8986000502C2 /* Notebook_Template.m in Sources */,
-				C9CA969718899FF500B015BC /* ListObject.m in Sources */,
-				C9CA9691188989ED00B015BC /* Content.m in Sources */,
+				C9CA96A01889BAF400B015BC /* Content.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

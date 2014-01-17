@@ -148,9 +148,23 @@ static AppContent *singletonInstance = nil;
                                                           inManagedObjectContext:context];
     listObject.name = name;
     listObject.order = [NSNumber numberWithInt:[[ct maxListObjectOrder] integerValue] + 1];
+    listObject.identifier = [NSNumber numberWithInt:[[ct maxListObjectOrder] integerValue] + 1];
+    
     [ct addListObjectsObject:listObject];
     
     return listObject;
+}
+
+-(SelectedListObject *)addSelectedListObjectWithThisIdentifier:(NSNumber *)identifier
+                                           toThisContent:(Content *) c{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    SelectedListObject *selectedListObject =[NSEntityDescription insertNewObjectForEntityForName:@"SelectedListObject"
+                                                          inManagedObjectContext:context];
+
+    selectedListObject.identifier = identifier;
+    [c addSelectedListObjectsObject:selectedListObject];
+    
+    return selectedListObject;
 }
 
 -(Notebook *)newWineNotebook{
