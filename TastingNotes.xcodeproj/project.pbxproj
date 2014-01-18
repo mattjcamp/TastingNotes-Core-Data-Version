@@ -20,6 +20,7 @@
 		C962FECA187B5AB400208180 /* SQLiteUpgrade.m in Sources */ = {isa = PBXBuildFile; fileRef = C962FEC9187B5AB400208180 /* SQLiteUpgrade.m */; };
 		C962FED0187B821800208180 /* SQLiteUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = C962FECF187B821800208180 /* SQLiteUpdater.m */; };
 		C9981036188AB28C0049690D /* paddb.sql in Resources */ = {isa = PBXBuildFile; fileRef = C9981035188AB28C0049690D /* paddb.sql */; };
+		C9A1C3AD188AE67700B892B1 /* WineDatabaseOutput.txt in Resources */ = {isa = PBXBuildFile; fileRef = C9A1C3AC188AE67700B892B1 /* WineDatabaseOutput.txt */; };
 		C9C02D0B18645EC200739C36 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C02D0A18645EC200739C36 /* Foundation.framework */; };
 		C9C02D0D18645EC200739C36 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C02D0C18645EC200739C36 /* CoreGraphics.framework */; };
 		C9C02D0F18645EC200739C36 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C02D0E18645EC200739C36 /* UIKit.framework */; };
@@ -82,6 +83,7 @@
 		C962FECE187B821800208180 /* SQLiteUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteUpdater.h; sourceTree = "<group>"; };
 		C962FECF187B821800208180 /* SQLiteUpdater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteUpdater.m; sourceTree = "<group>"; };
 		C9981035188AB28C0049690D /* paddb.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = paddb.sql; sourceTree = "<group>"; };
+		C9A1C3AC188AE67700B892B1 /* WineDatabaseOutput.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WineDatabaseOutput.txt; sourceTree = "<group>"; };
 		C9C02D0718645EC200739C36 /* TastingNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TastingNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9C02D0A18645EC200739C36 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C9C02D0C18645EC200739C36 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -165,6 +167,14 @@
 			name = SQLite;
 			sourceTree = "<group>";
 		};
+		C9A1C3AB188AE67700B892B1 /* Output */ = {
+			isa = PBXGroup;
+			children = (
+				C9A1C3AC188AE67700B892B1 /* WineDatabaseOutput.txt */,
+			);
+			path = Output;
+			sourceTree = "<group>";
+		};
 		C9C02CFE18645EC200739C36 = {
 			isa = PBXGroup;
 			children = (
@@ -232,6 +242,7 @@
 		C9C02D3218645EC200739C36 /* TastingNotesTests */ = {
 			isa = PBXGroup;
 			children = (
+				C9A1C3AB188AE67700B892B1 /* Output */,
 				C9C02D3818645EC200739C36 /* TastingNotesTests.m */,
 				C962FEC9187B5AB400208180 /* SQLiteUpgrade.m */,
 				C9000DE518738D290002C170 /* Dump.h */,
@@ -375,6 +386,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9A1C3AD188AE67700B892B1 /* WineDatabaseOutput.txt in Resources */,
 				C9C02D3718645EC200739C36 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,6 +12,8 @@
 #import "AppContent+ContentUtilities.h"
 #import "SQLiteUpdater.h"
 
+#define REF_FILE (@"/Users/matt/Code/Objective-C/TastingNotes/TastingNotesTests/Output/SQLiteUpgrade-log.txt")
+
 @interface SQLiteUpgrade : XCTestCase
 
 @property AppContent *ac;
@@ -30,7 +32,7 @@
 -(void)tearDown{
     [super tearDown];
     if([self.log length] > 0)
-        [self.log writeToFile:@"/Users/matt/Code/Objective-C/TastingNotes/TastingNotesTests/Output/SQLiteUpgrade-log.txt"
+        [self.log writeToFile:REF_FILE
                    atomically:NO
                      encoding:NSStringEncodingConversionAllowLossy
                         error:nil];
