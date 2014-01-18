@@ -1,0 +1,249 @@
+NOTEBOOKS[1].Wines
+   NOTEBOOK.TEMPLATE.Wines Template
+       GROUP[1].Note
+               CONTENT_TYPE[1].Wine Name.SmallText
+               CONTENT_TYPE[2].Wine Type.List
+                    LISTOBJECT[1-1].Red
+                    LISTOBJECT[2-2].White
+                    LISTOBJECT[3-3].Sparkling
+                    LISTOBJECT[4-4].Dessert
+                    LISTOBJECT[5-5].Rose
+                    LISTOBJECT[6-6].Fruit
+                    LISTOBJECT[7-7].Ice
+               CONTENT_TYPE[3].Wine Bottle Label.Picture
+               CONTENT_TYPE[4].Rating.5StarRating
+               CONTENT_TYPE[5].Comments.MultiText
+       GROUP[2].Details
+               CONTENT_TYPE[1].Vintage.Numeric
+               CONTENT_TYPE[2].Price.Currency
+               CONTENT_TYPE[3].Varietals.List
+                    LISTOBJECT[1-1].Nebbiolo
+                    LISTOBJECT[2-2].Chardonnay
+                    LISTOBJECT[3-3].Cabernet Sauvignon
+                    LISTOBJECT[4-4].Riesling
+                    LISTOBJECT[5-5].Malbec
+                    LISTOBJECT[6-6].Merlot
+                    LISTOBJECT[7-7].Pinot Blanc
+                    LISTOBJECT[8-8].Pinot Gris
+                    LISTOBJECT[9-9].Pinot Noir
+                    LISTOBJECT[10-10].Sangiovese
+                    LISTOBJECT[11-11].Sauvignon Blanc
+                    LISTOBJECT[12-12].Zinfandel
+                    LISTOBJECT[13-13].Shiraz
+                    LISTOBJECT[14-14].Syrah 
+               CONTENT_TYPE[4].Region.List
+                    LISTOBJECT[1-1].France
+                    LISTOBJECT[2-2].California
+                    LISTOBJECT[3-3].Australia
+                    LISTOBJECT[4-4].Germany
+                    LISTOBJECT[5-5].Spain
+                    LISTOBJECT[6-6].Italy
+                    LISTOBJECT[7-7].Bordeaux
+                    LISTOBJECT[8-8].The Loire Valley
+                    LISTOBJECT[9-9].Burgundy
+                    LISTOBJECT[10-10].Champagne
+                    LISTOBJECT[11-11].Alsace
+                    LISTOBJECT[12-12].The Rhone
+                    LISTOBJECT[13-13].Sonoma
+                    LISTOBJECT[14-14].Napa
+                    LISTOBJECT[15-15].Willamette Valley
+                    LISTOBJECT[16-16].Mendoza Province
+                    LISTOBJECT[17-17].Mittelrhein
+                    LISTOBJECT[18-18].Chianti
+                    LISTOBJECT[19-19].Piedmont
+                    LISTOBJECT[20-20].Chili
+                    LISTOBJECT[21-21].Argentina
+                    LISTOBJECT[22-22].United States
+                    LISTOBJECT[23-23].Lodi
+                    LISTOBJECT[24-24].San Joaquin
+                    LISTOBJECT[25-25].Central Coast
+NOTEBOOKS[2].Beers
+   NOTEBOOK.TEMPLATE.Beers Template
+NOTEBOOKS[1].Wines
+    NOTE[1]
+        GROUP[1].Note
+            CONTENT_TYPE[1].Wine Name.Rosso
+            CONTENT_TYPE[2].Wine Type
+                Red[1]
+            CONTENT_TYPE[3].Wine Bottle Label
+            CONTENT_TYPE[4].Rating.3
+            CONTENT_TYPE[5].Comments.My goto wine, love with or without food.
+        GROUP[2].Details
+            CONTENT_TYPE[1].Vintage.2009
+            CONTENT_TYPE[2].Price.8.99
+            CONTENT_TYPE[3].Varietals
+                Merlot[6]
+                Zinfandel[12]
+                Shiraz[13]
+            CONTENT_TYPE[4].Region
+                California[2]
+                United States[22]
+    NOTE[2]
+        GROUP[1].Note
+            CONTENT_TYPE[1].Wine Name.7 Deadly Zins
+            CONTENT_TYPE[2].Wine Type
+                Red[1]
+            CONTENT_TYPE[3].Wine Bottle Label
+            CONTENT_TYPE[4].Rating.4
+            CONTENT_TYPE[5].Comments.Rich taste - dark chocolate and red fruit.  High in alcohol and you can taste that, but still a favorite.
+        GROUP[2].Details
+            CONTENT_TYPE[1].Vintage.2009
+            CONTENT_TYPE[2].Price.14.99
+            CONTENT_TYPE[3].Varietals
+                Zinfandel[12]
+            CONTENT_TYPE[4].Region
+                California[2]
+                Lodi[23]
+    NOTE[3]
+        GROUP[1].Note
+            CONTENT_TYPE[1].Wine Name.Red Rock
+            CONTENT_TYPE[2].Wine Type
+                Red[1]
+            CONTENT_TYPE[3].Wine Bottle Label
+            CONTENT_TYPE[4].Rating.4
+            CONTENT_TYPE[5].Comments.Smooth subtle.  Not much alcohol bite.  Cherry.  Like this wine - real drinkable and great value at 11 bucks.
+        GROUP[2].Details
+            CONTENT_TYPE[1].Vintage.2010
+            CONTENT_TYPE[2].Price.11.99
+            CONTENT_TYPE[3].Varietals
+                Malbec[5]
+            CONTENT_TYPE[4].Region
+                California[2]
+    NOTE[4]
+        GROUP[1].Note
+            CONTENT_TYPE[1].Wine Name.Coppola Diamond Chardonney
+            CONTENT_TYPE[2].Wine Type
+                White[2]
+            CONTENT_TYPE[3].Wine Bottle Label
+            CONTENT_TYPE[4].Rating.3
+            CONTENT_TYPE[5].Comments.Decent white wine.  For when I'm not drinking red wine mostly.
+        GROUP[2].Details
+            CONTENT_TYPE[1].Vintage.2011
+            CONTENT_TYPE[2].Price.14.99
+            CONTENT_TYPE[3].Varietals
+                Chardonnay[2]
+            CONTENT_TYPE[4].Region
+                California[2]
+    NOTE[5]
+        GROUP[1].Note
+            CONTENT_TYPE[1].Wine Name.Ghost Pines
+            CONTENT_TYPE[2].Wine Type
+                Red[1]
+            CONTENT_TYPE[3].Wine Bottle Label
+            CONTENT_TYPE[4].Rating.4
+            CONTENT_TYPE[5].Comments.Good example of a Zin.
+        GROUP[2].Details
+            CONTENT_TYPE[1].Vintage.2009
+            CONTENT_TYPE[2].Price.17.99
+            CONTENT_TYPE[3].Varietals
+                Zinfandel[12]
+            CONTENT_TYPE[4].Region
+                California[2]
+                Sonoma[13]
+                San Joaquin[24]
+    NOTE[6]
+        GROUP[1].Note
+            CONTENT_TYPE[1].Wine Name.Diamond Red Blend
+            CONTENT_TYPE[2].Wine Type
+                Red[1]
+            CONTENT_TYPE[3].Wine Bottle Label
+            CONTENT_TYPE[4].Rating.2
+            CONTENT_TYPE[5].Comments.Little complicated and the finish was sort of weird.
+        GROUP[2].Details
+            CONTENT_TYPE[1].Vintage.2010
+            CONTENT_TYPE[2].Price.17.99
+            CONTENT_TYPE[3].Varietals
+            CONTENT_TYPE[4].Region
+                California[2]
+    NOTE[7]
+        GROUP[1].Note
+            CONTENT_TYPE[1].Wine Name.Cupcake
+            CONTENT_TYPE[2].Wine Type
+                Red[1]
+            CONTENT_TYPE[3].Wine Bottle Label
+            CONTENT_TYPE[4].Rating.3
+        GROUP[2].Details
+            CONTENT_TYPE[1].Vintage.2011
+            CONTENT_TYPE[2].Price.12.99
+            CONTENT_TYPE[3].Varietals
+                Malbec[5]
+            CONTENT_TYPE[4].Region
+                Mendoza Province[16]
+                Argentina[21]
+    NOTE[8]
+        GROUP[1].Note
+            CONTENT_TYPE[1].Wine Name.Gigondas
+            CONTENT_TYPE[2].Wine Type
+                Red[1]
+            CONTENT_TYPE[3].Wine Bottle Label
+            CONTENT_TYPE[4].Rating.4
+            CONTENT_TYPE[5].Comments.Smells like violet, pine and cherry.  Tastes like cherries.
+        GROUP[2].Details
+            CONTENT_TYPE[1].Vintage.2010
+            CONTENT_TYPE[3].Varietals
+                Pinot Noir[9]
+            CONTENT_TYPE[4].Region
+                Burgundy[9]
+    NOTE[9]
+        GROUP[1].Note
+            CONTENT_TYPE[1].Wine Name.Cameron Hughes
+            CONTENT_TYPE[2].Wine Type
+                Red[1]
+            CONTENT_TYPE[3].Wine Bottle Label
+            CONTENT_TYPE[4].Rating.4
+        GROUP[2].Details
+            CONTENT_TYPE[1].Vintage.2009
+            CONTENT_TYPE[3].Varietals
+                Cabernet Sauvignon[3]
+            CONTENT_TYPE[4].Region
+                California[2]
+                Napa[14]
+    NOTE[10]
+        GROUP[1].Note
+            CONTENT_TYPE[1].Wine Name.Hahn
+            CONTENT_TYPE[2].Wine Type
+                Red[1]
+            CONTENT_TYPE[3].Wine Bottle Label
+            CONTENT_TYPE[4].Rating.5
+        GROUP[2].Details
+            CONTENT_TYPE[1].Vintage.2010
+            CONTENT_TYPE[3].Varietals
+                Syrah [14]
+            CONTENT_TYPE[4].Region
+                California[2]
+                Central Coast[25]
+    NOTE[11]
+        GROUP[1].Note
+            CONTENT_TYPE[2].Wine Type
+            CONTENT_TYPE[3].Wine Bottle Label
+            CONTENT_TYPE[4].Rating.5
+        GROUP[2].Details
+            CONTENT_TYPE[3].Varietals
+            CONTENT_TYPE[4].Region
+    NOTE[12]
+        GROUP[1].Note
+            CONTENT_TYPE[1].Wine Name.Predator
+            CONTENT_TYPE[2].Wine Type
+                Red[1]
+            CONTENT_TYPE[3].Wine Bottle Label
+            CONTENT_TYPE[4].Rating.5
+        GROUP[2].Details
+            CONTENT_TYPE[1].Vintage.2011
+            CONTENT_TYPE[3].Varietals
+                Zinfandel[12]
+            CONTENT_TYPE[4].Region
+                California[2]
+                Lodi[23]
+    NOTE[13]
+        GROUP[1].Note
+            CONTENT_TYPE[2].Wine Type
+        GROUP[2].Details
+            CONTENT_TYPE[3].Varietals
+            CONTENT_TYPE[4].Region
+    NOTE[14]
+        GROUP[1].Note
+            CONTENT_TYPE[2].Wine Type
+        GROUP[2].Details
+            CONTENT_TYPE[3].Varietals
+            CONTENT_TYPE[4].Region
+NOTEBOOKS[2].Beers
