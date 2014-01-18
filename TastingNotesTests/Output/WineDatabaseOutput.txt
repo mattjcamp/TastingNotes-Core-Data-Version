@@ -72,9 +72,9 @@ NOTEBOOKS[1].Wines
             CONTENT_TYPE[1].Vintage.2009
             CONTENT_TYPE[2].Price.8.99
             CONTENT_TYPE[3].Varietals
+                Merlot[6]
                 Zinfandel[12]
                 Shiraz[13]
-                Merlot[6]
             CONTENT_TYPE[4].Region
                 California[2]
                 United States[22]
@@ -92,8 +92,8 @@ NOTEBOOKS[1].Wines
             CONTENT_TYPE[3].Varietals
                 Zinfandel[12]
             CONTENT_TYPE[4].Region
-                Lodi[23]
                 California[2]
+                Lodi[23]
     NOTE[3]
         GROUP[1].Note
             CONTENT_TYPE[1].Wine Name.Red Rock
@@ -196,8 +196,8 @@ NOTEBOOKS[1].Wines
             CONTENT_TYPE[3].Varietals
                 Cabernet Sauvignon[3]
             CONTENT_TYPE[4].Region
-                Napa[14]
                 California[2]
+                Napa[14]
     NOTE[10]
         GROUP[1].Note
             CONTENT_TYPE[1].Wine Name.Hahn
@@ -232,8 +232,8 @@ NOTEBOOKS[1].Wines
             CONTENT_TYPE[3].Varietals
                 Zinfandel[12]
             CONTENT_TYPE[4].Region
-                Lodi[23]
                 California[2]
+                Lodi[23]
     NOTE[13]
         GROUP[1].Note
             CONTENT_TYPE[2].Wine Type
