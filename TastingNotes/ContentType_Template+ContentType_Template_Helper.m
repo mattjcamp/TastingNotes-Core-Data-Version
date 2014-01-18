@@ -24,9 +24,7 @@
 }
 
 -(ListObject *) listObjectsForThisSelectedObject:(SelectedListObject *)slo{
-    
     NSPredicate *p = [NSPredicate predicateWithFormat:@"identifier = %@", slo.identifier];
-    
     NSArray *results = [self.listObjectsByOrder filteredArrayUsingPredicate:p];
     
     return [results firstObject];

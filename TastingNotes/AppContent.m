@@ -147,8 +147,9 @@ static AppContent *singletonInstance = nil;
     ListObject *listObject =[NSEntityDescription insertNewObjectForEntityForName:@"ListObject"
                                                           inManagedObjectContext:context];
     listObject.name = name;
-    listObject.order = [NSNumber numberWithInt:[[ct maxListObjectOrder] integerValue] + 1];
-    listObject.identifier = [NSNumber numberWithInt:[[ct maxListObjectOrder] integerValue] + 1];
+    NSNumber *num = [NSNumber numberWithInt:[[ct maxListObjectOrder] integerValue] + 1];
+    listObject.order = num;
+    listObject.identifier = num;
     
     [ct addListObjectsObject:listObject];
     

@@ -83,9 +83,8 @@
                                                                 usingThisSelectStatement:[NSString stringWithFormat:@"SELECT TagValueText FROM TagValues WHERE fk_ToControlTable = %@ ORDER BY TagValueOrder", ct.pk]
                                                                           fromThisColumn:0];
         [tagValueNames enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            ListObject *lo = [self.ac addListObjectWithThisName:obj
+            [self.ac addListObjectWithThisName:obj
                                               toThisContentType:ct];
-            lo.order = [NSNumber numberWithInt:idx];
         }];
     }
 }
@@ -111,7 +110,6 @@
     }];
 }
 
-//still need list
 -(void)importContentIntoThisNote:(Note *)note
               withThisPrimaryKey:(NSNumber *)notePK
              inThisGroupTemplate:(Group_Template *)gt
@@ -154,10 +152,10 @@
         }
     }
     if([ct.type isEqualToString:@"List"]){
-        NSArray *noteContent = [self.db getRowValuesFromThisTable:@"ContentInNoteAndControl"
-                                         usingThisSelectStatement:[NSString stringWithFormat:@"SELECT pk FROM ContentInNoteAndControl WHERE fk_ToNotesInlistTable = %@ AND fk_ToControlTable = %@", notePK, ct.pk]];
-        if(noteContent){
-            NSNumber *ContentInNoteAndControlPK = [noteContent firstObject];
+
+            NSNumber *ContentInNoteAndControlPK = [self.db getValueFromThisTable:@"ContentInNoteAndControl"
+                                                        usingThisSelectStatement:[NSString stringWithFormat:@"SELECT pk FROM ContentInNoteAndControl WHERE fk_ToNotesInlistTable = %@ AND fk_ToControlTable = %@", notePK, ct.pk]];
+        
             Content *c = [self.ac addNewContentToThisNote:note
                                       inThisGroupTemplate:gt
                                        andThisContentType:ct];
@@ -167,9 +165,10 @@
                                                                                 fromThisColumn:0];
             
             [fk_To_TagValues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                NSArray *tagValue = [self.db getRowValuesFromThisTable:@"TagValues"
+                
+                NSString *tvText = [self.db getValueFromThisTable:@"TagValues"
                                               usingThisSelectStatement:[NSString stringWithFormat:@"SELECT TagValueText FROM TagValues WHERE pk = %@", obj]];
-                NSPredicate *p = [NSPredicate predicateWithFormat:@"name LIKE %@", [tagValue firstObject]];
+                NSPredicate *p = [NSPredicate predicateWithFormat:@"name = %@", tvText];
                 NSArray *a = [ct.listObjectsByOrder filteredArrayUsingPredicate:p];
                 ListObject *lo = (ListObject *)[a firstObject];
                 
@@ -177,7 +176,7 @@
                                                    toThisContent:c];
                 
             }];
-        }
+        
     }
 }
 

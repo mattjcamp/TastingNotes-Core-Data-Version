@@ -28,7 +28,7 @@
                 [log appendFormat:@"               CONTENT_TYPE[%@].%@.%@\n", ct.order, ct.name, ct.type];
                 [[ct listObjectsByOrder] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
                     ListObject *lo = (ListObject *)obj;
-                    [log appendFormat:@"                    LISTOBJECT[%@].%@\n", lo.order, lo.name];
+                    [log appendFormat:@"                    LISTOBJECT[%@-%@].%@\n", lo.identifier, lo.order, lo.name];
                 }];
             }];
         }];
@@ -71,7 +71,7 @@
                             ListObject *lo = [ct listObjectsForThisSelectedObject:slo];
                             
                             [log appendString:@"\n"];
-                            [log appendFormat:@"                %@", lo.name];
+                            [log appendFormat:@"                %@[%@]", lo.name, lo.identifier];
                         }];
                     }
                     [log appendString:@"\n"];
