@@ -19,6 +19,7 @@
 		C962FEC8187B58B500208180 /* tasting-notes-database-paddb.sql in Resources */ = {isa = PBXBuildFile; fileRef = C962FEC7187B58B500208180 /* tasting-notes-database-paddb.sql */; };
 		C962FECA187B5AB400208180 /* SQLiteUpgrade.m in Sources */ = {isa = PBXBuildFile; fileRef = C962FEC9187B5AB400208180 /* SQLiteUpgrade.m */; };
 		C962FED0187B821800208180 /* SQLiteUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = C962FECF187B821800208180 /* SQLiteUpdater.m */; };
+		C9981036188AB28C0049690D /* paddb.sql in Resources */ = {isa = PBXBuildFile; fileRef = C9981035188AB28C0049690D /* paddb.sql */; };
 		C9C02D0B18645EC200739C36 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C02D0A18645EC200739C36 /* Foundation.framework */; };
 		C9C02D0D18645EC200739C36 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C02D0C18645EC200739C36 /* CoreGraphics.framework */; };
 		C9C02D0F18645EC200739C36 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C02D0E18645EC200739C36 /* UIKit.framework */; };
@@ -80,6 +81,7 @@
 		C962FEC9187B5AB400208180 /* SQLiteUpgrade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteUpgrade.m; sourceTree = "<group>"; };
 		C962FECE187B821800208180 /* SQLiteUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteUpdater.h; sourceTree = "<group>"; };
 		C962FECF187B821800208180 /* SQLiteUpdater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteUpdater.m; sourceTree = "<group>"; };
+		C9981035188AB28C0049690D /* paddb.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = paddb.sql; sourceTree = "<group>"; };
 		C9C02D0718645EC200739C36 /* TastingNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TastingNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9C02D0A18645EC200739C36 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C9C02D0C18645EC200739C36 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -221,6 +223,7 @@
 				C9C02D1318645EC200739C36 /* InfoPlist.strings */,
 				C9C02D1618645EC200739C36 /* main.m */,
 				C9C02D1818645EC200739C36 /* TastingNotes-Prefix.pch */,
+				C9981035188AB28C0049690D /* paddb.sql */,
 				C962FEC7187B58B500208180 /* tasting-notes-database-paddb.sql */,
 			);
 			name = "Supporting Files";
@@ -361,6 +364,7 @@
 			files = (
 				C9C02D2118645EC200739C36 /* Main_iPad.storyboard in Resources */,
 				C9C02D2618645EC200739C36 /* Images.xcassets in Resources */,
+				C9981036188AB28C0049690D /* paddb.sql in Resources */,
 				C9C02D1E18645EC200739C36 /* Main_iPhone.storyboard in Resources */,
 				C962FEC8187B58B500208180 /* tasting-notes-database-paddb.sql in Resources */,
 				C9C02D1518645EC200739C36 /* InfoPlist.strings in Resources */,
