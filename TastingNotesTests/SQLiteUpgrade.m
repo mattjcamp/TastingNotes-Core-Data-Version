@@ -30,7 +30,7 @@
 -(void)tearDown{
     [super tearDown];
     if([self.log length] > 0)
-        [self.log writeToFile:@"/Users/matt/desktop/SQLiteUpgrade-log.txt"
+        [self.log writeToFile:@"/Users/matt/Code/Objective-C/TastingNotes/TastingNotesTests/Output/SQLiteUpgrade-log.txt"
                    atomically:NO
                      encoding:NSStringEncodingConversionAllowLossy
                         error:nil];
@@ -56,6 +56,22 @@
         [Dump dumpThisNotebookContent:obj
                           intoThisLog:self.log];
     }];
+}
+
+-(void)testSQLiteImportAndSaveToText{
+    SQLiteUpdater *se = [[SQLiteUpdater alloc]init];
+    [se importSQLtoCoreData];
+    
+    [[self.ac notebooks] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [Dump dumpThisNotebookTemplate:obj
+                          intoThisLog:self.log];
+    }];
+    
+    [[self.ac notebooks] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [Dump dumpThisNotebookContent:obj
+                          intoThisLog:self.log];
+    }];
+    
 }
 
 -(void)testCoreData{
