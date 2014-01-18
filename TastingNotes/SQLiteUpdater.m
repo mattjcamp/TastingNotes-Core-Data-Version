@@ -37,7 +37,7 @@
         [self importNotesIntoThisNotebook:obj];
     }];
     
-    //[self.ac save];
+    [self.ac save];
 }
 
 -(void)importNotebookWithThisPrimaryKey:(NSNumber *)pk{
