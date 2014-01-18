@@ -60,12 +60,15 @@
                     if([ct.type isEqualToString:@"SmallText"] || [ct.type isEqualToString:@"MultiText"]){
                         [log appendFormat:@".%@", c.stringData];
                     }
+                    /*if([ct.type isEqualToString:@"Picture"]){
+                        [log appendFormat:@".%@", c.binaryData];
+                    }*/
                     if([ct.type isEqualToString:@"5StarRating"] || [ct.type isEqualToString:@"Numeric"] || [ct.type isEqualToString:@"Currency"] || [ct.type isEqualToString:@"100PointScale"] || [ct.type isEqualToString:@"Date"]){
                         [log appendFormat:@".%@", c.numberData];
                     }
                     
                     if([ct.type isEqualToString:@"List"]){
-                        [[c.selectedListObjects allObjects] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                        [[c selectedListObjectsByIdentifier] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
                             SelectedListObject *slo = (SelectedListObject *)obj;
                             
                             ListObject *lo = [ct listObjectsForThisSelectedObject:slo];

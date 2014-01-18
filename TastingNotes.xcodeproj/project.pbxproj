@@ -21,6 +21,7 @@
 		C962FED0187B821800208180 /* SQLiteUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = C962FECF187B821800208180 /* SQLiteUpdater.m */; };
 		C9981036188AB28C0049690D /* paddb.sql in Resources */ = {isa = PBXBuildFile; fileRef = C9981035188AB28C0049690D /* paddb.sql */; };
 		C9A1C3AD188AE67700B892B1 /* WineDatabaseOutput.txt in Resources */ = {isa = PBXBuildFile; fileRef = C9A1C3AC188AE67700B892B1 /* WineDatabaseOutput.txt */; };
+		C9A1C3B0188AEAE700B892B1 /* Content+Content_Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A1C3AF188AEAE700B892B1 /* Content+Content_Helper.m */; };
 		C9C02D0B18645EC200739C36 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C02D0A18645EC200739C36 /* Foundation.framework */; };
 		C9C02D0D18645EC200739C36 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C02D0C18645EC200739C36 /* CoreGraphics.framework */; };
 		C9C02D0F18645EC200739C36 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C02D0E18645EC200739C36 /* UIKit.framework */; };
@@ -84,6 +85,8 @@
 		C962FECF187B821800208180 /* SQLiteUpdater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteUpdater.m; sourceTree = "<group>"; };
 		C9981035188AB28C0049690D /* paddb.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = paddb.sql; sourceTree = "<group>"; };
 		C9A1C3AC188AE67700B892B1 /* WineDatabaseOutput.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WineDatabaseOutput.txt; sourceTree = "<group>"; };
+		C9A1C3AE188AEAE700B892B1 /* Content+Content_Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Content+Content_Helper.h"; sourceTree = "<group>"; };
+		C9A1C3AF188AEAE700B892B1 /* Content+Content_Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Content+Content_Helper.m"; sourceTree = "<group>"; };
 		C9C02D0718645EC200739C36 /* TastingNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TastingNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9C02D0A18645EC200739C36 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C9C02D0C18645EC200739C36 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -293,6 +296,8 @@
 				C9CA969C1889BAF300B015BC /* SelectedListObject.m */,
 				C9CA96A11889BB3700B015BC /* ListObject.h */,
 				C9CA96A21889BB3700B015BC /* ListObject.m */,
+				C9A1C3AE188AEAE700B892B1 /* Content+Content_Helper.h */,
+				C9A1C3AF188AEAE700B892B1 /* Content+Content_Helper.m */,
 			);
 			name = Notebooks;
 			sourceTree = "<group>";
@@ -405,6 +410,7 @@
 				C944604E187C8986000502C2 /* Note.m in Sources */,
 				C9CA969A1889A4AB00B015BC /* ContentType_Template.m in Sources */,
 				C9C02DE21864DFAC00739C36 /* ContentType_Template+ContentType_Template_Helper.m in Sources */,
+				C9A1C3B0188AEAE700B892B1 /* Content+Content_Helper.m in Sources */,
 				C9C02D1B18645EC200739C36 /* AppDelegate.m in Sources */,
 				C9CA969D1889BAF300B015BC /* SelectedListObject.m in Sources */,
 				C9C02D1718645EC200739C36 /* main.m in Sources */,

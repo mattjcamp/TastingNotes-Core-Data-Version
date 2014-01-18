@@ -26,5 +26,6 @@
     #import "ContentType_Template+ContentType_Template_Helper.h"
     #import "Notebook+Notebook_Helper.h"
     #import "Note+Note_Helper.h"
+    #import "Content+Content_Helper.h"
     #import "AppContent.h"
 #endif

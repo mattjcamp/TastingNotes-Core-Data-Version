@@ -19,15 +19,19 @@
 @end
 
 @implementation AppContent
-/*
- -(void)removeThisNote:(Note *)note{
- NSManagedObjectContext *context = [self managedObjectContext];
- [context deleteObject:note];
- [self.notebook removeNotesObject:note];
- }
- 
- 
- */
+
+-(void)removeAllContent{
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    [[self notebooks] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [context deleteObject:obj];
+    }];
+    
+    [self save];
+    
+    [[self notebooks] removeAllObjects];
+    
+}
 
 static AppContent *singletonInstance = nil;
 
@@ -157,11 +161,11 @@ static AppContent *singletonInstance = nil;
 }
 
 -(SelectedListObject *)addSelectedListObjectWithThisIdentifier:(NSNumber *)identifier
-                                           toThisContent:(Content *) c{
+                                                 toThisContent:(Content *) c{
     NSManagedObjectContext *context = [self managedObjectContext];
     SelectedListObject *selectedListObject =[NSEntityDescription insertNewObjectForEntityForName:@"SelectedListObject"
-                                                          inManagedObjectContext:context];
-
+                                                                          inManagedObjectContext:context];
+    
     selectedListObject.identifier = identifier;
     [c addSelectedListObjectsObject:selectedListObject];
     

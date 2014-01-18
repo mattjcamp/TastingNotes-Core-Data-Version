@@ -33,7 +33,7 @@
                 inThisGroupTemplate:(Group_Template *)gt
                  andThisContentType:(ContentType_Template *)ct;
 
-//-(void)removeThisNote:(Note *)note;
+-(void)removeAllContent;
 
 
 @end
