@@ -23,4 +23,12 @@
     return max;
 }
 
+-(NSString *)description{
+    NSMutableString *des = [[NSMutableString alloc]init];
+    [des appendFormat:@"NOTEBOOK[%@].%@\n", self.order, self.name];
+    [des appendFormat:@"   %@", self.template];
+    
+    return des;
+}
+
 @end

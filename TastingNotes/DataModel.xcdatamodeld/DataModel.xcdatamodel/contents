@@ -46,6 +46,7 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="belongsToNotebook" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Notebook" inverseName="template" inverseEntity="Notebook" syncable="YES"/>
         <relationship name="groups" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Group_Template" inverseName="belongsToTemplate" inverseEntity="Group_Template" syncable="YES"/>
+        <relationship name="summaryContentTypeTemplates" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ContentType_Template" syncable="YES"/>
     </entity>
     <entity name="SelectedListObject" representedClassName="SelectedListObject" syncable="YES">
         <attribute name="identifier" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -58,7 +59,7 @@
         <element name="ListObject" positionX="180" positionY="-144" width="128" height="118"/>
         <element name="Note" positionX="-504" positionY="63" width="128" height="90"/>
         <element name="Notebook" positionX="-540" positionY="-144" width="128" height="105"/>
-        <element name="Notebook_Template" positionX="-353" positionY="-144" width="128" height="90"/>
+        <element name="Notebook_Template" positionX="-353" positionY="-144" width="128" height="103"/>
         <element name="SelectedListObject" positionX="115" positionY="98" width="128" height="73"/>
     </elements>
 </model>

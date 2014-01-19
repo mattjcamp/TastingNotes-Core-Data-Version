@@ -23,4 +23,8 @@
     return max;
 }
 
+-(NSString *)description{
+    return [NSString stringWithFormat:@"TEMPLATE.'%@'", self.name];
+}
+
 @end
