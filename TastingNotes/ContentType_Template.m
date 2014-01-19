@@ -2,7 +2,7 @@
 //  ContentType_Template.m
 //  TastingNotes
 //
-//  Created by Matt on 1/17/14.
+//  Created by Matt on 1/19/14.
 //  Copyright (c) 2014 Mobile App Mastery. All rights reserved.
 //
 
@@ -13,9 +13,7 @@
 
 
 @implementation ContentType_Template
-
 @synthesize pk;
-
 @dynamic name;
 @dynamic order;
 @dynamic type;

@@ -2,7 +2,7 @@
 //  ContentType_Template.h
 //  TastingNotes
 //
-//  Created by Matt on 1/17/14.
+//  Created by Matt on 1/19/14.
 //  Copyright (c) 2014 Mobile App Mastery. All rights reserved.
 //
 
@@ -19,8 +19,7 @@
 @property (nonatomic, retain) Group_Template *belongsToGroup;
 @property (nonatomic, retain) NSSet *contentInThisContent_Type;
 @property (nonatomic, retain) NSSet *listObjects;
-@property NSNumber *pk;
-
+@property (strong) NSNumber *pk;
 @end
 
 @interface ContentType_Template (CoreDataGeneratedAccessors)

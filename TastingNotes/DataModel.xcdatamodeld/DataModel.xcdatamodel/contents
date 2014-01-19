@@ -20,7 +20,7 @@
     <entity name="Group_Template" representedClassName="Group_Template" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <relationship name="belongsToTemplate" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Notebook_Template" inverseName="groups" inverseEntity="Notebook_Template" syncable="YES"/>
+        <relationship name="belongsToNotebook" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Notebook" inverseName="groups" inverseEntity="Notebook" syncable="YES"/>
         <relationship name="contentInThisGroup" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Content" inverseName="inThisGroup" inverseEntity="Content" syncable="YES"/>
         <relationship name="contentTypes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ContentType_Template" inverseName="belongsToGroup" inverseEntity="ContentType_Template" syncable="YES"/>
     </entity>
@@ -39,27 +39,20 @@
     <entity name="Notebook" representedClassName="Notebook" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="groups" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Group_Template" inverseName="belongsToNotebook" inverseEntity="Group_Template" syncable="YES"/>
         <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Note" inverseName="belongsToNotebook" inverseEntity="Note" syncable="YES"/>
-        <relationship name="template" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Notebook_Template" inverseName="belongsToNotebook" inverseEntity="Notebook_Template" syncable="YES"/>
-    </entity>
-    <entity name="Notebook_Template" representedClassName="Notebook_Template" syncable="YES">
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="belongsToNotebook" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Notebook" inverseName="template" inverseEntity="Notebook" syncable="YES"/>
-        <relationship name="groups" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Group_Template" inverseName="belongsToTemplate" inverseEntity="Group_Template" syncable="YES"/>
-        <relationship name="summaryContentTypeTemplates" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ContentType_Template" syncable="YES"/>
     </entity>
     <entity name="SelectedListObject" representedClassName="SelectedListObject" syncable="YES">
         <attribute name="identifier" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="belongsToContent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Content" inverseName="selectedListObjects" inverseEntity="Content" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Content" positionX="-83" positionY="90" width="128" height="148"/>
-        <element name="ContentType_Template" positionX="7" positionY="-144" width="128" height="133"/>
-        <element name="Group_Template" positionX="-173" positionY="-144" width="128" height="120"/>
-        <element name="ListObject" positionX="180" positionY="-144" width="128" height="118"/>
-        <element name="Note" positionX="-504" positionY="63" width="128" height="90"/>
-        <element name="Notebook" positionX="-540" positionY="-144" width="128" height="105"/>
-        <element name="Notebook_Template" positionX="-353" positionY="-144" width="128" height="103"/>
-        <element name="SelectedListObject" positionX="115" positionY="98" width="128" height="73"/>
+        <element name="Content" positionX="-153" positionY="113" width="128" height="148"/>
+        <element name="ContentType_Template" positionX="-92" positionY="-108" width="128" height="133"/>
+        <element name="Group_Template" positionX="-351" positionY="-118" width="128" height="118"/>
+        <element name="ListObject" positionX="142" positionY="-108" width="128" height="118"/>
+        <element name="Note" positionX="-486" positionY="72" width="128" height="90"/>
+        <element name="Notebook" positionX="-540" positionY="-144" width="128" height="103"/>
+        <element name="SelectedListObject" positionX="52" positionY="180" width="128" height="73"/>
     </elements>
 </model>

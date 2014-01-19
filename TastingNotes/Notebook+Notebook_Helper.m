@@ -23,12 +23,21 @@
     return max;
 }
 
--(NSString *)description{
-    NSMutableString *des = [[NSMutableString alloc]init];
-    [des appendFormat:@"NOTEBOOK[%@].%@\n", self.order, self.name];
-    [des appendFormat:@"   %@", self.template];
+-(NSArray *) groupsByOrder{
+    NSSortDescriptor *sorter = [NSSortDescriptor sortDescriptorWithKey:@"order"
+                                                             ascending:YES];
     
-    return des;
+    return [self.groups sortedArrayUsingDescriptors:@[sorter]];
+}
+
+-(NSNumber *)maxGroupOrder{
+    NSNumber *max = [self.groups valueForKeyPath:@"@max.order"];
+    
+    return max;
+}
+
+-(NSString *)description{
+    return [NSString stringWithFormat:@"NB[%@].%@", self.order, self.name];
 }
 
 @end

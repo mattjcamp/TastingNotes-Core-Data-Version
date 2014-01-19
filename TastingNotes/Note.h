@@ -2,7 +2,7 @@
 //  Note.h
 //  TastingNotes
 //
-//  Created by Matt on 1/7/14.
+//  Created by Matt on 1/19/14.
 //  Copyright (c) 2014 Mobile App Mastery. All rights reserved.
 //
 

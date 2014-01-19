@@ -12,5 +12,7 @@
 
 -(NSArray *) notesByOrder;
 -(NSNumber *)maxNoteOrder;
+-(NSArray *) groupsByOrder;
+-(NSNumber *)maxGroupOrder;
 
 @end

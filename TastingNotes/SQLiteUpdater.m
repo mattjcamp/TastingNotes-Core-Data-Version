@@ -45,22 +45,21 @@
                                       usingThisSelectStatement:[NSString stringWithFormat:@"SELECT * FROM ListsTable WHERE pk = %@", pk]];
     Notebook *n = [self.ac addNewNotebookWithThisName:[notebookData objectAtIndex:1]];
     n.pk = pk;
-    Notebook_Template *nt = [self.ac addNewNotebookTemplateToThisNotebook:n];
     NSArray *groupPKs = [self.db getColumnValuesFromThisTable:@"SectionTable"
                                      usingThisSelectStatement:[NSString stringWithFormat:@"SELECT * FROM SectionTable WHERE fk_ToListsTable = %@ ORDER BY SectionOrder", pk]
                                                fromThisColumn:0];
     [groupPKs enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         [self importGroupTemplateWithThisPK:obj
-                           intoThisTemplate:nt];
+                           intoThisTemplate:n];
     }];
 }
 
 -(void)importGroupTemplateWithThisPK:(NSNumber *)pk
-                    intoThisTemplate:(Notebook_Template *)nt{
+                    intoThisTemplate:(Notebook *)n{
     NSArray *sectionData = [self.db getRowValuesFromThisTable:@"SectionTable"
                                      usingThisSelectStatement:[NSString stringWithFormat:@"SELECT * FROM SectionTable WHERE pk = %@", pk]];
     Group_Template *gt = [self.ac addGroupTemplateWithThisName:[sectionData objectAtIndex:2]
-                                        toThisNotebookTemplate:nt];
+                                        toThisNotebook:n];
     NSArray *controlPKs = [self.db getColumnValuesFromThisTable:@"ControlTable"
                                        usingThisSelectStatement:[NSString stringWithFormat:@"SELECT pk FROM ControlTable WHERE fk_ToSectionTable = %@ ORDER BY ControlOrder", [sectionData objectAtIndex:0]]
                                                  fromThisColumn:0];
@@ -96,7 +95,7 @@
     [notePKs enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         Note *n = [self.ac addNoteToThisNotebook:notebook];
         NSNumber *notePK = (NSNumber *)obj;
-        [n.belongsToNotebook.template.groupsByOrder enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [[n.belongsToNotebook groupsByOrder] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             Group_Template *gt = (Group_Template *)obj;
             [gt.contentTypesByOrder enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
                 ContentType_Template *ct = (ContentType_Template *)obj;

@@ -33,7 +33,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     Note *n = [self.notebook.notesByOrder objectAtIndex:indexPath.row];
-    Group_Template *gt = [n.belongsToNotebook.template.groupsByOrder firstObject];
+    Group_Template *gt = [n.belongsToNotebook.groupsByOrder firstObject];
     ContentType_Template *ct = [gt.contentTypesByOrder firstObject];
     
     Content *c = [n contentInThisGroup:gt

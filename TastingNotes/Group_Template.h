@@ -2,20 +2,20 @@
 //  Group_Template.h
 //  TastingNotes
 //
-//  Created by Matt on 1/7/14.
+//  Created by Matt on 1/19/14.
 //  Copyright (c) 2014 Mobile App Mastery. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Content, ContentType_Template, Notebook_Template;
+@class Content, ContentType_Template, Notebook;
 
 @interface Group_Template : NSManagedObject
 
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * order;
-@property (nonatomic, retain) Notebook_Template *belongsToTemplate;
+@property (nonatomic, retain) Notebook *belongsToNotebook;
 @property (nonatomic, retain) NSSet *contentInThisGroup;
 @property (nonatomic, retain) NSSet *contentTypes;
 @end

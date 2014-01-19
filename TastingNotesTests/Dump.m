@@ -16,11 +16,11 @@
     [log appendFormat:@"NOTEBOOKS[%@].%@\n", notebook.order, notebook.name];
     
     //Notebook Template
-    if(notebook.template){
-        [log appendFormat:@"   NOTEBOOK.TEMPLATE.%@\n", notebook.template.name];
+    //if(notebook.template){
+     //   [log appendFormat:@"   NOTEBOOK.TEMPLATE.%@\n", notebook.template.name];
         
         //Notebook Group Templates
-        [[notebook.template groupsByOrder] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [[notebook groupsByOrder] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             Group_Template *gt = (Group_Template *)obj;
             [log appendFormat:@"       GROUP[%@].%@\n", gt.order, gt.name];
             [[gt contentTypesByOrder] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -33,7 +33,7 @@
             }];
         }];
     }
-}
+//}
 
 +(void)dumpThisNotebookContent:(Notebook *)notebook
                    intoThisLog:(NSMutableString *)log{
@@ -44,7 +44,7 @@
         Note *note = (Note *)obj;
         [log appendFormat:@"    NOTE[%@]\n", note.order];
         
-        [[note.belongsToNotebook.template groupsByOrder] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [[note.belongsToNotebook groupsByOrder] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             Group_Template *g = (Group_Template *)obj;
             
             [log appendFormat:@"        GROUP[%@].%@\n", g.order, g.name];

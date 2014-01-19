@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <XCTest/XCTest.h>
 #import "Dump.h"
-#import "AppContent+ContentUtilities.h"
 #import "SQLiteUpdater.h"
 
 #define REF_FILE (@"/Users/matt/Code/Objective-C/TastingNotes/TastingNotesTests/Output/WineDatabaseOutput.txt")
@@ -39,6 +38,10 @@
                      encoding:NSStringEncodingConversionAllowLossy
                         error:nil];
 }
+
+#warning TODO: Add descriptions
+#warning TODO: Remove Dump
+#warning TODO: Use attributed objects for notebook and contenttype categories
 
 -(void)testNewImport{
     

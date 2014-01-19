@@ -1,5 +1,4 @@
 NOTEBOOKS[1].Wines
-   NOTEBOOK.TEMPLATE.Wines Template
        GROUP[1].Note
                CONTENT_TYPE[1].Wine Name.SmallText
                CONTENT_TYPE[2].Wine Type.List
@@ -58,7 +57,6 @@ NOTEBOOKS[1].Wines
                     LISTOBJECT[24-24].San Joaquin
                     LISTOBJECT[25-25].Central Coast
 NOTEBOOKS[2].Beers
-   NOTEBOOK.TEMPLATE.Beers Template
 NOTEBOOKS[1].Wines
     NOTE[1]
         GROUP[1].Note

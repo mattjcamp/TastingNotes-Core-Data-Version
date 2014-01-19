@@ -110,24 +110,14 @@ static AppContent *singletonInstance = nil;
     return notebook;
 }
 
--(Notebook_Template *)addNewNotebookTemplateToThisNotebook:(Notebook *)notebook{
-    NSManagedObjectContext *context = [self managedObjectContext];
-    Notebook_Template *template =[NSEntityDescription insertNewObjectForEntityForName:@"Notebook_Template"
-                                                               inManagedObjectContext:context];
-    template.name = [NSString stringWithFormat:@"%@ Template", notebook.name];
-    notebook.template = template;
-    
-    return template;
-}
-
 -(Group_Template *) addGroupTemplateWithThisName:(NSString *)name
-                          toThisNotebookTemplate:(Notebook_Template *)nt{
+                          toThisNotebook:(Notebook *)n{
     NSManagedObjectContext *context = [self managedObjectContext];
     Group_Template *gt =[NSEntityDescription insertNewObjectForEntityForName:@"Group_Template"
                                                       inManagedObjectContext:context];
     gt.name = name;
-    gt.order = [NSNumber numberWithInt:[[nt maxGroupOrder] integerValue] + 1];
-    [nt addGroupsObject:gt];
+    gt.order = [NSNumber numberWithInt:[[n maxGroupOrder] integerValue] + 1];
+    [n addGroupsObject:gt];
     
     return gt;
 }
@@ -170,32 +160,6 @@ static AppContent *singletonInstance = nil;
     [c addSelectedListObjectsObject:selectedListObject];
     
     return selectedListObject;
-}
-
--(Notebook *)newWineNotebook{
-    Notebook *notebook = [self addNewNotebookWithThisName:@"Wine Notes"];
-    [self addNewNotebookTemplateToThisNotebook:notebook];
-    
-    Group_Template *g = [self addGroupTemplateWithThisName:@"Overview"
-                                    toThisNotebookTemplate:notebook.template];
-    ContentType_Template *c = [self addContentTypeTemplateWithThisName:@"Wine Name"
-                                                   toThisGroupTemplate:g];
-    
-    c.type = @"SmallText";
-    
-    [g addContentTypesObject:c];
-    c = [self addContentTypeTemplateWithThisName:@"Wine Type"
-                             toThisGroupTemplate:g];
-    c.type = @"List";
-    [g addContentTypesObject:c];
-    
-    g = [self addGroupTemplateWithThisName:@"Description"
-                    toThisNotebookTemplate:notebook.template];
-    
-    g = [self addGroupTemplateWithThisName:@"Ratings"
-                    toThisNotebookTemplate:notebook.template];
-    
-    return notebook;
 }
 
 -(void)addThisNotebookToList:(Notebook *)notebook{

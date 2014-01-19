@@ -18,10 +18,8 @@
 
 -(NSNumber *)maxNotebookOrder;
 -(Notebook *)addNewNotebookWithThisName:(NSString *)name;
--(Notebook *)newWineNotebook;
--(Notebook_Template *)addNewNotebookTemplateToThisNotebook:(Notebook *)notebook;
 -(Group_Template *) addGroupTemplateWithThisName:(NSString *)name
-                          toThisNotebookTemplate:(Notebook_Template *)nt;
+                          toThisNotebook:(Notebook *)n;
 -(ContentType_Template *)addContentTypeTemplateWithThisName:(NSString *)name
                                         toThisGroupTemplate:(Group_Template* )gt;
 -(ListObject *)addListObjectWithThisName:(NSString *)name
