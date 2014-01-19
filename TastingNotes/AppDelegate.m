@@ -7,11 +7,16 @@
 //
 
 #import "AppDelegate.h"
+#import "SQLiteUpdater.h"
 
 @implementation AppDelegate
 
 -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
-
+    
+    [[AppContent sharedContent]removeAllContent];
+    SQLiteUpdater *se = [[SQLiteUpdater alloc]init];
+    [se importSQLtoCoreData];
+    
     return YES;
 }
 

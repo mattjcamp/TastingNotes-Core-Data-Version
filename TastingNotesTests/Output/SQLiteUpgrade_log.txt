@@ -1,1 +1,61 @@
-Both files match
+NOTEBOOKS[1].Wines
+   NOTEBOOK.TEMPLATE.Wines Template
+       GROUP[1].Note
+               CONTENT_TYPE[1].Wine Name.SmallText
+               CONTENT_TYPE[2].Wine Type.List
+                    LISTOBJECT[1-1].Red
+                    LISTOBJECT[2-2].White
+                    LISTOBJECT[3-3].Sparkling
+                    LISTOBJECT[4-4].Dessert
+                    LISTOBJECT[5-5].Rose
+                    LISTOBJECT[6-6].Fruit
+                    LISTOBJECT[7-7].Ice
+               CONTENT_TYPE[3].Wine Bottle Label.Picture
+               CONTENT_TYPE[4].Rating.5StarRating
+               CONTENT_TYPE[5].Comments.MultiText
+       GROUP[2].Details
+               CONTENT_TYPE[1].Vintage.Numeric
+               CONTENT_TYPE[2].Price.Currency
+               CONTENT_TYPE[3].Varietals.List
+                    LISTOBJECT[1-1].Nebbiolo
+                    LISTOBJECT[2-2].Chardonnay
+                    LISTOBJECT[3-3].Cabernet Sauvignon
+                    LISTOBJECT[4-4].Riesling
+                    LISTOBJECT[5-5].Malbec
+                    LISTOBJECT[6-6].Merlot
+                    LISTOBJECT[7-7].Pinot Blanc
+                    LISTOBJECT[8-8].Pinot Gris
+                    LISTOBJECT[9-9].Pinot Noir
+                    LISTOBJECT[10-10].Sangiovese
+                    LISTOBJECT[11-11].Sauvignon Blanc
+                    LISTOBJECT[12-12].Zinfandel
+                    LISTOBJECT[13-13].Shiraz
+                    LISTOBJECT[14-14].Syrah 
+               CONTENT_TYPE[4].Region.List
+                    LISTOBJECT[1-1].France
+                    LISTOBJECT[2-2].California
+                    LISTOBJECT[3-3].Australia
+                    LISTOBJECT[4-4].Germany
+                    LISTOBJECT[5-5].Spain
+                    LISTOBJECT[6-6].Italy
+                    LISTOBJECT[7-7].Bordeaux
+                    LISTOBJECT[8-8].The Loire Valley
+                    LISTOBJECT[9-9].Burgundy
+                    LISTOBJECT[10-10].Champagne
+                    LISTOBJECT[11-11].Alsace
+                    LISTOBJECT[12-12].The Rhone
+                    LISTOBJECT[13-13].Sonoma
+                    LISTOBJECT[14-14].Napa
+                    LISTOBJECT[15-15].Willamette Valley
+                    LISTOBJECT[16-16].Mendoza Province
+                    LISTOBJECT[17-17].Mittelrhein
+                    LISTOBJECT[18-18].Chianti
+                    LISTOBJECT[19-19].Piedmont
+                    LISTOBJECT[20-20].Chili
+                    LISTOBJECT[21-21].Argentina
+                    LISTOBJECT[22-22].United States
+                    LISTOBJECT[23-23].Lodi
+                    LISTOBJECT[24-24].San Joaquin
+                    LISTOBJECT[25-25].Central Coast
+NOTEBOOKS[2].Beers
+   NOTEBOOK.TEMPLATE.Beers Template

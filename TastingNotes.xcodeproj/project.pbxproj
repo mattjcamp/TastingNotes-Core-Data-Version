@@ -24,6 +24,7 @@
 		C9A1C3B0188AEAE700B892B1 /* Content+Content_Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A1C3AF188AEAE700B892B1 /* Content+Content_Helper.m */; };
 		C9A1C3B3188AF98400B892B1 /* DataOutput.txt in Resources */ = {isa = PBXBuildFile; fileRef = C9A1C3B1188AF98400B892B1 /* DataOutput.txt */; };
 		C9A1C3B4188AF98400B892B1 /* SQLiteUpgrade_log.txt in Resources */ = {isa = PBXBuildFile; fileRef = C9A1C3B2188AF98400B892B1 /* SQLiteUpgrade_log.txt */; };
+		C9A1C3B8188B066A00B892B1 /* NotesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A1C3B7188B066A00B892B1 /* NotesTVC.m */; };
 		C9C02D0B18645EC200739C36 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C02D0A18645EC200739C36 /* Foundation.framework */; };
 		C9C02D0D18645EC200739C36 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C02D0C18645EC200739C36 /* CoreGraphics.framework */; };
 		C9C02D0F18645EC200739C36 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C02D0E18645EC200739C36 /* UIKit.framework */; };
@@ -91,6 +92,8 @@
 		C9A1C3AF188AEAE700B892B1 /* Content+Content_Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Content+Content_Helper.m"; sourceTree = "<group>"; };
 		C9A1C3B1188AF98400B892B1 /* DataOutput.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DataOutput.txt; sourceTree = "<group>"; };
 		C9A1C3B2188AF98400B892B1 /* SQLiteUpgrade_log.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SQLiteUpgrade_log.txt; sourceTree = "<group>"; };
+		C9A1C3B6188B066A00B892B1 /* NotesTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotesTVC.h; sourceTree = "<group>"; };
+		C9A1C3B7188B066A00B892B1 /* NotesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotesTVC.m; sourceTree = "<group>"; };
 		C9C02D0718645EC200739C36 /* TastingNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TastingNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9C02D0A18645EC200739C36 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C9C02D0C18645EC200739C36 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -184,6 +187,15 @@
 			path = Output;
 			sourceTree = "<group>";
 		};
+		C9A1C3B5188B063600B892B1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C9A1C3B6188B066A00B892B1 /* NotesTVC.h */,
+				C9A1C3B7188B066A00B892B1 /* NotesTVC.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		C9C02CFE18645EC200739C36 = {
 			isa = PBXGroup;
 			children = (
@@ -219,6 +231,7 @@
 		C9C02D1018645EC200739C36 /* TastingNotes */ = {
 			isa = PBXGroup;
 			children = (
+				C9A1C3B5188B063600B892B1 /* Controllers */,
 				C962FEBE187B57A500208180 /* SQLite */,
 				C9C02D8618648EC700739C36 /* Notebooks */,
 				C9C02D1918645EC200739C36 /* AppDelegate.h */,
@@ -424,6 +437,7 @@
 				C9C02D1718645EC200739C36 /* main.m in Sources */,
 				C962FED0187B821800208180 /* SQLiteUpdater.m in Sources */,
 				C9C02D8B18648F7500739C36 /* AppContent.m in Sources */,
+				C9A1C3B8188B066A00B892B1 /* NotesTVC.m in Sources */,
 				C9C02DDF1864D92C00739C36 /* Notebook_Template+Notebook_Template_Helper.m in Sources */,
 				C9C02E091865107F00739C36 /* Note+Note_Helper.m in Sources */,
 				C962FEC4187B57F100208180 /* SQLiteDB.m in Sources */,
