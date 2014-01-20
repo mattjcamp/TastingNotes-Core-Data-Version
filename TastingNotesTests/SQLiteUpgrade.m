@@ -40,7 +40,7 @@
 }
 
 #warning TODO: Add descriptions
-#warning TODO: Remove Dump
+#warning TODO: Add descriptions to Dump
 #warning TODO: Use attributed objects for notebook and contenttype categories
 
 -(void)testNewImport{
@@ -93,9 +93,8 @@
 
 -(void)testSQLiteTemplateImport{
     [[self.ac notebooks] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        /*[Dump dumpThisNotebookTemplate:obj
-                           intoThisLog:self.log];*/
-        [self.log appendFormat:@"%@\n", obj];
+        [Dump dumpThisNotebookTemplate:obj
+                           intoThisLog:self.log];
     }];
 }
 

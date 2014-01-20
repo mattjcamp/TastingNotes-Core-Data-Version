@@ -23,4 +23,8 @@
     return max;
 }
 
+-(NSString *)description{
+    return [NSString stringWithFormat:@"GT[%@].%@", self.order, self.name];
+}
+
 @end

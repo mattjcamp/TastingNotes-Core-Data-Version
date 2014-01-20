@@ -30,4 +30,8 @@
     return [results firstObject];
 }
 
+-(NSString *)description{
+    return [NSString stringWithFormat:@"CT[%@].%@.%@", self.order, self.name, self.type];
+}
+
 @end
