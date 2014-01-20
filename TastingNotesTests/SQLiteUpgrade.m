@@ -65,7 +65,23 @@
 }
 
 -(void)testCoreData{
+    [self outputNotebooks];
     
+    NSString *refFile = [NSString stringWithContentsOfFile:REF_FILE
+                                                  encoding:NSStringEncodingConversionAllowLossy
+                                                     error:nil];
+    
+    NSString *outFile = [NSString stringWithContentsOfFile:OUTPUT_FILE
+                                                  encoding:NSStringEncodingConversionAllowLossy
+                                                     error:nil];
+    if([refFile isEqualToString:outFile]){
+        [self.log appendString:@"Both files match"];
+    }
+    else{
+        [self.log appendString:@"Files are not matching..."];
+        XCTFail(@"Files are not matching...");
+    }
+
 }
 
 -(void)outputNotebooks{
