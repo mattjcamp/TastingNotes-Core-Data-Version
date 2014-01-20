@@ -11,7 +11,7 @@
 @implementation ListObject (ListObjectHelper)
 
 -(NSString *)description{
-    return [NSString stringWithFormat:@"LB[%@].%@.%@.%@", self.order, self.name, self.identifier, self.objectDescription];
+    return [NSString stringWithFormat:@"LO[%@].%@.%@.%@", self.order, self.name, self.identifier, self.objectDescription];
 }
 
 @end

@@ -2,13 +2,13 @@ NB[1].Wines
    GT[1].Note
       CT[1].Wine Name.SmallText
       CT[2].Wine Type.List
-         LB[1].Red.1.(null)
-         LB[2].White.2.(null)
-         LB[3].Sparkling.3.(null)
-         LB[4].Dessert.4.(null)
-         LB[5].Rose.5.(null)
-         LB[6].Fruit.6.(null)
-         LB[7].Ice.7.(null)
+         LO[1].Red.1.(null)
+         LO[2].White.2.(null)
+         LO[3].Sparkling.3.(null)
+         LO[4].Dessert.4.(null)
+         LO[5].Rose.5.(null)
+         LO[6].Fruit.6.(null)
+         LO[7].Ice.7.(null)
       CT[3].Wine Bottle Label.Picture
       CT[4].Rating.5StarRating
       CT[5].Comments.MultiText
@@ -16,54 +16,53 @@ NB[1].Wines
       CT[1].Vintage.Numeric
       CT[2].Price.Currency
       CT[3].Varietals.List
-         LB[1].Nebbiolo.1.(null)
-         LB[2].Chardonnay.2.(null)
-         LB[3].Cabernet Sauvignon.3.(null)
-         LB[4].Riesling.4.(null)
-         LB[5].Malbec.5.(null)
-         LB[6].Merlot.6.(null)
-         LB[7].Pinot Blanc.7.(null)
-         LB[8].Pinot Gris.8.(null)
-         LB[9].Pinot Noir.9.(null)
-         LB[10].Sangiovese.10.(null)
-         LB[11].Sauvignon Blanc.11.(null)
-         LB[12].Zinfandel.12.(null)
-         LB[13].Shiraz.13.(null)
-         LB[14].Syrah .14.(null)
+         LO[1].Nebbiolo.1.(null)
+         LO[2].Chardonnay.2.(null)
+         LO[3].Cabernet Sauvignon.3.(null)
+         LO[4].Riesling.4.(null)
+         LO[5].Malbec.5.(null)
+         LO[6].Merlot.6.(null)
+         LO[7].Pinot Blanc.7.(null)
+         LO[8].Pinot Gris.8.(null)
+         LO[9].Pinot Noir.9.(null)
+         LO[10].Sangiovese.10.(null)
+         LO[11].Sauvignon Blanc.11.(null)
+         LO[12].Zinfandel.12.(null)
+         LO[13].Shiraz.13.(null)
+         LO[14].Syrah .14.(null)
       CT[4].Region.List
-         LB[1].France.1.(null)
-         LB[2].California.2.(null)
-         LB[3].Australia.3.(null)
-         LB[4].Germany.4.(null)
-         LB[5].Spain.5.(null)
-         LB[6].Italy.6.(null)
-         LB[7].Bordeaux.7.(null)
-         LB[8].The Loire Valley.8.(null)
-         LB[9].Burgundy.9.(null)
-         LB[10].Champagne.10.(null)
-         LB[11].Alsace.11.(null)
-         LB[12].The Rhone.12.(null)
-         LB[13].Sonoma.13.(null)
-         LB[14].Napa.14.(null)
-         LB[15].Willamette Valley.15.(null)
-         LB[16].Mendoza Province.16.(null)
-         LB[17].Mittelrhein.17.(null)
-         LB[18].Chianti.18.(null)
-         LB[19].Piedmont.19.(null)
-         LB[20].Chili.20.(null)
-         LB[21].Argentina.21.(null)
-         LB[22].United States.22.(null)
-         LB[23].Lodi.23.(null)
-         LB[24].San Joaquin.24.(null)
-         LB[25].Central Coast.25.(null)
+         LO[1].France.1.(null)
+         LO[2].California.2.(null)
+         LO[3].Australia.3.(null)
+         LO[4].Germany.4.(null)
+         LO[5].Spain.5.(null)
+         LO[6].Italy.6.(null)
+         LO[7].Bordeaux.7.(null)
+         LO[8].The Loire Valley.8.(null)
+         LO[9].Burgundy.9.(null)
+         LO[10].Champagne.10.(null)
+         LO[11].Alsace.11.(null)
+         LO[12].The Rhone.12.(null)
+         LO[13].Sonoma.13.(null)
+         LO[14].Napa.14.(null)
+         LO[15].Willamette Valley.15.(null)
+         LO[16].Mendoza Province.16.(null)
+         LO[17].Mittelrhein.17.(null)
+         LO[18].Chianti.18.(null)
+         LO[19].Piedmont.19.(null)
+         LO[20].Chili.20.(null)
+         LO[21].Argentina.21.(null)
+         LO[22].United States.22.(null)
+         LO[23].Lodi.23.(null)
+         LO[24].San Joaquin.24.(null)
+         LO[25].Central Coast.25.(null)
 NB[2].Beers
 NB[1].Wines
    GT[1].Note
       CT[1].Wine Name.SmallText
          Rosso
       CT[2].Wine Type.List
-         LB[1].Red.1.(null)
-
+         SLO[1].Red.1.(null)
       CT[3].Wine Bottle Label.Picture
          Binary Data.length: 328163
       CT[4].Rating.5StarRating
@@ -76,20 +75,17 @@ NB[1].Wines
       CT[2].Price.Currency
          8.99
       CT[3].Varietals.List
-         LB[6].Merlot.6.(null)
-LB[12].Zinfandel.12.(null)
-LB[13].Shiraz.13.(null)
-
+         SLO[6].Merlot.6.(null)
+         SLO[12].Zinfandel.12.(null)
+         SLO[13].Shiraz.13.(null)
       CT[4].Region.List
-         LB[2].California.2.(null)
-LB[22].United States.22.(null)
-
+         SLO[2].California.2.(null)
+         SLO[22].United States.22.(null)
    GT[1].Note
       CT[1].Wine Name.SmallText
          7 Deadly Zins
       CT[2].Wine Type.List
-         LB[1].Red.1.(null)
-
+         SLO[1].Red.1.(null)
       CT[3].Wine Bottle Label.Picture
          Binary Data.length: 362932
       CT[4].Rating.5StarRating
@@ -102,18 +98,15 @@ LB[22].United States.22.(null)
       CT[2].Price.Currency
          14.99
       CT[3].Varietals.List
-         LB[12].Zinfandel.12.(null)
-
+         SLO[12].Zinfandel.12.(null)
       CT[4].Region.List
-         LB[2].California.2.(null)
-LB[23].Lodi.23.(null)
-
+         SLO[2].California.2.(null)
+         SLO[23].Lodi.23.(null)
    GT[1].Note
       CT[1].Wine Name.SmallText
          Red Rock
       CT[2].Wine Type.List
-         LB[1].Red.1.(null)
-
+         SLO[1].Red.1.(null)
       CT[3].Wine Bottle Label.Picture
          Binary Data.length: 276569
       CT[4].Rating.5StarRating
@@ -126,17 +119,14 @@ LB[23].Lodi.23.(null)
       CT[2].Price.Currency
          11.99
       CT[3].Varietals.List
-         LB[5].Malbec.5.(null)
-
+         SLO[5].Malbec.5.(null)
       CT[4].Region.List
-         LB[2].California.2.(null)
-
+         SLO[2].California.2.(null)
    GT[1].Note
       CT[1].Wine Name.SmallText
          Coppola Diamond Chardonney
       CT[2].Wine Type.List
-         LB[2].White.2.(null)
-
+         SLO[2].White.2.(null)
       CT[3].Wine Bottle Label.Picture
          Binary Data.length: 362328
       CT[4].Rating.5StarRating
@@ -149,17 +139,14 @@ LB[23].Lodi.23.(null)
       CT[2].Price.Currency
          14.99
       CT[3].Varietals.List
-         LB[2].Chardonnay.2.(null)
-
+         SLO[2].Chardonnay.2.(null)
       CT[4].Region.List
-         LB[2].California.2.(null)
-
+         SLO[2].California.2.(null)
    GT[1].Note
       CT[1].Wine Name.SmallText
          Ghost Pines
       CT[2].Wine Type.List
-         LB[1].Red.1.(null)
-
+         SLO[1].Red.1.(null)
       CT[3].Wine Bottle Label.Picture
          Binary Data.length: 274156
       CT[4].Rating.5StarRating
@@ -172,19 +159,16 @@ LB[23].Lodi.23.(null)
       CT[2].Price.Currency
          17.99
       CT[3].Varietals.List
-         LB[12].Zinfandel.12.(null)
-
+         SLO[12].Zinfandel.12.(null)
       CT[4].Region.List
-         LB[2].California.2.(null)
-LB[13].Sonoma.13.(null)
-LB[24].San Joaquin.24.(null)
-
+         SLO[2].California.2.(null)
+         SLO[13].Sonoma.13.(null)
+         SLO[24].San Joaquin.24.(null)
    GT[1].Note
       CT[1].Wine Name.SmallText
          Diamond Red Blend
       CT[2].Wine Type.List
-         LB[1].Red.1.(null)
-
+         SLO[1].Red.1.(null)
       CT[3].Wine Bottle Label.Picture
          Binary Data.length: 303479
       CT[4].Rating.5StarRating
@@ -197,16 +181,13 @@ LB[24].San Joaquin.24.(null)
       CT[2].Price.Currency
          17.99
       CT[3].Varietals.List
-         
       CT[4].Region.List
-         LB[2].California.2.(null)
-
+         SLO[2].California.2.(null)
    GT[1].Note
       CT[1].Wine Name.SmallText
          Cupcake
       CT[2].Wine Type.List
-         LB[1].Red.1.(null)
-
+         SLO[1].Red.1.(null)
       CT[3].Wine Bottle Label.Picture
          Binary Data.length: 333289
       CT[4].Rating.5StarRating
@@ -219,18 +200,15 @@ LB[24].San Joaquin.24.(null)
       CT[2].Price.Currency
          12.99
       CT[3].Varietals.List
-         LB[5].Malbec.5.(null)
-
+         SLO[5].Malbec.5.(null)
       CT[4].Region.List
-         LB[16].Mendoza Province.16.(null)
-LB[21].Argentina.21.(null)
-
+         SLO[16].Mendoza Province.16.(null)
+         SLO[21].Argentina.21.(null)
    GT[1].Note
       CT[1].Wine Name.SmallText
          Gigondas
       CT[2].Wine Type.List
-         LB[1].Red.1.(null)
-
+         SLO[1].Red.1.(null)
       CT[3].Wine Bottle Label.Picture
          Binary Data.length: 278687
       CT[4].Rating.5StarRating
@@ -243,17 +221,14 @@ LB[21].Argentina.21.(null)
       CT[2].Price.Currency
          (null)
       CT[3].Varietals.List
-         LB[9].Pinot Noir.9.(null)
-
+         SLO[9].Pinot Noir.9.(null)
       CT[4].Region.List
-         LB[9].Burgundy.9.(null)
-
+         SLO[9].Burgundy.9.(null)
    GT[1].Note
       CT[1].Wine Name.SmallText
          Cameron Hughes
       CT[2].Wine Type.List
-         LB[1].Red.1.(null)
-
+         SLO[1].Red.1.(null)
       CT[3].Wine Bottle Label.Picture
          Binary Data.length: 261861
       CT[4].Rating.5StarRating
@@ -266,18 +241,15 @@ LB[21].Argentina.21.(null)
       CT[2].Price.Currency
          (null)
       CT[3].Varietals.List
-         LB[3].Cabernet Sauvignon.3.(null)
-
+         SLO[3].Cabernet Sauvignon.3.(null)
       CT[4].Region.List
-         LB[2].California.2.(null)
-LB[14].Napa.14.(null)
-
+         SLO[2].California.2.(null)
+         SLO[14].Napa.14.(null)
    GT[1].Note
       CT[1].Wine Name.SmallText
          Hahn
       CT[2].Wine Type.List
-         LB[1].Red.1.(null)
-
+         SLO[1].Red.1.(null)
       CT[3].Wine Bottle Label.Picture
          Binary Data.length: 270691
       CT[4].Rating.5StarRating
@@ -290,17 +262,14 @@ LB[14].Napa.14.(null)
       CT[2].Price.Currency
          (null)
       CT[3].Varietals.List
-         LB[14].Syrah .14.(null)
-
+         SLO[14].Syrah .14.(null)
       CT[4].Region.List
-         LB[2].California.2.(null)
-LB[25].Central Coast.25.(null)
-
+         SLO[2].California.2.(null)
+         SLO[25].Central Coast.25.(null)
    GT[1].Note
       CT[1].Wine Name.SmallText
          (null)
       CT[2].Wine Type.List
-         
       CT[3].Wine Bottle Label.Picture
          Binary Data.length: 237292
       CT[4].Rating.5StarRating
@@ -313,15 +282,12 @@ LB[25].Central Coast.25.(null)
       CT[2].Price.Currency
          (null)
       CT[3].Varietals.List
-         
       CT[4].Region.List
-         
    GT[1].Note
       CT[1].Wine Name.SmallText
          Predator
       CT[2].Wine Type.List
-         LB[1].Red.1.(null)
-
+         SLO[1].Red.1.(null)
       CT[3].Wine Bottle Label.Picture
          Binary Data.length: 340030
       CT[4].Rating.5StarRating
@@ -334,17 +300,14 @@ LB[25].Central Coast.25.(null)
       CT[2].Price.Currency
          (null)
       CT[3].Varietals.List
-         LB[12].Zinfandel.12.(null)
-
+         SLO[12].Zinfandel.12.(null)
       CT[4].Region.List
-         LB[2].California.2.(null)
-LB[23].Lodi.23.(null)
-
+         SLO[2].California.2.(null)
+         SLO[23].Lodi.23.(null)
    GT[1].Note
       CT[1].Wine Name.SmallText
          (null)
       CT[2].Wine Type.List
-         
       CT[3].Wine Bottle Label.Picture
          (null)
       CT[4].Rating.5StarRating
@@ -357,14 +320,11 @@ LB[23].Lodi.23.(null)
       CT[2].Price.Currency
          (null)
       CT[3].Varietals.List
-         
       CT[4].Region.List
-         
    GT[1].Note
       CT[1].Wine Name.SmallText
          (null)
       CT[2].Wine Type.List
-         
       CT[3].Wine Bottle Label.Picture
          (null)
       CT[4].Rating.5StarRating
@@ -377,7 +337,5 @@ LB[23].Lodi.23.(null)
       CT[2].Price.Currency
          (null)
       CT[3].Varietals.List
-         
       CT[4].Region.List
-         
 NB[2].Beers

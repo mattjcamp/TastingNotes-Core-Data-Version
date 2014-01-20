@@ -50,6 +50,7 @@
 		C9C02DF71864E80A00739C36 /* Notebook+Notebook_Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C02DF61864E80A00739C36 /* Notebook+Notebook_Helper.m */; };
 		C9C02E091865107F00739C36 /* Note+Note_Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C02E081865107F00739C36 /* Note+Note_Helper.m */; };
 		C9FE8973188C6547005AE859 /* ListObject+ListObjectHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FE8972188C6547005AE859 /* ListObject+ListObjectHelper.m */; };
+		C9FE8976188CBE24005AE859 /* SelectedListObject+SelectedListObject_Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FE8975188CBE24005AE859 /* SelectedListObject+SelectedListObject_Helper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +131,8 @@
 		C9C02E081865107F00739C36 /* Note+Note_Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Note+Note_Helper.m"; sourceTree = "<group>"; };
 		C9FE8971188C6547005AE859 /* ListObject+ListObjectHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ListObject+ListObjectHelper.h"; sourceTree = "<group>"; };
 		C9FE8972188C6547005AE859 /* ListObject+ListObjectHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ListObject+ListObjectHelper.m"; sourceTree = "<group>"; };
+		C9FE8974188CBE24005AE859 /* SelectedListObject+SelectedListObject_Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SelectedListObject+SelectedListObject_Helper.h"; sourceTree = "<group>"; };
+		C9FE8975188CBE24005AE859 /* SelectedListObject+SelectedListObject_Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SelectedListObject+SelectedListObject_Helper.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -307,6 +310,8 @@
 				C9A1C3D2188C0CBF00B892B1 /* Group_Template.m */,
 				C9FE8971188C6547005AE859 /* ListObject+ListObjectHelper.h */,
 				C9FE8972188C6547005AE859 /* ListObject+ListObjectHelper.m */,
+				C9FE8974188CBE24005AE859 /* SelectedListObject+SelectedListObject_Helper.h */,
+				C9FE8975188CBE24005AE859 /* SelectedListObject+SelectedListObject_Helper.m */,
 			);
 			name = Notebooks;
 			sourceTree = "<group>";
@@ -417,6 +422,7 @@
 				C9C02D2418645EC200739C36 /* ViewController.m in Sources */,
 				C9C02DE51864DFFC00739C36 /* Group_Template+Group_Template_Helper.m in Sources */,
 				C9C02D8E18648F9000739C36 /* DataModel.xcdatamodeld in Sources */,
+				C9FE8976188CBE24005AE859 /* SelectedListObject+SelectedListObject_Helper.m in Sources */,
 				C9A1C3D0188C0CBE00B892B1 /* Notebook.m in Sources */,
 				C9A1C3CD188C0BE300B892B1 /* ListObject.m in Sources */,
 				C9C02DF71864E80A00739C36 /* Notebook+Notebook_Helper.m in Sources */,

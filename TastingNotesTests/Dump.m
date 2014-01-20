@@ -40,7 +40,14 @@
                 [log appendFormat:@"      %@\n", ct];
                 Content *c = [note contentInThisGroup:gt
                                    andThisContentType:ct];
-                [log appendFormat:@"         %@\n", c];
+                if([ct.type isEqualToString:@"List"]){
+                    [c.selectedListObjectsByIdentifier enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                        [log appendFormat:@"         %@\n", obj];
+                    }];
+                }
+                else{
+                    [log appendFormat:@"         %@\n", c];
+                }
             }];
         }];
     }];
