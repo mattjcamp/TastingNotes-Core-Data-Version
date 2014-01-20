@@ -60,246 +60,324 @@ NB[2].Beers
 NB[1].Wines
    GT[1].Note
       CT[1].Wine Name.SmallText
-          Rosso
+         Rosso
       CT[2].Wine Type.List
-          LB[1].Red.1.(null)
+         LB[1].Red.1.(null)
+
       CT[3].Wine Bottle Label.Picture
+         Binary Data.length: 328163
       CT[4].Rating.5StarRating
-          3
+         3
       CT[5].Comments.MultiText
-          My goto wine, love with or without food.
+         My goto wine, love with or without food.
    GT[2].Details
       CT[1].Vintage.Numeric
-          2009
+         2009
       CT[2].Price.Currency
-          8.99
+         8.99
       CT[3].Varietals.List
-          LB[6].Merlot.6.(null)
-          LB[12].Zinfandel.12.(null)
-          LB[13].Shiraz.13.(null)
+         LB[6].Merlot.6.(null)
+LB[12].Zinfandel.12.(null)
+LB[13].Shiraz.13.(null)
+
       CT[4].Region.List
-          LB[2].California.2.(null)
-          LB[22].United States.22.(null)
+         LB[2].California.2.(null)
+LB[22].United States.22.(null)
+
    GT[1].Note
       CT[1].Wine Name.SmallText
-          7 Deadly Zins
+         7 Deadly Zins
       CT[2].Wine Type.List
-          LB[1].Red.1.(null)
+         LB[1].Red.1.(null)
+
       CT[3].Wine Bottle Label.Picture
+         Binary Data.length: 362932
       CT[4].Rating.5StarRating
-          4
+         4
       CT[5].Comments.MultiText
-          Rich taste - dark chocolate and red fruit.  High in alcohol and you can taste that, but still a favorite.
+         Rich taste - dark chocolate and red fruit.  High in alcohol and you can taste that, but still a favorite.
    GT[2].Details
       CT[1].Vintage.Numeric
-          2009
+         2009
       CT[2].Price.Currency
-          14.99
+         14.99
       CT[3].Varietals.List
-          LB[12].Zinfandel.12.(null)
+         LB[12].Zinfandel.12.(null)
+
       CT[4].Region.List
-          LB[2].California.2.(null)
-          LB[23].Lodi.23.(null)
+         LB[2].California.2.(null)
+LB[23].Lodi.23.(null)
+
    GT[1].Note
       CT[1].Wine Name.SmallText
-          Red Rock
+         Red Rock
       CT[2].Wine Type.List
-          LB[1].Red.1.(null)
+         LB[1].Red.1.(null)
+
       CT[3].Wine Bottle Label.Picture
+         Binary Data.length: 276569
       CT[4].Rating.5StarRating
-          4
+         4
       CT[5].Comments.MultiText
-          Smooth subtle.  Not much alcohol bite.  Cherry.  Like this wine - real drinkable and great value at 11 bucks.
+         Smooth subtle.  Not much alcohol bite.  Cherry.  Like this wine - real drinkable and great value at 11 bucks.
    GT[2].Details
       CT[1].Vintage.Numeric
-          2010
+         2010
       CT[2].Price.Currency
-          11.99
+         11.99
       CT[3].Varietals.List
-          LB[5].Malbec.5.(null)
+         LB[5].Malbec.5.(null)
+
       CT[4].Region.List
-          LB[2].California.2.(null)
+         LB[2].California.2.(null)
+
    GT[1].Note
       CT[1].Wine Name.SmallText
-          Coppola Diamond Chardonney
+         Coppola Diamond Chardonney
       CT[2].Wine Type.List
-          LB[2].White.2.(null)
+         LB[2].White.2.(null)
+
       CT[3].Wine Bottle Label.Picture
+         Binary Data.length: 362328
       CT[4].Rating.5StarRating
-          3
+         3
       CT[5].Comments.MultiText
-          Decent white wine.  For when I'm not drinking red wine mostly.
+         Decent white wine.  For when I'm not drinking red wine mostly.
    GT[2].Details
       CT[1].Vintage.Numeric
-          2011
+         2011
       CT[2].Price.Currency
-          14.99
+         14.99
       CT[3].Varietals.List
-          LB[2].Chardonnay.2.(null)
+         LB[2].Chardonnay.2.(null)
+
       CT[4].Region.List
-          LB[2].California.2.(null)
+         LB[2].California.2.(null)
+
    GT[1].Note
       CT[1].Wine Name.SmallText
-          Ghost Pines
+         Ghost Pines
       CT[2].Wine Type.List
-          LB[1].Red.1.(null)
+         LB[1].Red.1.(null)
+
       CT[3].Wine Bottle Label.Picture
+         Binary Data.length: 274156
       CT[4].Rating.5StarRating
-          4
+         4
       CT[5].Comments.MultiText
-          Good example of a Zin.
+         Good example of a Zin.
    GT[2].Details
       CT[1].Vintage.Numeric
-          2009
+         2009
       CT[2].Price.Currency
-          17.99
+         17.99
       CT[3].Varietals.List
-          LB[12].Zinfandel.12.(null)
+         LB[12].Zinfandel.12.(null)
+
       CT[4].Region.List
-          LB[2].California.2.(null)
-          LB[13].Sonoma.13.(null)
-          LB[24].San Joaquin.24.(null)
+         LB[2].California.2.(null)
+LB[13].Sonoma.13.(null)
+LB[24].San Joaquin.24.(null)
+
    GT[1].Note
       CT[1].Wine Name.SmallText
-          Diamond Red Blend
+         Diamond Red Blend
       CT[2].Wine Type.List
-          LB[1].Red.1.(null)
+         LB[1].Red.1.(null)
+
       CT[3].Wine Bottle Label.Picture
+         Binary Data.length: 303479
       CT[4].Rating.5StarRating
-          2
+         2
       CT[5].Comments.MultiText
-          Little complicated and the finish was sort of weird.
+         Little complicated and the finish was sort of weird.
    GT[2].Details
       CT[1].Vintage.Numeric
-          2010
+         2010
       CT[2].Price.Currency
-          17.99
+         17.99
       CT[3].Varietals.List
+         
       CT[4].Region.List
-          LB[2].California.2.(null)
+         LB[2].California.2.(null)
+
    GT[1].Note
       CT[1].Wine Name.SmallText
-          Cupcake
+         Cupcake
       CT[2].Wine Type.List
-          LB[1].Red.1.(null)
+         LB[1].Red.1.(null)
+
       CT[3].Wine Bottle Label.Picture
+         Binary Data.length: 333289
       CT[4].Rating.5StarRating
-          3
+         3
       CT[5].Comments.MultiText
+         (null)
    GT[2].Details
       CT[1].Vintage.Numeric
-          2011
+         2011
       CT[2].Price.Currency
-          12.99
+         12.99
       CT[3].Varietals.List
-          LB[5].Malbec.5.(null)
+         LB[5].Malbec.5.(null)
+
       CT[4].Region.List
-          LB[16].Mendoza Province.16.(null)
-          LB[21].Argentina.21.(null)
+         LB[16].Mendoza Province.16.(null)
+LB[21].Argentina.21.(null)
+
    GT[1].Note
       CT[1].Wine Name.SmallText
-          Gigondas
+         Gigondas
       CT[2].Wine Type.List
-          LB[1].Red.1.(null)
+         LB[1].Red.1.(null)
+
       CT[3].Wine Bottle Label.Picture
+         Binary Data.length: 278687
       CT[4].Rating.5StarRating
-          4
+         4
       CT[5].Comments.MultiText
-          Smells like violet, pine and cherry.  Tastes like cherries.
+         Smells like violet, pine and cherry.  Tastes like cherries.
    GT[2].Details
       CT[1].Vintage.Numeric
-          2010
+         2010
       CT[2].Price.Currency
+         (null)
       CT[3].Varietals.List
-          LB[9].Pinot Noir.9.(null)
+         LB[9].Pinot Noir.9.(null)
+
       CT[4].Region.List
-          LB[9].Burgundy.9.(null)
+         LB[9].Burgundy.9.(null)
+
    GT[1].Note
       CT[1].Wine Name.SmallText
-          Cameron Hughes
+         Cameron Hughes
       CT[2].Wine Type.List
-          LB[1].Red.1.(null)
+         LB[1].Red.1.(null)
+
       CT[3].Wine Bottle Label.Picture
+         Binary Data.length: 261861
       CT[4].Rating.5StarRating
-          4
+         4
       CT[5].Comments.MultiText
+         (null)
    GT[2].Details
       CT[1].Vintage.Numeric
-          2009
+         2009
       CT[2].Price.Currency
+         (null)
       CT[3].Varietals.List
-          LB[3].Cabernet Sauvignon.3.(null)
+         LB[3].Cabernet Sauvignon.3.(null)
+
       CT[4].Region.List
-          LB[2].California.2.(null)
-          LB[14].Napa.14.(null)
+         LB[2].California.2.(null)
+LB[14].Napa.14.(null)
+
    GT[1].Note
       CT[1].Wine Name.SmallText
-          Hahn
+         Hahn
       CT[2].Wine Type.List
-          LB[1].Red.1.(null)
+         LB[1].Red.1.(null)
+
       CT[3].Wine Bottle Label.Picture
+         Binary Data.length: 270691
       CT[4].Rating.5StarRating
-          5
+         5
       CT[5].Comments.MultiText
+         (null)
    GT[2].Details
       CT[1].Vintage.Numeric
-          2010
+         2010
       CT[2].Price.Currency
+         (null)
       CT[3].Varietals.List
-          LB[14].Syrah .14.(null)
+         LB[14].Syrah .14.(null)
+
       CT[4].Region.List
-          LB[2].California.2.(null)
-          LB[25].Central Coast.25.(null)
+         LB[2].California.2.(null)
+LB[25].Central Coast.25.(null)
+
    GT[1].Note
       CT[1].Wine Name.SmallText
+         (null)
       CT[2].Wine Type.List
+         
       CT[3].Wine Bottle Label.Picture
+         Binary Data.length: 237292
       CT[4].Rating.5StarRating
-          5
+         5
       CT[5].Comments.MultiText
+         (null)
    GT[2].Details
       CT[1].Vintage.Numeric
+         (null)
       CT[2].Price.Currency
+         (null)
       CT[3].Varietals.List
+         
       CT[4].Region.List
+         
    GT[1].Note
       CT[1].Wine Name.SmallText
-          Predator
+         Predator
       CT[2].Wine Type.List
-          LB[1].Red.1.(null)
+         LB[1].Red.1.(null)
+
       CT[3].Wine Bottle Label.Picture
+         Binary Data.length: 340030
       CT[4].Rating.5StarRating
-          5
+         5
       CT[5].Comments.MultiText
+         (null)
    GT[2].Details
       CT[1].Vintage.Numeric
-          2011
+         2011
       CT[2].Price.Currency
+         (null)
       CT[3].Varietals.List
-          LB[12].Zinfandel.12.(null)
+         LB[12].Zinfandel.12.(null)
+
       CT[4].Region.List
-          LB[2].California.2.(null)
-          LB[23].Lodi.23.(null)
+         LB[2].California.2.(null)
+LB[23].Lodi.23.(null)
+
    GT[1].Note
       CT[1].Wine Name.SmallText
+         (null)
       CT[2].Wine Type.List
+         
       CT[3].Wine Bottle Label.Picture
+         (null)
       CT[4].Rating.5StarRating
+         (null)
       CT[5].Comments.MultiText
+         (null)
    GT[2].Details
       CT[1].Vintage.Numeric
+         (null)
       CT[2].Price.Currency
+         (null)
       CT[3].Varietals.List
+         
       CT[4].Region.List
+         
    GT[1].Note
       CT[1].Wine Name.SmallText
+         (null)
       CT[2].Wine Type.List
+         
       CT[3].Wine Bottle Label.Picture
+         (null)
       CT[4].Rating.5StarRating
+         (null)
       CT[5].Comments.MultiText
+         (null)
    GT[2].Details
       CT[1].Vintage.Numeric
+         (null)
       CT[2].Price.Currency
+         (null)
       CT[3].Varietals.List
+         
       CT[4].Region.List
+         
 NB[2].Beers
