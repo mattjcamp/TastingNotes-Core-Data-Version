@@ -39,8 +39,6 @@
                         error:nil];
 }
 
-#warning TODO: Add descriptions
-#warning TODO: Add descriptions to Dump
 #warning TODO: Use attributed objects for notebook and contenttype categories
 
 -(void)testNewImport{

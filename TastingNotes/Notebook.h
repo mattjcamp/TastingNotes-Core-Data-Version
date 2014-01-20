@@ -17,7 +17,7 @@
 @property (nonatomic, retain) NSNumber * order;
 @property (nonatomic, retain) NSSet *notes;
 @property (nonatomic, retain) NSSet *groups;
-@property (strong) NSNumber *pk;
+//@property (strong) NSNumber *pk;
 @end
 
 @interface Notebook (CoreDataGeneratedAccessors)

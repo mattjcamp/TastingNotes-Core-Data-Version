@@ -19,7 +19,7 @@
 @property (nonatomic, retain) Group_Template *belongsToGroup;
 @property (nonatomic, retain) NSSet *contentInThisContent_Type;
 @property (nonatomic, retain) NSSet *listObjects;
-@property (strong) NSNumber *pk;
+//@property (strong) NSNumber *pk;
 @end
 
 @interface ContentType_Template (CoreDataGeneratedAccessors)

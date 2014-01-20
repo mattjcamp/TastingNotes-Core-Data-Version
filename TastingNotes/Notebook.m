@@ -17,6 +17,6 @@
 @dynamic order;
 @dynamic notes;
 @dynamic groups;
-@synthesize pk;
+//@synthesize pk;
 
 @end

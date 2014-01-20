@@ -6,6 +6,49 @@
 //  Copyright (c) 2014 Mobile App Mastery. All rights reserved.
 
 #import "SQLiteUpdater.h"
+#import <objc/runtime.h>
+
+static char const * const ObjectTagKey = "ObjectTag";
+
+@interface Notebook (PKAddition)
+
+@property (nonatomic, retain) id pk;
+
+@end
+
+@implementation Notebook (PKAddition)
+
+@dynamic pk;
+
+-(id)pk {
+    return objc_getAssociatedObject(self, ObjectTagKey);
+}
+
+-(void)setPk:(id)newObjectTag {
+    objc_setAssociatedObject(self, ObjectTagKey, newObjectTag, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+@end
+
+@interface ContentType_Template (PKAddition)
+
+@property (nonatomic, retain) id pk;
+
+@end
+
+@implementation ContentType_Template (PKAddition)
+
+@dynamic pk;
+
+-(id)pk {
+    return objc_getAssociatedObject(self, ObjectTagKey);
+}
+
+-(void)setPk:(id)newObjectTag {
+    objc_setAssociatedObject(self, ObjectTagKey, newObjectTag, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+@end
 
 @interface SQLiteUpdater()
 

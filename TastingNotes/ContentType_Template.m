@@ -13,7 +13,7 @@
 
 
 @implementation ContentType_Template
-@synthesize pk;
+//@synthesize pk;
 @dynamic name;
 @dynamic order;
 @dynamic type;
