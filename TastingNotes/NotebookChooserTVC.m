@@ -1,48 +1,48 @@
 //
-//  NotesTVC.m
+//  NotebookChooserTVC.m
 //  TastingNotes
 //
-//  Created by Matt on 1/18/14.
+//  Created by Matt on 1/20/14.
 //  Copyright (c) 2014 Mobile App Mastery. All rights reserved.
 //
 
-#import "NotesTVC.h"
+#import "NotebookChooserTVC.h"
 
-@interface NotesTVC ()
+@interface NotebookChooserTVC ()
 
 @end
 
-@implementation NotesTVC
-
+@implementation NotebookChooserTVC
 
 -(void)viewDidLoad{
     [super viewDidLoad];
-    self.notebook = [[[AppContent sharedContent] notebooks] firstObject];
-}
 
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+ 
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.notebook.notes.count;
+    return [[[AppContent sharedContent] notebooks] count];
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    Note *n = [self.notebook.notesByOrder objectAtIndex:indexPath.row];
-    Group_Template *gt = [n.belongsToNotebook.groupsByOrder firstObject];
-    ContentType_Template *ct = [gt.contentTypesByOrder firstObject];
-    
-    Content *c = [n contentInThisGroup:gt
-                       andThisContentType:ct];
-    
-    cell.textLabel.text = [NSString stringWithFormat:@"%@", c.stringData];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", c.stringData];
+    Notebook *n = [[[AppContent sharedContent] notebooks] objectAtIndex:indexPath.row];
+    cell.textLabel.text = n.name;
     
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self dismissViewControllerAnimated:YES completion:^{
+        NSLog(@"Dismisses");
+    }];
 }
 
 /*
@@ -95,7 +95,5 @@
 }
 
  */
-
-
 
 @end

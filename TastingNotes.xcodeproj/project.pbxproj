@@ -14,6 +14,7 @@
 		C962FEC8187B58B500208180 /* tasting-notes-database-paddb.sql in Resources */ = {isa = PBXBuildFile; fileRef = C962FEC7187B58B500208180 /* tasting-notes-database-paddb.sql */; };
 		C962FECA187B5AB400208180 /* SQLiteUpgrade.m in Sources */ = {isa = PBXBuildFile; fileRef = C962FEC9187B5AB400208180 /* SQLiteUpgrade.m */; };
 		C962FED0187B821800208180 /* SQLiteUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = C962FECF187B821800208180 /* SQLiteUpdater.m */; };
+		C975D87F188E021600C5C9FB /* NotebookChooserTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C975D87E188E021600C5C9FB /* NotebookChooserTVC.m */; };
 		C9981036188AB28C0049690D /* paddb.sql in Resources */ = {isa = PBXBuildFile; fileRef = C9981035188AB28C0049690D /* paddb.sql */; };
 		C9A1C3AD188AE67700B892B1 /* WineDatabaseOutput.txt in Resources */ = {isa = PBXBuildFile; fileRef = C9A1C3AC188AE67700B892B1 /* WineDatabaseOutput.txt */; };
 		C9A1C3B0188AEAE700B892B1 /* Content+Content_Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A1C3AF188AEAE700B892B1 /* Content+Content_Helper.m */; };
@@ -75,6 +76,8 @@
 		C962FEC9187B5AB400208180 /* SQLiteUpgrade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteUpgrade.m; sourceTree = "<group>"; };
 		C962FECE187B821800208180 /* SQLiteUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteUpdater.h; sourceTree = "<group>"; };
 		C962FECF187B821800208180 /* SQLiteUpdater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteUpdater.m; sourceTree = "<group>"; };
+		C975D87D188E021600C5C9FB /* NotebookChooserTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotebookChooserTVC.h; sourceTree = "<group>"; };
+		C975D87E188E021600C5C9FB /* NotebookChooserTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotebookChooserTVC.m; sourceTree = "<group>"; };
 		C9981035188AB28C0049690D /* paddb.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = paddb.sql; sourceTree = "<group>"; };
 		C9A1C3AC188AE67700B892B1 /* WineDatabaseOutput.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WineDatabaseOutput.txt; sourceTree = "<group>"; };
 		C9A1C3AE188AEAE700B892B1 /* Content+Content_Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Content+Content_Helper.h"; sourceTree = "<group>"; };
@@ -189,6 +192,8 @@
 			children = (
 				C9A1C3B6188B066A00B892B1 /* NotesTVC.h */,
 				C9A1C3B7188B066A00B892B1 /* NotesTVC.m */,
+				C975D87D188E021600C5C9FB /* NotebookChooserTVC.h */,
+				C975D87E188E021600C5C9FB /* NotebookChooserTVC.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -427,6 +432,7 @@
 				C9A1C3CD188C0BE300B892B1 /* ListObject.m in Sources */,
 				C9C02DF71864E80A00739C36 /* Notebook+Notebook_Helper.m in Sources */,
 				C9C02DE21864DFAC00739C36 /* ContentType_Template+ContentType_Template_Helper.m in Sources */,
+				C975D87F188E021600C5C9FB /* NotebookChooserTVC.m in Sources */,
 				C9A1C3CA188C0BE300B892B1 /* SelectedListObject.m in Sources */,
 				C9A1C3D3188C0CBF00B892B1 /* Group_Template.m in Sources */,
 				C9A1C3B0188AEAE700B892B1 /* Content+Content_Helper.m in Sources */,
