@@ -54,6 +54,7 @@ static char const * const ObjectTagKey = "ObjectTag";
 
 @property AppContent *ac;
 @property SQLiteDB *db;
+@property NSArray *badgeControlPK;
 
 @end
 
@@ -88,6 +89,10 @@ static char const * const ObjectTagKey = "ObjectTag";
                                       usingThisSelectStatement:[NSString stringWithFormat:@"SELECT * FROM ListsTable WHERE pk = %@", pk]];
     Notebook *n = [self.ac addNewNotebookWithThisName:[notebookData objectAtIndex:1]];
     n.pk = pk;
+    
+    self.badgeControlPK = nil;
+    self.badgeControlPK = @[[notebookData objectAtIndex:3], [notebookData objectAtIndex:4], [notebookData objectAtIndex:5]];
+    
     NSArray *groupPKs = [self.db getColumnValuesFromThisTable:@"SectionTable"
                                      usingThisSelectStatement:[NSString stringWithFormat:@"SELECT * FROM SectionTable WHERE fk_ToListsTable = %@ ORDER BY SectionOrder", pk]
                                                fromThisColumn:0];
@@ -119,6 +124,11 @@ static char const * const ObjectTagKey = "ObjectTag";
     ContentType_Template *ct = [self.ac addContentTypeTemplateWithThisName:[controlData objectAtIndex:3] toThisGroupTemplate:gt];
     ct.type = [controlData objectAtIndex:2];
     ct.pk = pk;
+    
+    [self.badgeControlPK enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        if([obj integerValue] == [pk integerValue])
+            [ct.belongsToGroup.belongsToNotebook addSummaryContentTypesObject:ct];
+    }];
     
     if([ct.type isEqualToString:@"List"]){
         NSArray *tagValueNames = [[SQLiteDB sharedDatabase] getColumnValuesFromThisTable:@"TagValues"

@@ -2,14 +2,14 @@
 //  ContentType_Template.h
 //  TastingNotes
 //
-//  Created by Matt on 1/19/14.
+//  Created by Matt on 1/21/14.
 //  Copyright (c) 2014 Mobile App Mastery. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Content, Group_Template, ListObject;
+@class Content, Group_Template, ListObject, Notebook;
 
 @interface ContentType_Template : NSManagedObject
 
@@ -19,7 +19,7 @@
 @property (nonatomic, retain) Group_Template *belongsToGroup;
 @property (nonatomic, retain) NSSet *contentInThisContent_Type;
 @property (nonatomic, retain) NSSet *listObjects;
-//@property (strong) NSNumber *pk;
+@property (nonatomic, retain) Notebook *summerizedInNotebook;
 @end
 
 @interface ContentType_Template (CoreDataGeneratedAccessors)
