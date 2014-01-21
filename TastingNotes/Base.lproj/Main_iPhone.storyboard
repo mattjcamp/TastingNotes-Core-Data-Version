@@ -21,7 +21,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ETG-Sh-LEg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-30" y="-215"/>
+            <point key="canvasLocation" x="54" y="361"/>
         </scene>
         <!--NotesTVC - Notes-->
         <scene sceneID="UoC-te-jca">
@@ -46,7 +46,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qDS-iU-h96" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="486" y="525"/>
+            <point key="canvasLocation" x="586" y="-379"/>
         </scene>
         <!--Table View Controller - Root View Controller-->
         <scene sceneID="Hmp-Df-fCd">
@@ -71,7 +71,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="shH-PN-pJM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="486" y="1245"/>
+            <point key="canvasLocation" x="586" y="1101"/>
         </scene>
         <!--Navigation Controller - Settings-->
         <scene sceneID="2Lk-Vy-dPR">
@@ -87,7 +87,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dxB-ka-v7m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-46" y="1245"/>
+            <point key="canvasLocation" x="54" y="1101"/>
         </scene>
         <!--Navigation Controller - Notes-->
         <scene sceneID="Lbv-KA-YrP">
@@ -103,21 +103,21 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bip-ar-VY6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-46" y="525"/>
+            <point key="canvasLocation" x="54" y="-379"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="oF7-N5-PBC">
             <objects>
                 <tabBarController definesPresentationContext="YES" id="LSi-A2-GUi" sceneMemberID="viewController">
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Cex-xz-xB1">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="R89-Cf-8Te" kind="relationship" relationship="viewControllers" id="obg-wz-o8O"/>
                         <segue destination="oKH-xQ-7L7" kind="relationship" relationship="viewControllers" id="Trq-mj-DbE"/>
+                        <segue destination="R89-Cf-8Te" kind="relationship" relationship="viewControllers" id="obg-wz-o8O"/>
                         <segue destination="Veu-FM-Jah" kind="relationship" relationship="viewControllers" id="se8-ew-9Pt"/>
                     </connections>
                 </tabBarController>
