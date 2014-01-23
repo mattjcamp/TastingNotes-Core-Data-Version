@@ -50,7 +50,7 @@
     SQLiteUpdater *se = [[SQLiteUpdater alloc]init];
     [se importSQLtoCoreData];
     
-    NSString *outFile = [self generateNewOutputFile:REF_FILE];
+    [self generateNewOutputFile:REF_FILE];
 }
 
 -(NSString *)generateNewOutputFile:(NSString *)filename{
@@ -64,7 +64,7 @@
     [[[AppContent sharedContent] notebooks] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         [Dump dumpThisNotebookContent:obj
                           intoThisLog:output
-                  includingBinaryData:YES];
+                  includingBinaryData:NO];
     }];
     
     [output writeToFile:filename
