@@ -107,7 +107,7 @@ static char const * const ObjectTagKey = "ObjectTag";
     NSArray *sectionData = [self.db getRowValuesFromThisTable:@"SectionTable"
                                      usingThisSelectStatement:[NSString stringWithFormat:@"SELECT * FROM SectionTable WHERE pk = %@", pk]];
     Group_Template *gt = [self.ac addGroupTemplateWithThisName:[sectionData objectAtIndex:2]
-                                        toThisNotebook:n];
+                                                toThisNotebook:n];
     NSArray *controlPKs = [self.db getColumnValuesFromThisTable:@"ControlTable"
                                        usingThisSelectStatement:[NSString stringWithFormat:@"SELECT pk FROM ControlTable WHERE fk_ToSectionTable = %@ ORDER BY ControlOrder", [sectionData objectAtIndex:0]]
                                                  fromThisColumn:0];
@@ -126,8 +126,11 @@ static char const * const ObjectTagKey = "ObjectTag";
     ct.pk = pk;
     
     [self.badgeControlPK enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        if([obj integerValue] == [pk integerValue])
-            [ct.belongsToGroup.belongsToNotebook addSummaryContentTypesObject:ct];
+        if(obj != [NSNull null]){
+            NSNumber *num = (NSNumber *)obj;
+            if([num integerValue] == [pk integerValue])
+                [ct.belongsToGroup.belongsToNotebook addSummaryContentTypesObject:ct];
+        }
     }];
     
     if([ct.type isEqualToString:@"List"]){
@@ -136,7 +139,7 @@ static char const * const ObjectTagKey = "ObjectTag";
                                                                           fromThisColumn:0];
         [tagValueNames enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             [self.ac addListObjectWithThisName:obj
-                                              toThisContentType:ct];
+                             toThisContentType:ct];
         }];
     }
 }
@@ -204,30 +207,30 @@ static char const * const ObjectTagKey = "ObjectTag";
         }
     }
     if([ct.type isEqualToString:@"List"]){
-
-            NSNumber *ContentInNoteAndControlPK = [self.db getValueFromThisTable:@"ContentInNoteAndControl"
-                                                        usingThisSelectStatement:[NSString stringWithFormat:@"SELECT pk FROM ContentInNoteAndControl WHERE fk_ToNotesInlistTable = %@ AND fk_ToControlTable = %@", notePK, ct.pk]];
         
-            Content *c = [self.ac addNewContentToThisNote:note
-                                      inThisGroupTemplate:gt
-                                       andThisContentType:ct];
+        NSNumber *ContentInNoteAndControlPK = [self.db getValueFromThisTable:@"ContentInNoteAndControl"
+                                                    usingThisSelectStatement:[NSString stringWithFormat:@"SELECT pk FROM ContentInNoteAndControl WHERE fk_ToNotesInlistTable = %@ AND fk_ToControlTable = %@", notePK, ct.pk]];
+        
+        Content *c = [self.ac addNewContentToThisNote:note
+                                  inThisGroupTemplate:gt
+                                   andThisContentType:ct];
+        
+        NSArray *fk_To_TagValues = [[SQLiteDB sharedDatabase] getColumnValuesFromThisTable:@"TagValuesInContent"
+                                                                  usingThisSelectStatement:[NSString stringWithFormat:@"SELECT fk_To_TagValues FROM TagValuesInContent WHERE fk_To_ContentInNoteAndControl = %@", ContentInNoteAndControlPK]
+                                                                            fromThisColumn:0];
+        
+        [fk_To_TagValues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             
-            NSArray *fk_To_TagValues = [[SQLiteDB sharedDatabase] getColumnValuesFromThisTable:@"TagValuesInContent"
-                                                                      usingThisSelectStatement:[NSString stringWithFormat:@"SELECT fk_To_TagValues FROM TagValuesInContent WHERE fk_To_ContentInNoteAndControl = %@", ContentInNoteAndControlPK]
-                                                                                fromThisColumn:0];
+            NSString *tvText = [self.db getValueFromThisTable:@"TagValues"
+                                     usingThisSelectStatement:[NSString stringWithFormat:@"SELECT TagValueText FROM TagValues WHERE pk = %@", obj]];
+            NSPredicate *p = [NSPredicate predicateWithFormat:@"name = %@", tvText];
+            NSArray *a = [ct.listObjectsByOrder filteredArrayUsingPredicate:p];
+            ListObject *lo = (ListObject *)[a firstObject];
             
-            [fk_To_TagValues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                
-                NSString *tvText = [self.db getValueFromThisTable:@"TagValues"
-                                              usingThisSelectStatement:[NSString stringWithFormat:@"SELECT TagValueText FROM TagValues WHERE pk = %@", obj]];
-                NSPredicate *p = [NSPredicate predicateWithFormat:@"name = %@", tvText];
-                NSArray *a = [ct.listObjectsByOrder filteredArrayUsingPredicate:p];
-                ListObject *lo = (ListObject *)[a firstObject];
-                
-                [self.ac addSelectedListObjectWithThisIdentifier:lo.identifier
-                                                   toThisContent:c];
-                
-            }];
+            [self.ac addSelectedListObjectWithThisIdentifier:lo.identifier
+                                               toThisContent:c];
+            
+        }];
         
     }
 }

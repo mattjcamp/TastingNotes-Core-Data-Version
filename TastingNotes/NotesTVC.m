@@ -17,7 +17,7 @@
 
 -(void)viewDidLoad{
     [super viewDidLoad];
-    self.notebook = [[[AppContent sharedContent] notebooks] firstObject];
+    self.notebook = [[[AppContent sharedContent] notebooks] lastObject];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
