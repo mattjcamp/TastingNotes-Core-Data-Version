@@ -13,6 +13,12 @@
 +(void)dumpThisNotebookTemplate:(Notebook *)notebook
                     intoThisLog:(NSMutableString *)log{
     [log appendFormat:@"%@\n", notebook];
+    [log appendString:@"   Summary: "];
+    [notebook.summaryContentTypesByOrder enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        ContentType_Template *sct = obj;
+        [log appendFormat:@"%@, ", sct.name];
+    }];
+    [log appendString:@"\n"];
     [[notebook groupsByOrder] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         Group_Template *gt = (Group_Template *)obj;
         [log appendFormat:@"   %@\n", gt];
@@ -28,10 +34,12 @@
 }
 
 +(void)dumpThisNotebookContent:(Notebook *)notebook
-                   intoThisLog:(NSMutableString *)log{
+                   intoThisLog:(NSMutableString *)log
+           includingBinaryData:(BOOL)includeBinary{
     [log appendFormat:@"%@\n", notebook];
     [[notebook notesByOrder] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         Note *note = (Note *)obj;
+        [log appendFormat:@"   N[%@]\n", note];
         [[notebook groupsByOrder] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             Group_Template *gt = (Group_Template *)obj;
             [log appendFormat:@"   %@\n", gt];
@@ -46,10 +54,24 @@
                     }];
                 }
                 else{
-                    [log appendFormat:@"         %@\n", c];
+                    if([ct.type isEqualToString:@"Picture"] && includeBinary){
+                        [log appendFormat:@"         %@\n", c.binaryData];
+                    }
+                    else{
+                        [log appendFormat:@"         %@\n", c];
+                    }
                 }
             }];
         }];
+    }];
+}
+
++(void)dumpNoteSummariesForThisNotebook:(Notebook *)notebook
+                            intoThisLog:(NSMutableString *)log{
+    [log appendFormat:@"%@\n", notebook];
+    [[notebook notesByOrder] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        Note *note = (Note *)obj;
+        [log appendFormat:@"   N[%@]\n", note];
     }];
 }
 

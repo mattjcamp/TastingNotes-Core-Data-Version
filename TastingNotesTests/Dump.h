@@ -13,6 +13,9 @@
 +(void)dumpThisNotebookTemplate:(Notebook *)notebook
             intoThisLog:(NSMutableString *)log;
 +(void)dumpThisNotebookContent:(Notebook *)notebook
-                   intoThisLog:(NSMutableString *)log;
+                   intoThisLog:(NSMutableString *)log
+           includingBinaryData:(BOOL)includeBinary;
++(void)dumpNoteSummariesForThisNotebook:(Notebook *)notebook
+                            intoThisLog:(NSMutableString *)log;
 
 @end

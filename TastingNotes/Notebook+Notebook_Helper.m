@@ -36,6 +36,13 @@
     return max;
 }
 
+-(NSArray *) summaryContentTypesByOrder{
+    NSSortDescriptor *sorter = [NSSortDescriptor sortDescriptorWithKey:@"order"
+                                                             ascending:YES];
+    
+    return [self.summaryContentTypes sortedArrayUsingDescriptors:@[sorter]];
+}
+
 -(NSString *)description{
     return [NSString stringWithFormat:@"NB[%@].%@", self.order, self.name];
 }

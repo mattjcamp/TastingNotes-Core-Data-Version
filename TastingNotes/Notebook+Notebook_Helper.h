@@ -14,5 +14,6 @@
 -(NSNumber *)maxNoteOrder;
 -(NSArray *) groupsByOrder;
 -(NSNumber *)maxGroupOrder;
+-(NSArray *) summaryContentTypesByOrder;
 
 @end

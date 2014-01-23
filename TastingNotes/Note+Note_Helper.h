@@ -19,4 +19,6 @@
 -(Content *) contentInThisGroup:(Group_Template *)group
              andThisContentType:(ContentType_Template *)contentType;
 
+-(NSString *) title;
+
 @end

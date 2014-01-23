@@ -17,7 +17,8 @@
 
 -(void)viewDidLoad{
     [super viewDidLoad];
-    self.notebook = [[[AppContent sharedContent] notebooks] lastObject];
+    self.notebook = [[[AppContent sharedContent] notebooks] firstObject];
+    //self.title = self.notebook.name;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -33,21 +34,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     Note *n = [self.notebook.notesByOrder objectAtIndex:indexPath.row];
-    Group_Template *gt = [n.belongsToNotebook.groupsByOrder firstObject];
-    
-    [gt.belongsToNotebook.summaryContentTypes enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
-        ContentType_Template *ct = obj;
-        Content *c = [n contentInThisGroup:gt andThisContentType:ct];
-        if([ct.type isEqualToString:@"SmallText"]){
-            cell.textLabel.text = [NSString stringWithFormat:@"%@", c.stringData];
-        }
-        if([ct.type isEqualToString:@"MultiText"]){
-            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", c.stringData];
-        }
-        if([ct.type isEqualToString:@"Picture"]){
-            cell.imageView.image = [UIImage imageWithData:c.binaryData];
-        }
-    }];
+    cell.textLabel.text = [n title];
     
     return cell;
 }

@@ -60,8 +60,22 @@
     }
     else{
         [self.log appendString:@"Files are not matching..."];
-        XCTFail(@"Files are not matching...");
+        //XCTFail(@"Files are not matching...");
     }
+}
+
+-(void)testNoteSummaries{
+    [self.ac removeAllContent];
+    SQLiteUpdater *se = [[SQLiteUpdater alloc]init];
+    [se importSQLtoCoreData];
+    NSMutableString *output = [[NSMutableString alloc]init];
+    Notebook *nb = [[self.ac notebooks] firstObject];
+    [Dump dumpNoteSummariesForThisNotebook:nb
+                               intoThisLog:output];
+    [output writeToFile:OUTPUT_FILE
+             atomically:NO
+               encoding:NSStringEncodingConversionAllowLossy
+                  error:nil];
 }
 
 -(void)testCoreData{
@@ -94,7 +108,8 @@
     
     [[self.ac notebooks] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         [Dump dumpThisNotebookContent:obj
-                          intoThisLog:output];
+                          intoThisLog:output
+                  includingBinaryData:NO];
     }];
     
     [output writeToFile:OUTPUT_FILE
@@ -113,7 +128,9 @@
 -(void)testSQLiteContentImport{
     [[self.ac notebooks] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         [Dump dumpThisNotebookContent:obj
-                          intoThisLog:self.log];
+                          intoThisLog:self.log
+                  includingBinaryData:YES];
+
     }];
 }
 
