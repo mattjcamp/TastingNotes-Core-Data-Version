@@ -30,17 +30,13 @@
 }
 
 -(void)testSQLiteImport{
-    
     [[AppContent sharedContent] removeAllContent];
     SQLiteUpdater *se = [[SQLiteUpdater alloc]init];
     [se importSQLtoCoreData];
-
     NSString *refFile = [NSString stringWithContentsOfFile:REF_FILE
                                                   encoding:NSStringEncodingConversionAllowLossy
                                                      error:nil];
-    
     NSString *outFile = [self generateNewOutputFile:OUTPUT_FILE];
-                         
     if(![refFile isEqualToString:outFile])
         XCTFail(@"Files are not matching...");
 }
@@ -49,7 +45,6 @@
     [[AppContent sharedContent] removeAllContent];
     SQLiteUpdater *se = [[SQLiteUpdater alloc]init];
     [se importSQLtoCoreData];
-    
     [self generateNewOutputFile:REF_FILE];
 }
 

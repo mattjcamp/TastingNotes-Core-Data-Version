@@ -10,6 +10,8 @@
 
 @interface NotesTVC ()
 
+@property (weak, nonatomic) IBOutlet UIButton *titleButton;
+
 @end
 
 @implementation NotesTVC
@@ -18,6 +20,7 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     self.notebook = [[[AppContent sharedContent] notebooks] firstObject];
+    self.titleButton.titleLabel.text = self.notebook.name;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
