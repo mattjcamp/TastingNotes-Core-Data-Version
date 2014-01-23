@@ -49,6 +49,7 @@
 		C9C02DE51864DFFC00739C36 /* Group_Template+Group_Template_Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C02DE41864DFFC00739C36 /* Group_Template+Group_Template_Helper.m */; };
 		C9C02DF71864E80A00739C36 /* Notebook+Notebook_Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C02DF61864E80A00739C36 /* Notebook+Notebook_Helper.m */; };
 		C9C02E091865107F00739C36 /* Note+Note_Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C02E081865107F00739C36 /* Note+Note_Helper.m */; };
+		C9D4D9541891CBAF00CC2B35 /* ReferenceOutput.txt in Resources */ = {isa = PBXBuildFile; fileRef = C9D4D9531891CBAF00CC2B35 /* ReferenceOutput.txt */; };
 		C9FE8973188C6547005AE859 /* ListObject+ListObjectHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FE8972188C6547005AE859 /* ListObject+ListObjectHelper.m */; };
 		C9FE8976188CBE24005AE859 /* SelectedListObject+SelectedListObject_Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FE8975188CBE24005AE859 /* SelectedListObject+SelectedListObject_Helper.m */; };
 /* End PBXBuildFile section */
@@ -130,6 +131,7 @@
 		C9C02DF61864E80A00739C36 /* Notebook+Notebook_Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Notebook+Notebook_Helper.m"; sourceTree = "<group>"; };
 		C9C02E071865107F00739C36 /* Note+Note_Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Note+Note_Helper.h"; sourceTree = "<group>"; };
 		C9C02E081865107F00739C36 /* Note+Note_Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Note+Note_Helper.m"; sourceTree = "<group>"; };
+		C9D4D9531891CBAF00CC2B35 /* ReferenceOutput.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReferenceOutput.txt; sourceTree = "<group>"; };
 		C9FE8971188C6547005AE859 /* ListObject+ListObjectHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ListObject+ListObjectHelper.h"; sourceTree = "<group>"; };
 		C9FE8972188C6547005AE859 /* ListObject+ListObjectHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ListObject+ListObjectHelper.m"; sourceTree = "<group>"; };
 		C9FE8974188CBE24005AE859 /* SelectedListObject+SelectedListObject_Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SelectedListObject+SelectedListObject_Helper.h"; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 		C9A1C3AB188AE67700B892B1 /* Output */ = {
 			isa = PBXGroup;
 			children = (
+				C9D4D9531891CBAF00CC2B35 /* ReferenceOutput.txt */,
 				C9A1C3B1188AF98400B892B1 /* DataOutput.txt */,
 				C9A1C3B2188AF98400B892B1 /* SQLiteUpgrade_log.txt */,
 			);
@@ -408,6 +411,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9A1C3B3188AF98400B892B1 /* DataOutput.txt in Resources */,
+				C9D4D9541891CBAF00CC2B35 /* ReferenceOutput.txt in Resources */,
 				C9A1C3B4188AF98400B892B1 /* SQLiteUpgrade_log.txt in Resources */,
 				C9C02D3718645EC200739C36 /* InfoPlist.strings in Resources */,
 			);
