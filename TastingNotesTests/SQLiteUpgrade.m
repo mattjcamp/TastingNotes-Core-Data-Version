@@ -11,14 +11,11 @@
 #import "Dump.h"
 #import "SQLiteUpdater.h"
 
-#define REF_FILE (@"/Users/matt/Code/Objective-C/TastingNotes/TastingNotesTests/Output/WineDatabaseOutput.txt")
+#define REF_FILE (@"/Users/matt/Code/Objective-C/TastingNotes/TastingNotesTests/Output/ReferenceOutput.txt")
 #define OUTPUT_FILE (@"/Users/matt/Code/Objective-C/TastingNotes/TastingNotesTests/Output/DataOutput.txt")
 #define LOG_FILE (@"/Users/matt/Code/Objective-C/TastingNotes/TastingNotesTests/Output/SQLiteUpgrade_log.txt")
 
 @interface SQLiteUpgrade : XCTestCase
-
-@property AppContent *ac;
-@property NSMutableString *log;
 
 @end
 
@@ -26,139 +23,56 @@
 
 -(void)setUp{
     [super setUp];
-    self.ac = [AppContent sharedContent];
-    self.log = [[NSMutableString alloc] init];
 }
 
 -(void)tearDown{
     [super tearDown];
-    if([self.log length] > 0)
-        [self.log writeToFile:LOG_FILE
-                   atomically:NO
-                     encoding:NSStringEncodingConversionAllowLossy
-                        error:nil];
 }
 
--(void)testNewImport{
+-(void)testSQLiteImport{
     
-    [self.ac removeAllContent];
-    
+    [[AppContent sharedContent] removeAllContent];
     SQLiteUpdater *se = [[SQLiteUpdater alloc]init];
     [se importSQLtoCoreData];
-    
-    [self outputNotebooks];
 
     NSString *refFile = [NSString stringWithContentsOfFile:REF_FILE
                                                   encoding:NSStringEncodingConversionAllowLossy
                                                      error:nil];
     
-    NSString *outFile = [NSString stringWithContentsOfFile:OUTPUT_FILE
-                                                  encoding:NSStringEncodingConversionAllowLossy
-                                                     error:nil];
-    if([refFile isEqualToString:outFile]){
-        [self.log appendString:@"Both files match"];
-    }
-    else{
-        [self.log appendString:@"Files are not matching..."];
+    NSString *outFile = [self generateNewOutputFile:OUTPUT_FILE];
+                         
+    if(![refFile isEqualToString:outFile])
         XCTFail(@"Files are not matching...");
-    }
 }
 
--(void)testFirstNotebookImport{
-    [self.ac removeAllContent];
+-(void)testMakeNewReferenceFile{
+    [[AppContent sharedContent] removeAllContent];
     SQLiteUpdater *se = [[SQLiteUpdater alloc]init];
     [se importSQLtoCoreData];
-    NSMutableString *output = [[NSMutableString alloc]init];
-    Notebook *nb = [[self.ac notebooks] firstObject];
-    [Dump dumpThisNotebookContent:nb
-                      intoThisLog:output
-              includingBinaryData:NO];
-    [output writeToFile:OUTPUT_FILE
-             atomically:NO
-               encoding:NSStringEncodingConversionAllowLossy
-                  error:nil];
+    
+    NSString *outFile = [self generateNewOutputFile:REF_FILE];
 }
 
--(void)testCoreData{
-    [self outputNotebooks];
-    
-    NSString *refFile = [NSString stringWithContentsOfFile:REF_FILE
-                                                  encoding:NSStringEncodingConversionAllowLossy
-                                                     error:nil];
-    
-    NSString *outFile = [NSString stringWithContentsOfFile:OUTPUT_FILE
-                                                  encoding:NSStringEncodingConversionAllowLossy
-                                                     error:nil];
-    if([refFile isEqualToString:outFile]){
-        [self.log appendString:@"Both files match"];
-    }
-    else{
-        [self.log appendString:@"Files are not matching..."];
-        XCTFail(@"Files are not matching...");
-    }
-
-}
-
--(void)testGenerateNewOutputFile{
+-(NSString *)generateNewOutputFile:(NSString *)filename{
     NSMutableString *output = [[NSMutableString alloc]init];
     
-    [[self.ac notebooks] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+    [[[AppContent sharedContent] notebooks] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         [Dump dumpThisNotebookTemplate:obj
                            intoThisLog:output];
     }];
     
-    [[self.ac notebooks] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+    [[[AppContent sharedContent] notebooks] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         [Dump dumpThisNotebookContent:obj
                           intoThisLog:output
                   includingBinaryData:YES];
     }];
     
-    [output writeToFile:OUTPUT_FILE
+    [output writeToFile:filename
              atomically:NO
                encoding:NSStringEncodingConversionAllowLossy
                   error:nil];
-}
-
--(void)testGenerateNewReferenceFile{
     
-    [self.ac removeAllContent];
-    
-    SQLiteUpdater *se = [[SQLiteUpdater alloc]init];
-    [se importSQLtoCoreData];
-    
-    NSMutableString *output = [[NSMutableString alloc]init];
-    
-    [[self.ac notebooks] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        [Dump dumpThisNotebookTemplate:obj
-                           intoThisLog:output];
-    }];
-    
-    [[self.ac notebooks] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        [Dump dumpThisNotebookContent:obj
-                          intoThisLog:output
-                  includingBinaryData:YES];
-    }];
-    
-    [output writeToFile:REF_FILE
-             atomically:NO
-               encoding:NSStringEncodingConversionAllowLossy
-                  error:nil];
-}
-
--(void)testSQLiteTemplateImport{
-    [[self.ac notebooks] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        [Dump dumpThisNotebookTemplate:obj
-                           intoThisLog:self.log];
-    }];
-}
-
--(void)testSQLiteContentImport{
-    [[self.ac notebooks] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        [Dump dumpThisNotebookContent:obj
-                          intoThisLog:self.log
-                  includingBinaryData:YES];
-
-    }];
+    return [output copy];
 }
 
 @end

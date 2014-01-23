@@ -66,13 +66,4 @@
     }];
 }
 
-+(void)dumpNoteSummariesForThisNotebook:(Notebook *)notebook
-                            intoThisLog:(NSMutableString *)log{
-    [log appendFormat:@"%@\n", notebook];
-    [[notebook notesByOrder] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        Note *note = (Note *)obj;
-        [log appendFormat:@"   N[%@]\n", note];
-    }];
-}
-
 @end

@@ -21,8 +21,6 @@
     
 }
 
-#warning These methods do not return any content for Stacie's database...
-
 -(NSArray *) contentInThisGroup:(Group_Template *)group{
     
     NSMutableArray *a = [[NSMutableArray alloc]init];
