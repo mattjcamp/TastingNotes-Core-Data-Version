@@ -55,34 +55,25 @@
 }
 
 -(NSString *) title{
-    for(Group_Template *gt in self.belongsToNotebook.groupsByOrder){
-        for(ContentType_Template *ct in gt.belongsToNotebook.summaryContentTypesByOrder){
-            if([ct.type isEqualToString:@"SmallText"]){
-                Content *c = [self contentInThisGroup:gt andThisContentType:ct];
-                return ct.name;
-            }
+    for(ContentType_Template *ct in self.belongsToNotebook.summaryContentTypesByOrder){
+        if([ct.type isEqualToString:@"SmallText"]){
+            Content *c = [self contentInThisGroup:ct.belongsToGroup
+                               andThisContentType:ct];
+            return c.stringData;
         }
     }
-    
     return nil;
 }
 
-/*Group_Template *gt = [n.belongsToNotebook.groupsByOrder firstObject];
- 
- [gt.belongsToNotebook.summaryContentTypesByOrder enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
- ContentType_Template *ct = obj;
- Content *c = [n contentInThisGroup:gt andThisContentType:ct];
- if([ct.type isEqualToString:@"SmallText"]){
- cell.textLabel.text = [NSString stringWithFormat:@"%@", c.stringData];
- }
- if([ct.type isEqualToString:@"Date"]){
- cell.textLabel.text = [NSString stringWithFormat:@"%@", c.numberData];
- }
- /if([ct.type isEqualToString:@"Picture"]){
- cell.imageView.image = [UIImage imageWithData:c.binaryData];
- }
- cell.textLabel.text = c.stringData;
- cell.detailTextLabel.text = [c.numberData stringValue];
- }];*/
+-(UIImage *) image{
+    for(ContentType_Template *ct in self.belongsToNotebook.summaryContentTypesByOrder){
+        if([ct.type isEqualToString:@"Picture"]){
+            Content *c = [self contentInThisGroup:ct.belongsToGroup
+                               andThisContentType:ct];
+            return [UIImage imageWithData:c.binaryData];
+        }
+    }
+    return nil;
+}
 
 @end

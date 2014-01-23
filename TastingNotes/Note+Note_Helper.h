@@ -20,5 +20,6 @@
              andThisContentType:(ContentType_Template *)contentType;
 
 -(NSString *) title;
+-(UIImage *) image;
 
 @end

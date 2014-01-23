@@ -18,7 +18,6 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     self.notebook = [[[AppContent sharedContent] notebooks] firstObject];
-    //self.title = self.notebook.name;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -35,6 +34,7 @@
     
     Note *n = [self.notebook.notesByOrder objectAtIndex:indexPath.row];
     cell.textLabel.text = [n title];
+    cell.imageView.image = [n image];
     
     return cell;
 }

@@ -60,18 +60,19 @@
     }
     else{
         [self.log appendString:@"Files are not matching..."];
-        //XCTFail(@"Files are not matching...");
+        XCTFail(@"Files are not matching...");
     }
 }
 
--(void)testNoteSummaries{
+-(void)testFirstNotebookImport{
     [self.ac removeAllContent];
     SQLiteUpdater *se = [[SQLiteUpdater alloc]init];
     [se importSQLtoCoreData];
     NSMutableString *output = [[NSMutableString alloc]init];
     Notebook *nb = [[self.ac notebooks] firstObject];
-    [Dump dumpNoteSummariesForThisNotebook:nb
-                               intoThisLog:output];
+    [Dump dumpThisNotebookContent:nb
+                      intoThisLog:output
+              includingBinaryData:NO];
     [output writeToFile:OUTPUT_FILE
              atomically:NO
                encoding:NSStringEncodingConversionAllowLossy
@@ -98,7 +99,7 @@
 
 }
 
--(void)outputNotebooks{
+-(void)testGenerateNewOutputFile{
     NSMutableString *output = [[NSMutableString alloc]init];
     
     [[self.ac notebooks] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -109,10 +110,36 @@
     [[self.ac notebooks] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         [Dump dumpThisNotebookContent:obj
                           intoThisLog:output
-                  includingBinaryData:NO];
+                  includingBinaryData:YES];
     }];
     
     [output writeToFile:OUTPUT_FILE
+             atomically:NO
+               encoding:NSStringEncodingConversionAllowLossy
+                  error:nil];
+}
+
+-(void)testGenerateNewReferenceFile{
+    
+    [self.ac removeAllContent];
+    
+    SQLiteUpdater *se = [[SQLiteUpdater alloc]init];
+    [se importSQLtoCoreData];
+    
+    NSMutableString *output = [[NSMutableString alloc]init];
+    
+    [[self.ac notebooks] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [Dump dumpThisNotebookTemplate:obj
+                           intoThisLog:output];
+    }];
+    
+    [[self.ac notebooks] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [Dump dumpThisNotebookContent:obj
+                          intoThisLog:output
+                  includingBinaryData:YES];
+    }];
+    
+    [output writeToFile:REF_FILE
              atomically:NO
                encoding:NSStringEncodingConversionAllowLossy
                   error:nil];
