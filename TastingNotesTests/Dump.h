@@ -15,7 +15,5 @@
 +(void)dumpThisNotebookContent:(Notebook *)notebook
                    intoThisLog:(NSMutableString *)log
            includingBinaryData:(BOOL)includeBinary;
-+(void)dumpNoteSummariesForThisNotebook:(Notebook *)notebook
-                            intoThisLog:(NSMutableString *)log;
 
 @end

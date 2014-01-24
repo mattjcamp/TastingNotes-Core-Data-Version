@@ -13,10 +13,10 @@
 
 -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
     
-    /*[[AppContent sharedContent]removeAllContent];
+    [[AppContent sharedContent]removeAllContent];
     SQLiteUpdater *se = [[SQLiteUpdater alloc]init];
     [se importSQLtoCoreData];
-    */
+    
     return YES;
 }
 

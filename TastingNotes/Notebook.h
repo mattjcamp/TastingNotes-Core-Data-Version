@@ -2,7 +2,7 @@
 //  Notebook.h
 //  TastingNotes
 //
-//  Created by Matt on 1/21/14.
+//  Created by Matt on 1/24/14.
 //  Copyright (c) 2014 Mobile App Mastery. All rights reserved.
 //
 
@@ -18,6 +18,7 @@
 @property (nonatomic, retain) NSSet *groups;
 @property (nonatomic, retain) NSSet *notes;
 @property (nonatomic, retain) NSSet *summaryContentTypes;
+@property (nonatomic, retain) NSManagedObject *notebookSelected;
 @end
 
 @interface Notebook (CoreDataGeneratedAccessors)

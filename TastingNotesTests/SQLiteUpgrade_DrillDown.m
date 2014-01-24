@@ -15,31 +15,11 @@
 #define OUTPUT_FILE (@"/Users/matt/Code/Objective-C/TastingNotes/TastingNotesTests/Output/DataOutput.txt")
 #define LOG_FILE (@"/Users/matt/Code/Objective-C/TastingNotes/TastingNotesTests/Output/SQLiteUpgrade_log.txt")
 
-@interface SQLiteUpgrade : XCTestCase
+@interface SQLiteUpgrade_DrillDown : XCTestCase
 
 @end
 
-@implementation SQLiteUpgrade
-
--(void)setUp{
-    [super setUp];
-}
-
--(void)tearDown{
-    [super tearDown];
-}
-
--(void)testSQLiteImport{
-    [[AppContent sharedContent] removeAllContent];
-    SQLiteUpdater *se = [[SQLiteUpdater alloc]init];
-    [se importSQLtoCoreData];
-    NSString *refFile = [NSString stringWithContentsOfFile:REF_FILE
-                                                  encoding:NSStringEncodingConversionAllowLossy
-                                                     error:nil];
-    NSString *outFile = [self generateNewOutputFile:OUTPUT_FILE];
-    if(![refFile isEqualToString:outFile])
-        XCTFail(@"Files are not matching...");
-}
+@implementation SQLiteUpgrade_DrillDown
 
 -(void)testMakeNewReferenceFile{
     [[AppContent sharedContent] removeAllContent];

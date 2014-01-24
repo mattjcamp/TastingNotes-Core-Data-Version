@@ -25,5 +25,6 @@
     #import "Notebook+Notebook_Helper.h"
     #import "Note+Note_Helper.h"
     #import "Content+Content_Helper.h"
+    #import "AppState.h"
     #import "AppContent.h"
 #endif

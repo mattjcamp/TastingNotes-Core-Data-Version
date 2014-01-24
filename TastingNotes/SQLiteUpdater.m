@@ -81,6 +81,8 @@ static char const * const ObjectTagKey = "ObjectTag";
         [self importNotesIntoThisNotebook:obj];
     }];
     
+    self.ac.appState.selectedNotebook = [self.ac.notebooks firstObject];
+    
     [self.ac save];
 }
 

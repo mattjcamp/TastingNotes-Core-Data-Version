@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		C9000DE718738D290002C170 /* Dump.m in Sources */ = {isa = PBXBuildFile; fileRef = C9000DE618738D290002C170 /* Dump.m */; };
+		C90389661892E67A004B564D /* Notebook.m in Sources */ = {isa = PBXBuildFile; fileRef = C90389651892E67A004B564D /* Notebook.m */; };
+		C90389691892E67B004B564D /* AppState.m in Sources */ = {isa = PBXBuildFile; fileRef = C90389681892E67B004B564D /* AppState.m */; };
+		C935BD731892F97F00BEA7E7 /* SQLiteUpgrade_DrillDown.m in Sources */ = {isa = PBXBuildFile; fileRef = C935BD721892F97F00BEA7E7 /* SQLiteUpgrade_DrillDown.m */; };
 		C962FEC3187B57F100208180 /* SQLiteColumnMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = C962FEC0187B57F100208180 /* SQLiteColumnMetaData.m */; };
 		C962FEC4187B57F100208180 /* SQLiteDB.m in Sources */ = {isa = PBXBuildFile; fileRef = C962FEC2187B57F100208180 /* SQLiteDB.m */; };
 		C962FEC6187B583E00208180 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C962FEC5187B583E00208180 /* libsqlite3.0.dylib */; };
@@ -21,7 +24,6 @@
 		C9A1C3B4188AF98400B892B1 /* SQLiteUpgrade_log.txt in Resources */ = {isa = PBXBuildFile; fileRef = C9A1C3B2188AF98400B892B1 /* SQLiteUpgrade_log.txt */; };
 		C9A1C3B8188B066A00B892B1 /* NotesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A1C3B7188B066A00B892B1 /* NotesTVC.m */; };
 		C9AD0F18188F1D410058D11D /* ListObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AD0F17188F1D410058D11D /* ListObject.m */; };
-		C9AD0F1B188F1D410058D11D /* Notebook.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AD0F1A188F1D410058D11D /* Notebook.m */; };
 		C9AD0F1E188F1D410058D11D /* ContentType_Template.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AD0F1D188F1D410058D11D /* ContentType_Template.m */; };
 		C9AD0F21188F1D410058D11D /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AD0F20188F1D410058D11D /* Note.m */; };
 		C9AD0F24188F1D410058D11D /* SelectedListObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AD0F23188F1D410058D11D /* SelectedListObject.m */; };
@@ -67,6 +69,11 @@
 /* Begin PBXFileReference section */
 		C9000DE518738D290002C170 /* Dump.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dump.h; sourceTree = "<group>"; };
 		C9000DE618738D290002C170 /* Dump.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dump.m; sourceTree = "<group>"; };
+		C90389641892E67A004B564D /* Notebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notebook.h; sourceTree = "<group>"; };
+		C90389651892E67A004B564D /* Notebook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notebook.m; sourceTree = "<group>"; };
+		C90389671892E67B004B564D /* AppState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppState.h; sourceTree = "<group>"; };
+		C90389681892E67B004B564D /* AppState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppState.m; sourceTree = "<group>"; };
+		C935BD721892F97F00BEA7E7 /* SQLiteUpgrade_DrillDown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteUpgrade_DrillDown.m; sourceTree = "<group>"; };
 		C962FEBF187B57F100208180 /* SQLiteColumnMetaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteColumnMetaData.h; sourceTree = "<group>"; };
 		C962FEC0187B57F100208180 /* SQLiteColumnMetaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteColumnMetaData.m; sourceTree = "<group>"; };
 		C962FEC1187B57F100208180 /* SQLiteDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteDB.h; sourceTree = "<group>"; };
@@ -87,8 +94,6 @@
 		C9A1C3B7188B066A00B892B1 /* NotesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotesTVC.m; sourceTree = "<group>"; };
 		C9AD0F16188F1D410058D11D /* ListObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListObject.h; sourceTree = "<group>"; };
 		C9AD0F17188F1D410058D11D /* ListObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListObject.m; sourceTree = "<group>"; };
-		C9AD0F19188F1D410058D11D /* Notebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notebook.h; sourceTree = "<group>"; };
-		C9AD0F1A188F1D410058D11D /* Notebook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notebook.m; sourceTree = "<group>"; };
 		C9AD0F1C188F1D410058D11D /* ContentType_Template.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentType_Template.h; sourceTree = "<group>"; };
 		C9AD0F1D188F1D410058D11D /* ContentType_Template.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentType_Template.m; sourceTree = "<group>"; };
 		C9AD0F1F188F1D410058D11D /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
@@ -269,6 +274,7 @@
 				C9A1C3AB188AE67700B892B1 /* Output */,
 				C9C02D3818645EC200739C36 /* TastingNotesTests.m */,
 				C962FEC9187B5AB400208180 /* SQLiteUpgrade.m */,
+				C935BD721892F97F00BEA7E7 /* SQLiteUpgrade_DrillDown.m */,
 				C9000DE518738D290002C170 /* Dump.h */,
 				C9000DE618738D290002C170 /* Dump.m */,
 				C9C02D3318645EC200739C36 /* Supporting Files */,
@@ -305,8 +311,6 @@
 				C9FE8975188CBE24005AE859 /* SelectedListObject+SelectedListObject_Helper.m */,
 				C9AD0F16188F1D410058D11D /* ListObject.h */,
 				C9AD0F17188F1D410058D11D /* ListObject.m */,
-				C9AD0F19188F1D410058D11D /* Notebook.h */,
-				C9AD0F1A188F1D410058D11D /* Notebook.m */,
 				C9AD0F1C188F1D410058D11D /* ContentType_Template.h */,
 				C9AD0F1D188F1D410058D11D /* ContentType_Template.m */,
 				C9AD0F1F188F1D410058D11D /* Note.h */,
@@ -317,6 +321,10 @@
 				C9AD0F26188F1D420058D11D /* Content.m */,
 				C9AD0F28188F1D420058D11D /* Group_Template.h */,
 				C9AD0F29188F1D420058D11D /* Group_Template.m */,
+				C90389641892E67A004B564D /* Notebook.h */,
+				C90389651892E67A004B564D /* Notebook.m */,
+				C90389671892E67B004B564D /* AppState.h */,
+				C90389681892E67B004B564D /* AppState.m */,
 			);
 			name = Notebooks;
 			sourceTree = "<group>";
@@ -437,10 +445,11 @@
 				C9FE8973188C6547005AE859 /* ListObject+ListObjectHelper.m in Sources */,
 				C9AD0F24188F1D410058D11D /* SelectedListObject.m in Sources */,
 				C9C02D1718645EC200739C36 /* main.m in Sources */,
-				C9AD0F1B188F1D410058D11D /* Notebook.m in Sources */,
 				C962FED0187B821800208180 /* SQLiteUpdater.m in Sources */,
+				C90389661892E67A004B564D /* Notebook.m in Sources */,
 				C9AD0F21188F1D410058D11D /* Note.m in Sources */,
 				C9C02D8B18648F7500739C36 /* AppContent.m in Sources */,
+				C90389691892E67B004B564D /* AppState.m in Sources */,
 				C9AD0F1E188F1D410058D11D /* ContentType_Template.m in Sources */,
 				C9AD0F18188F1D410058D11D /* ListObject.m in Sources */,
 				C9AD0F2A188F1D420058D11D /* Group_Template.m in Sources */,
@@ -455,6 +464,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C935BD731892F97F00BEA7E7 /* SQLiteUpgrade_DrillDown.m in Sources */,
 				C962FECA187B5AB400208180 /* SQLiteUpgrade.m in Sources */,
 				C9C02D3918645EC200739C36 /* TastingNotesTests.m in Sources */,
 				C9000DE718738D290002C170 /* Dump.m in Sources */,

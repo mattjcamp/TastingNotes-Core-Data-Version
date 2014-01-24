@@ -13,6 +13,7 @@
 +(AppContent *)sharedContent;
 
 @property(strong,readonly) NSMutableArray *notebooks;
+@property(strong,readonly) AppState *appState;
 
 -(void)save;
 

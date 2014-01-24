@@ -54,19 +54,6 @@ static AppContent *singletonInstance = nil;
     }
 }
 
-/*-(Content *)addContentToThisNote:(Note *)note
- andThisContentType:(ContentType_Template *)ct{
- NSManagedObjectContext *context = [self managedObjectContext];
- 
- Content *c = [NSEntityDescription insertNewObjectForEntityForName:@"Content"
- inManagedObjectContext:context];
- c.inThisContent_Type = ct;
- c.inThisGroup = ct.belongsToGroup;
- [note addContentObject:c];
- 
- return c;
- }*/
-
 -(Note *)addNoteToThisNotebook:(Notebook *)notebook{
     NSManagedObjectContext *context = [self managedObjectContext];
     Note *note = [NSEntityDescription insertNewObjectForEntityForName:@"Note"
@@ -111,7 +98,7 @@ static AppContent *singletonInstance = nil;
 }
 
 -(Group_Template *) addGroupTemplateWithThisName:(NSString *)name
-                          toThisNotebook:(Notebook *)n{
+                                  toThisNotebook:(Notebook *)n{
     NSManagedObjectContext *context = [self managedObjectContext];
     Group_Template *gt =[NSEntityDescription insertNewObjectForEntityForName:@"Group_Template"
                                                       inManagedObjectContext:context];
@@ -191,6 +178,34 @@ NSMutableArray *_notebooks;
     _notebooks = [[NSMutableArray alloc]initWithArray:listOfNotebooks];
     
     return _notebooks;
+}
+
+AppState *_appState;
+-(AppState *)appState{
+    if(_appState)
+        return _appState;
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"AppState"
+                                              inManagedObjectContext:context];
+    request.entity = entity;
+    NSError *error = nil;
+    NSArray *list = [context executeFetchRequest:request
+                                           error:&error];
+    if(error){
+        NSLog(@"Problem executing app state fetch request: %@", error);
+        return nil;
+    }
+    
+    if(list.count == 0)
+        _appState =[NSEntityDescription insertNewObjectForEntityForName:@"AppState"
+                                                 inManagedObjectContext:context];
+    else
+        _appState = [list firstObject];
+    
+    return _appState;
+    
 }
 
 -(NSURL *)dataStoreURL {

@@ -2,7 +2,7 @@
 //  Notebook.m
 //  TastingNotes
 //
-//  Created by Matt on 1/21/14.
+//  Created by Matt on 1/24/14.
 //  Copyright (c) 2014 Mobile App Mastery. All rights reserved.
 //
 
@@ -19,5 +19,6 @@
 @dynamic groups;
 @dynamic notes;
 @dynamic summaryContentTypes;
+@dynamic notebookSelected;
 
 @end

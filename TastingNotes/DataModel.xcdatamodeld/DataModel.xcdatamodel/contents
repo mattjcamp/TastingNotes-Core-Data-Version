@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13B3116" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="AppState" representedClassName="AppState" syncable="YES">
+        <attribute name="legacySQLUpdated" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <relationship name="selectedNotebook" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Notebook" inverseName="notebookSelected" inverseEntity="Notebook" syncable="YES"/>
+    </entity>
     <entity name="Content" representedClassName="Content" syncable="YES">
         <attribute name="binaryData" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="numberData" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
@@ -41,6 +45,7 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="groups" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Group_Template" inverseName="belongsToNotebook" inverseEntity="Group_Template" syncable="YES"/>
+        <relationship name="notebookSelected" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AppState" inverseName="selectedNotebook" inverseEntity="AppState" syncable="YES"/>
         <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Note" inverseName="belongsToNotebook" inverseEntity="Note" syncable="YES"/>
         <relationship name="summaryContentTypes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ContentType_Template" inverseName="summerizedInNotebook" inverseEntity="ContentType_Template" syncable="YES"/>
     </entity>
@@ -54,7 +59,8 @@
         <element name="Group_Template" positionX="-351" positionY="-118" width="128" height="118"/>
         <element name="ListObject" positionX="142" positionY="-108" width="128" height="118"/>
         <element name="Note" positionX="-486" positionY="90" width="128" height="90"/>
-        <element name="Notebook" positionX="-540" positionY="-144" width="128" height="118"/>
+        <element name="Notebook" positionX="-540" positionY="-144" width="128" height="133"/>
         <element name="SelectedListObject" positionX="52" positionY="180" width="128" height="73"/>
+        <element name="AppState" positionX="-639" positionY="236" width="128" height="73"/>
     </elements>
 </model>
