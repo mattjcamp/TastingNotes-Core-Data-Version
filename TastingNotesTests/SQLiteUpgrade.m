@@ -21,14 +21,6 @@
 
 @implementation SQLiteUpgrade
 
--(void)setUp{
-    [super setUp];
-}
-
--(void)tearDown{
-    [super tearDown];
-}
-
 -(void)testSQLiteImport{
     [[AppContent sharedContent] removeAllContent];
     SQLiteUpdater *se = [[SQLiteUpdater alloc]init];
@@ -36,45 +28,9 @@
     NSString *refFile = [NSString stringWithContentsOfFile:REF_FILE
                                                   encoding:NSStringEncodingConversionAllowLossy
                                                      error:nil];
-    NSString *outFile = [self generateNewOutputFile:OUTPUT_FILE];
+    NSString *outFile = [Dump generateNewOutputFile:OUTPUT_FILE];
     if(![refFile isEqualToString:outFile])
         XCTFail(@"Files are not matching...");
-}
-
--(void)testMakeNewReferenceFile{
-    [[AppContent sharedContent] removeAllContent];
-    SQLiteUpdater *se = [[SQLiteUpdater alloc]init];
-    [se importSQLtoCoreData];
-    [self generateNewOutputFile:REF_FILE];
-}
-
--(NSString *)generateNewOutputFile:(NSString *)filename{
-    NSMutableString *output = [[NSMutableString alloc]init];
-    
-    AppState *as = [[AppContent sharedContent] appState];
-    
-    [output appendFormat:@"App State = %@\n", as];
-    
-    Notebook *snb = as.selectedNotebook;
-    [output appendFormat:@"Selected Notebook = %@\n", snb];
-    
-    [[[AppContent sharedContent] notebooks] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        [Dump dumpThisNotebookTemplate:obj
-                           intoThisLog:output];
-    }];
-    
-    [[[AppContent sharedContent] notebooks] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        [Dump dumpThisNotebookContent:obj
-                          intoThisLog:output
-                  includingBinaryData:NO];
-    }];
-    
-    [output writeToFile:filename
-             atomically:NO
-               encoding:NSStringEncodingConversionAllowLossy
-                  error:nil];
-    
-    return [output copy];
 }
 
 @end

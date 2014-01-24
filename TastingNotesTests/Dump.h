@@ -15,5 +15,6 @@
 +(void)dumpThisNotebookContent:(Notebook *)notebook
                    intoThisLog:(NSMutableString *)log
            includingBinaryData:(BOOL)includeBinary;
++(NSString *)generateNewOutputFile:(NSString *)filename;
 
 @end

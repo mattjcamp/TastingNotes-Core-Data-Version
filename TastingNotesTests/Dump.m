@@ -66,4 +66,26 @@
     }];
 }
 
++(NSString *)generateNewOutputFile:(NSString *)filename{
+    NSMutableString *output = [[NSMutableString alloc]init];
+    AppState *as = [[AppContent sharedContent] appState];
+    Notebook *snb = as.selectedNotebook;
+    [output appendFormat:@"Selected Notebook = %@\n", snb];
+    [[[AppContent sharedContent] notebooks] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [Dump dumpThisNotebookTemplate:obj
+                           intoThisLog:output];
+    }];
+    [[[AppContent sharedContent] notebooks] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [Dump dumpThisNotebookContent:obj
+                          intoThisLog:output
+                  includingBinaryData:NO];
+    }];
+    [output writeToFile:filename
+             atomically:NO
+               encoding:NSStringEncodingConversionAllowLossy
+                  error:nil];
+    
+    return [output copy];
+}
+
 @end

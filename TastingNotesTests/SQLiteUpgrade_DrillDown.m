@@ -25,36 +25,7 @@
     [[AppContent sharedContent] removeAllContent];
     SQLiteUpdater *se = [[SQLiteUpdater alloc]init];
     [se importSQLtoCoreData];
-    [self generateNewOutputFile:REF_FILE];
-}
-
--(NSString *)generateNewOutputFile:(NSString *)filename{
-    NSMutableString *output = [[NSMutableString alloc]init];
-    
-    AppState *as = [[AppContent sharedContent] appState];
-    
-    [output appendFormat:@"App State = %@\n", as];
-    
-    Notebook *snb = as.selectedNotebook;
-    [output appendFormat:@"Selected Notebook = %@\n", snb];
-    
-    [[[AppContent sharedContent] notebooks] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        [Dump dumpThisNotebookTemplate:obj
-                           intoThisLog:output];
-    }];
-    
-    [[[AppContent sharedContent] notebooks] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        [Dump dumpThisNotebookContent:obj
-                          intoThisLog:output
-                  includingBinaryData:NO];
-    }];
-    
-    [output writeToFile:filename
-             atomically:NO
-               encoding:NSStringEncodingConversionAllowLossy
-                  error:nil];
-    
-    return [output copy];
+    [Dump generateNewOutputFile:REF_FILE];
 }
 
 @end

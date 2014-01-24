@@ -1,7 +1,3 @@
-App State = <AppState: 0x8ba92f0> (entity: AppState; id: 0x8ba8b10 <x-coredata://1058CFC5-8094-47D4-B938-9EFC037D3E3A/AppState/p1> ; data: {
-    legacySQLUpdated = nil;
-    selectedNotebook = "0xe4a2b70 <x-coredata://1058CFC5-8094-47D4-B938-9EFC037D3E3A/Notebook/p25>";
-})
 Selected Notebook = NB[1].Wines
 NB[1].Wines
    Summary: Wine Name, Wine Bottle Label, Varietals, 
