@@ -1,6 +1,6 @@
 Selected Notebook = NB[1].Wines
 NB[1].Wines
-   Summary: Wine Name, Varietals, Wine Bottle Label, 
+   Summary: Wine Name, Wine Bottle Label, Varietals, 
    GT[1].Note
       CT[1].Wine Name.SmallText
       CT[2].Wine Type.List
