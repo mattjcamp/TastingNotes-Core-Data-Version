@@ -11,15 +11,32 @@
 @interface NotesTVC ()
 
 @property (weak, nonatomic) IBOutlet UIButton *titleButton;
+@property (weak, nonatomic) UIButton *navbarTitleButton;
 
 @end
 
 @implementation NotesTVC
 
+-(void)viewDidLoad{
+    [super viewDidLoad];
+    self.navbarTitleButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [self.navbarTitleButton setTitle:self.notebook.name
+                            forState:UIControlStateNormal];
+    [self.navbarTitleButton addTarget:self
+                               action:@selector(presentNotebooks) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.titleView = self.navbarTitleButton;
+}
+
+-(void)presentNotebooks{
+    [self performSegueWithIdentifier:@"PushToNotebookChooser"
+                              sender:nil];
+}
+
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.notebook = [[AppContent sharedContent] appState].selectedNotebook;
-    self.titleButton.titleLabel.text = self.notebook.name;
+    [self.navbarTitleButton setTitle:self.notebook.name
+                            forState:UIControlStateNormal];
     [[self tableView] reloadData];
 }
 

@@ -53,7 +53,7 @@
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
-                                <segue destination="ZRL-du-abi" kind="modal" id="m7w-hd-1WU"/>
+                                <segue destination="ZRL-du-abi" kind="modal" identifier="PushToNotebookChooser" id="m7w-hd-1WU"/>
                             </connections>
                         </button>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="edit" id="eAW-p0-G7j"/>
