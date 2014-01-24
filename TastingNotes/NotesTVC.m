@@ -16,11 +16,11 @@
 
 @implementation NotesTVC
 
-
--(void)viewDidLoad{
-    [super viewDidLoad];
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     self.notebook = [[AppContent sharedContent] appState].selectedNotebook;
     self.titleButton.titleLabel.text = self.notebook.name;
+    [[self tableView] reloadData];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
