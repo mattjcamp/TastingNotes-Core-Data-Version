@@ -10,7 +10,6 @@
 
 @interface NotesTVC ()
 
-@property (weak, nonatomic) IBOutlet UIButton *titleButton;
 @property (weak, nonatomic) UIButton *navbarTitleButton;
 
 @end
@@ -28,7 +27,7 @@
 }
 
 -(void)presentNotebooks{
-    [self performSegueWithIdentifier:@"PushToNotebookChooser"
+    [self performSegueWithIdentifier:@"NBChooser"
                               sender:nil];
 }
 
