@@ -29,6 +29,8 @@
 		C9AD0F24188F1D410058D11D /* SelectedListObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AD0F23188F1D410058D11D /* SelectedListObject.m */; };
 		C9AD0F27188F1D420058D11D /* Content.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AD0F26188F1D420058D11D /* Content.m */; };
 		C9AD0F2A188F1D420058D11D /* Group_Template.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AD0F29188F1D420058D11D /* Group_Template.m */; };
+		C9BD476E189968F5002035AB /* NoteCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BD476D189968F5002035AB /* NoteCVC.m */; };
+		C9BD477118996C5B002035AB /* CCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BD477018996C5B002035AB /* CCVC.m */; };
 		C9C02D0B18645EC200739C36 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C02D0A18645EC200739C36 /* Foundation.framework */; };
 		C9C02D0D18645EC200739C36 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C02D0C18645EC200739C36 /* CoreGraphics.framework */; };
 		C9C02D0F18645EC200739C36 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C02D0E18645EC200739C36 /* UIKit.framework */; };
@@ -104,6 +106,10 @@
 		C9AD0F26188F1D420058D11D /* Content.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Content.m; sourceTree = "<group>"; };
 		C9AD0F28188F1D420058D11D /* Group_Template.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group_Template.h; sourceTree = "<group>"; };
 		C9AD0F29188F1D420058D11D /* Group_Template.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group_Template.m; sourceTree = "<group>"; };
+		C9BD476C189968F5002035AB /* NoteCVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteCVC.h; sourceTree = "<group>"; };
+		C9BD476D189968F5002035AB /* NoteCVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteCVC.m; sourceTree = "<group>"; };
+		C9BD476F18996C5B002035AB /* CCVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCVC.h; sourceTree = "<group>"; };
+		C9BD477018996C5B002035AB /* CCVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCVC.m; sourceTree = "<group>"; };
 		C9C02D0718645EC200739C36 /* TastingNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TastingNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9C02D0A18645EC200739C36 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C9C02D0C18645EC200739C36 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -199,6 +205,10 @@
 				C9A1C3B7188B066A00B892B1 /* NotesTVC.m */,
 				C975D87D188E021600C5C9FB /* NotebookChooserTVC.h */,
 				C975D87E188E021600C5C9FB /* NotebookChooserTVC.m */,
+				C9BD476C189968F5002035AB /* NoteCVC.h */,
+				C9BD476D189968F5002035AB /* NoteCVC.m */,
+				C9BD476F18996C5B002035AB /* CCVC.h */,
+				C9BD477018996C5B002035AB /* CCVC.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -435,12 +445,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9BD476E189968F5002035AB /* NoteCVC.m in Sources */,
 				C9C02D2418645EC200739C36 /* ViewController.m in Sources */,
 				C9C02DE51864DFFC00739C36 /* Group_Template+Group_Template_Helper.m in Sources */,
 				C9C02D8E18648F9000739C36 /* DataModel.xcdatamodeld in Sources */,
 				C9FE8976188CBE24005AE859 /* SelectedListObject+SelectedListObject_Helper.m in Sources */,
 				C9C02DF71864E80A00739C36 /* Notebook+Notebook_Helper.m in Sources */,
 				C9C02DE21864DFAC00739C36 /* ContentType_Template+ContentType_Template_Helper.m in Sources */,
+				C9BD477118996C5B002035AB /* CCVC.m in Sources */,
 				C975D87F188E021600C5C9FB /* NotebookChooserTVC.m in Sources */,
 				C9AD0F27188F1D420058D11D /* Content.m in Sources */,
 				C9A1C3B0188AEAE700B892B1 /* Content+Content_Helper.m in Sources */,

@@ -7,6 +7,7 @@
 //
 
 #import "NotesTVC.h"
+#import "NoteCVC.h"
 
 @interface NotesTVC ()
 
@@ -56,6 +57,13 @@
     cell.imageView.image = [n image];
     
     return cell;
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    Note *n = [self.notebook.notesByOrder objectAtIndex:indexPath.row];
+    NoteCVC *ncvc =segue.destinationViewController;
+    ncvc.note = n;
 }
 
 @end
