@@ -23,7 +23,8 @@
     [self.navbarTitleButton setTitle:self.notebook.name
                             forState:UIControlStateNormal];
     [self.navbarTitleButton addTarget:self
-                               action:@selector(presentNotebooks) forControlEvents:UIControlEventTouchUpInside];
+                               action:@selector(presentNotebooks)
+                     forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.titleView = self.navbarTitleButton;
 }
 
@@ -60,10 +61,12 @@
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    Note *n = [self.notebook.notesByOrder objectAtIndex:indexPath.row];
-    NoteCVC *ncvc =segue.destinationViewController;
-    ncvc.note = n;
+    if([segue.identifier isEqualToString:@"ToNote"]){
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        Note *n = [self.notebook.notesByOrder objectAtIndex:indexPath.row];
+        NoteCVC *ncvc = segue.destinationViewController;
+        ncvc.note = n;
+    }
 }
 
 @end
