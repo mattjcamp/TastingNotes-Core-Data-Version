@@ -55,6 +55,7 @@
     
     Note *n = [self.notebook.notesByOrder objectAtIndex:indexPath.row];
     cell.textLabel.text = [n title];
+    cell.detailTextLabel.text = @"##########\n##########\n##########\n##########\n##########\n";
     cell.imageView.image = [n image];
     
     return cell;
