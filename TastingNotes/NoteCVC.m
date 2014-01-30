@@ -33,6 +33,7 @@
     
     cvc.myLabel.text = gt.name;
     
+    /*
     NSMutableString *contentString = [[NSMutableString alloc]init];
     
     [gt.contentTypesByOrder enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -41,6 +42,34 @@
     }];
     
     cvc.myTextView.text = contentString;
+    */
+    
+    
+    NSInteger numberOfViews = 3;
+    cvc.myScrollView.pagingEnabled = YES;
+    cvc.myScrollView.contentSize = CGSizeMake(cvc.contentView.frame.size.width, cvc.contentView.frame.size.height * numberOfViews);
+    
+    for (int i = 0; i < numberOfViews; i++) {
+        CGFloat yOrigin = i * (cvc.contentView.frame.origin.y + cvc.contentView.frame.size.height);
+        CGRect r = CGRectMake(5, yOrigin, cvc.contentView.frame.size.width, cvc.contentView.frame.size.height);
+        UIView * awesomeView = [[UIView alloc] initWithFrame:r];
+        switch (i) {
+            case 0:
+                awesomeView.backgroundColor = [UIColor blueColor];
+                break;
+            case 1:
+                awesomeView.backgroundColor = [UIColor yellowColor];
+                break;
+            case 2:
+                awesomeView.backgroundColor = [UIColor greenColor];
+                break;
+            default:
+                awesomeView.backgroundColor = [UIColor blackColor];
+                break;
+        }
+        
+        [cvc.myScrollView addSubview:awesomeView];
+    }
     
     return cvc;
     
@@ -48,25 +77,6 @@
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     return 1;
-}
-
-// The view that is returned must be retrieved from a call to -dequeueReusableSupplementaryViewOfKind:withReuseIdentifier:forIndexPath:
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
-    
-    UICollectionReusableView *reusableview = nil;
-    
-    if (kind == UICollectionElementKindSectionHeader) {
-        UICollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
-        //headerView.title.text = title;
-        
-        reusableview.backgroundColor = [UIColor yellowColor];
-        
-        reusableview = headerView;
-    }
-    
-    return reusableview;
-    
-    
 }
 
 @end
