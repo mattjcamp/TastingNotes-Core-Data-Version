@@ -39,14 +39,18 @@
     cvc.myLabel.text = gt.name;
     cvc.myScrollView.pagingEnabled = YES;
     
-    [cvc.myScrollView addSubview:[vf testView]];
-    [cvc.myScrollView addSubview:[vf testView]];
+    [gt.contentTypesByOrder enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [cvc.myScrollView addSubview:[vf viewForContentType:obj]];
+    }];
+    
+    /*[cvc.myScrollView addSubview:[vf testView]];
+    [cvc.myScrollView addSubview:[vf testLabel]];
     
     for (int i =0; i<50; i++) {
         UIView *v = [vf testView];
         v.backgroundColor = [UIColor grayColor];
         [cvc.myScrollView addSubview:v];
-    }
+    }*/
     
     cvc.myScrollView.contentSize = CGSizeMake(cvc.contentView.frame.size.width, vf.totalHeight);
     

@@ -17,5 +17,6 @@
      forThisContainerFrame:(CGRect)frame;
 
 -(UIView *)testView;
+-(UIView *)viewForContentType:(ContentType_Template *)ct;
 
 @end
