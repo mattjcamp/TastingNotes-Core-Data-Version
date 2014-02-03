@@ -27,38 +27,28 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    Group_Template *gt = [[self.note.belongsToNotebook groupsByOrder] objectAtIndex:indexPath.row];
+    Group_Template *gt = [[self.note.belongsToNotebook groupsByOrder]objectAtIndex:indexPath.row];
     
     CCVC *cvc = [collectionView dequeueReusableCellWithReuseIdentifier:@"CVCCell"
                                                           forIndexPath:indexPath];
     
+    ViewFactory *vf = [[ViewFactory alloc]initWithGroupTemplate:gt
+                                                        andNote:self.note
+                       forThisContainerFrame:cvc.frame];
+    
     cvc.myLabel.text = gt.name;
-    
-    //Add First View
     cvc.myScrollView.pagingEnabled = YES;
-    CGFloat totalHeight = 0;
-    CGFloat y = cvc.frame.origin.y;
-    CGRect r = CGRectMake(cvc.frame.origin.x,
-                          y,
-                          cvc.frame.size.width,
-                          cvc.frame.size.height);
-    UIView *v = [ViewFactory testViewWithThisReferenceFrame:r];
-    totalHeight = totalHeight + v.frame.size.height;
-    [cvc.myScrollView addSubview:v];
     
-    //Add Second View
-    for(int i = 0;i<80;i++){
-        y = y + v.frame.size.height + 5;
-        r = CGRectMake(cvc.frame.origin.x,
-                       y,
-                       cvc.frame.size.width,
-                       v.frame.size.height);
-        v = [ViewFactory testViewWithThisReferenceFrame:r];
-        totalHeight = totalHeight + v.frame.size.height;
+    [cvc.myScrollView addSubview:[vf testView]];
+    [cvc.myScrollView addSubview:[vf testView]];
+    
+    for (int i =0; i<50; i++) {
+        UIView *v = [vf testView];
+        v.backgroundColor = [UIColor grayColor];
         [cvc.myScrollView addSubview:v];
     }
     
-    cvc.myScrollView.contentSize = CGSizeMake(cvc.contentView.frame.size.width, totalHeight);
+    cvc.myScrollView.contentSize = CGSizeMake(cvc.contentView.frame.size.width, vf.totalHeight);
     
     return cvc;
     

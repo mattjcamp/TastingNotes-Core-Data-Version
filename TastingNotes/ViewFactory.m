@@ -8,18 +8,40 @@
 
 #import "ViewFactory.h"
 
+@interface ViewFactory()
+
+@property int margin;
+@property CGRect containerFrame;
+
+@end
+
 @implementation ViewFactory
 
-int margin = 10;
+-(id)initWithGroupTemplate:(Group_Template *)gt
+                   andNote:(Note *)n
+     forThisContainerFrame:(CGRect)frame{
+    
+    self = [super init];
+    if (self) {
+        self.margin = 10;
+        self.containerFrame = frame;
+        self.totalHeight = 0;
+    }
+    return self;
+}
 
-+(UIView *)testViewWithThisReferenceFrame:(CGRect)refFrame{
-    CGRect r = CGRectMake(margin,
-                          refFrame.origin.y,
-                          refFrame.size.width-margin,
-                          50);
+-(UIView *)testView{
+    int h = 50;
+    self.totalHeight = self.totalHeight + 5;
+    CGRect r = CGRectMake(self.margin,
+                          self.totalHeight,
+                          self.containerFrame.size.width-self.margin,
+                          h);
     
     UIView *testView = [[UIView alloc] initWithFrame:r];
     testView.backgroundColor = [UIColor blueColor];
+    
+    self.totalHeight = self.totalHeight + h;
     
     return testView;
 }

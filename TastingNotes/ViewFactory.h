@@ -10,6 +10,12 @@
 
 @interface ViewFactory : NSObject
 
-+(UIView *)testViewWithThisReferenceFrame:(CGRect)refFrame;
+@property int totalHeight;
+
+-(id)initWithGroupTemplate:(Group_Template *)gt
+                   andNote:(Note *)n
+     forThisContainerFrame:(CGRect)frame;
+
+-(UIView *)testView;
 
 @end
