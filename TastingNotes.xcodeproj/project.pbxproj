@@ -11,6 +11,7 @@
 		C90389661892E67A004B564D /* Notebook.m in Sources */ = {isa = PBXBuildFile; fileRef = C90389651892E67A004B564D /* Notebook.m */; };
 		C90389691892E67B004B564D /* AppState.m in Sources */ = {isa = PBXBuildFile; fileRef = C90389681892E67B004B564D /* AppState.m */; };
 		C935BD731892F97F00BEA7E7 /* SQLiteUpgrade_DrillDown.m in Sources */ = {isa = PBXBuildFile; fileRef = C935BD721892F97F00BEA7E7 /* SQLiteUpgrade_DrillDown.m */; };
+		C95A808E189FF77C00268FE2 /* ViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = C95A808D189FF77C00268FE2 /* ViewFactory.m */; };
 		C962FEC3187B57F100208180 /* SQLiteColumnMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = C962FEC0187B57F100208180 /* SQLiteColumnMetaData.m */; };
 		C962FEC4187B57F100208180 /* SQLiteDB.m in Sources */ = {isa = PBXBuildFile; fileRef = C962FEC2187B57F100208180 /* SQLiteDB.m */; };
 		C962FEC6187B583E00208180 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C962FEC5187B583E00208180 /* libsqlite3.0.dylib */; };
@@ -76,6 +77,8 @@
 		C90389671892E67B004B564D /* AppState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppState.h; sourceTree = "<group>"; };
 		C90389681892E67B004B564D /* AppState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppState.m; sourceTree = "<group>"; };
 		C935BD721892F97F00BEA7E7 /* SQLiteUpgrade_DrillDown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteUpgrade_DrillDown.m; sourceTree = "<group>"; };
+		C95A808C189FF77C00268FE2 /* ViewFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewFactory.h; sourceTree = "<group>"; };
+		C95A808D189FF77C00268FE2 /* ViewFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewFactory.m; sourceTree = "<group>"; };
 		C962FEBF187B57F100208180 /* SQLiteColumnMetaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteColumnMetaData.h; sourceTree = "<group>"; };
 		C962FEC0187B57F100208180 /* SQLiteColumnMetaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteColumnMetaData.m; sourceTree = "<group>"; };
 		C962FEC1187B57F100208180 /* SQLiteDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteDB.h; sourceTree = "<group>"; };
@@ -209,6 +212,8 @@
 				C9BD476D189968F5002035AB /* NoteCVC.m */,
 				C9BD476F18996C5B002035AB /* CCVC.h */,
 				C9BD477018996C5B002035AB /* CCVC.m */,
+				C95A808C189FF77C00268FE2 /* ViewFactory.h */,
+				C95A808D189FF77C00268FE2 /* ViewFactory.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -456,6 +461,7 @@
 				C975D87F188E021600C5C9FB /* NotebookChooserTVC.m in Sources */,
 				C9AD0F27188F1D420058D11D /* Content.m in Sources */,
 				C9A1C3B0188AEAE700B892B1 /* Content+Content_Helper.m in Sources */,
+				C95A808E189FF77C00268FE2 /* ViewFactory.m in Sources */,
 				C9C02D1B18645EC200739C36 /* AppDelegate.m in Sources */,
 				C9FE8973188C6547005AE859 /* ListObject+ListObjectHelper.m in Sources */,
 				C9AD0F24188F1D410058D11D /* SelectedListObject.m in Sources */,
