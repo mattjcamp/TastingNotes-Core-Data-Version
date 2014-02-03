@@ -14,11 +14,11 @@
 -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
     
     AppContent *ac = [AppContent sharedContent];
-    if(ac.notebooks.count == 0){
+    //if(ac.notebooks.count == 0){
         [[AppContent sharedContent]removeAllContent];
         SQLiteUpdater *se = [[SQLiteUpdater alloc]init];
         [se importSQLtoCoreData];
-    }
+    //}
     
     return YES;
 }
