@@ -15,7 +15,6 @@
 		C962FEC3187B57F100208180 /* SQLiteColumnMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = C962FEC0187B57F100208180 /* SQLiteColumnMetaData.m */; };
 		C962FEC4187B57F100208180 /* SQLiteDB.m in Sources */ = {isa = PBXBuildFile; fileRef = C962FEC2187B57F100208180 /* SQLiteDB.m */; };
 		C962FEC6187B583E00208180 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C962FEC5187B583E00208180 /* libsqlite3.0.dylib */; };
-		C962FEC8187B58B500208180 /* tasting-notes-database-paddb.sql in Resources */ = {isa = PBXBuildFile; fileRef = C962FEC7187B58B500208180 /* tasting-notes-database-paddb.sql */; };
 		C962FECA187B5AB400208180 /* SQLiteUpgrade.m in Sources */ = {isa = PBXBuildFile; fileRef = C962FEC9187B5AB400208180 /* SQLiteUpgrade.m */; };
 		C962FED0187B821800208180 /* SQLiteUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = C962FECF187B821800208180 /* SQLiteUpdater.m */; };
 		C975D87F188E021600C5C9FB /* NotebookChooserTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C975D87E188E021600C5C9FB /* NotebookChooserTVC.m */; };
@@ -85,7 +84,6 @@
 		C962FEC1187B57F100208180 /* SQLiteDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteDB.h; sourceTree = "<group>"; };
 		C962FEC2187B57F100208180 /* SQLiteDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteDB.m; sourceTree = "<group>"; };
 		C962FEC5187B583E00208180 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
-		C962FEC7187B58B500208180 /* tasting-notes-database-paddb.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tasting-notes-database-paddb.sql"; sourceTree = "<group>"; };
 		C962FEC9187B5AB400208180 /* SQLiteUpgrade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteUpgrade.m; sourceTree = "<group>"; };
 		C962FECE187B821800208180 /* SQLiteUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteUpdater.h; sourceTree = "<group>"; };
 		C962FECF187B821800208180 /* SQLiteUpdater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteUpdater.m; sourceTree = "<group>"; };
@@ -283,7 +281,6 @@
 				C9C02D1618645EC200739C36 /* main.m */,
 				C9C02D1818645EC200739C36 /* TastingNotes-Prefix.pch */,
 				C9981035188AB28C0049690D /* paddb.sql */,
-				C962FEC7187B58B500208180 /* tasting-notes-database-paddb.sql */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -432,7 +429,6 @@
 				C9C02D2618645EC200739C36 /* Images.xcassets in Resources */,
 				C9981036188AB28C0049690D /* paddb.sql in Resources */,
 				C9C02D1E18645EC200739C36 /* Main_iPhone.storyboard in Resources */,
-				C962FEC8187B58B500208180 /* tasting-notes-database-paddb.sql in Resources */,
 				C9C02D1518645EC200739C36 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
