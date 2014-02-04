@@ -38,14 +38,15 @@
     self.totalHeight = self.totalHeight + self.margin;
     UIView *v;
     
-    if([ct.type isEqualToString:@"SmallText"] || [ct.type isEqualToString:@"MultiText"])
-        v = [self viewForSmallTextForContentType:ct];
     
-    if([ct.type isEqualToString:@"Picture"])
-        v = [self viewForPictureForContentType:ct];
-    
-    if(!v)
-        v = [self testView];
+     if([ct.type isEqualToString:@"SmallText"] || [ct.type isEqualToString:@"MultiText"])
+     v = [self viewForSmallTextForContentType:ct];
+     
+     if([ct.type isEqualToString:@"Picture"])
+     v = [self viewForPictureForContentType:ct];
+     
+     if(!v)
+    v = [self testView];
     
     self.totalHeight = self.totalHeight + v.frame.size.height;
     
@@ -57,55 +58,22 @@
     Content *c = [self.note contentInThisGroup:self.gt
                             andThisContentType:ct];
     UIImage *i = [UIImage imageWithData:c.binaryData];
-    
-    NSLog(@"i.size.width=%f", i.size.width);
-    NSLog(@"self.containerFrame.size.width=%f", self.containerFrame.size.width);
-    
     CGRect r;
-    if(i.size.width == self.containerFrame.size.width){
-        r = CGRectMake(self.margin,
-                       self.totalHeight,
-                       i.size.width-self.margin,
-                       i.size.height);
-    }else{
-        if(i.size.width < self.containerFrame.size.width){
-#warning 20 probably should not be hardcoded here
-            r = CGRectMake(20,
-                           self.totalHeight,
-                           i.size.width,
-                           i.size.height);
-        }
-        else{
-            UIImageView *iv = [[UIImageView alloc]initWithImage:i];
-            iv.contentMode = UIViewContentModeScaleAspectFit;
-            
-            r = CGRectMake(iv.frame.origin.x+self.margin,
-                           self.totalHeight,
-                           self.containerFrame.size.width - self.margin,
-                           i.size.height);
-            iv.frame = r;
-            
-            return iv;
-        }
-    }
     
-    NSLog(@"i.size.width=%f", i.size.width);
-    NSLog(@"self.containerFrame.size.width=%f", self.containerFrame.size.width);
+    r = [self getSizedRectangleWithThisHeight:i.size.height];
     
     UIImageView *iv = [[UIImageView alloc]initWithFrame:r];
     iv.image = i;
+    iv.contentMode = UIViewContentModeScaleAspectFit;
     
     return iv;
 }
 
 -(UIView *)viewForSmallTextForContentType:(ContentType_Template *)ct{
-    int h = 50;
-    CGRect r = CGRectMake(self.margin,
-                          self.totalHeight,
-                          self.containerFrame.size.width-self.margin,
-                          h);
+    CGRect r = [self getSizedRectangleWithThisHeight:50];
     
     UILabel *l = [[UILabel alloc]initWithFrame:r];
+    l.font = [UIFont fontWithName:@"Arial" size:12];
     l.numberOfLines = 2;
     l.backgroundColor = [UIColor whiteColor];
     NSMutableString *m = [[NSMutableString alloc]init];
@@ -123,16 +91,19 @@
 }
 
 -(UIView *)testView{
-    int h = 50;
-    CGRect r = CGRectMake(self.margin,
-                          self.totalHeight,
-                          self.containerFrame.size.width-self.margin,
-                          h);
+    CGRect r = [self getSizedRectangleWithThisHeight:50];
     
     UIView *testView = [[UIView alloc] initWithFrame:r];
     testView.backgroundColor = [UIColor blueColor];
     
     return testView;
+}
+
+-(CGRect)getSizedRectangleWithThisHeight:(CGFloat)height{
+    return CGRectMake(self.margin,
+                      self.totalHeight,
+                      self.containerFrame.size.width-self.margin * 2,
+                      height);
 }
 
 @end

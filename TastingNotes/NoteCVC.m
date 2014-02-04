@@ -34,7 +34,8 @@
     
     ViewFactory *vf = [[ViewFactory alloc]initWithGroupTemplate:gt
                                                         andNote:self.note
-                       forThisContainerFrame:cvc.frame];
+                                          forThisContainerFrame:cvc.myScrollView.frame];
+    
     
     cvc.myLabel.text = gt.name;
     cvc.myScrollView.pagingEnabled = NO;
@@ -43,7 +44,7 @@
         [cvc.myScrollView addSubview:[vf viewForContentType:obj]];
     }];
     
-    cvc.myScrollView.contentSize = CGSizeMake(cvc.contentView.frame.size.width, vf.totalHeight);
+    cvc.myScrollView.contentSize = CGSizeMake(cvc.myScrollView.frame.size.width, vf.totalHeight);
     
     return cvc;
     
