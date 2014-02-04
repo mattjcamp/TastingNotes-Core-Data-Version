@@ -10,7 +10,7 @@
 
 @implementation SQLiteDB
 
-//#define DatabaseFileName @"paddb.sql"
+//#define DatabaseFileName @"stacie-paddb.sql"
 #define DatabaseFileName @"tasting-notes-database-paddb.sql"
 #define SQLITE_INTEGER  1
 #define SQLITE_FLOAT    2
