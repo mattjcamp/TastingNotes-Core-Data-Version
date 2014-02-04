@@ -54,6 +54,7 @@
 		C9C02E091865107F00739C36 /* Note+Note_Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C02E081865107F00739C36 /* Note+Note_Helper.m */; };
 		C9D4D9541891CBAF00CC2B35 /* ReferenceOutput.txt in Resources */ = {isa = PBXBuildFile; fileRef = C9D4D9531891CBAF00CC2B35 /* ReferenceOutput.txt */; };
 		C9DD46CA18A06D010008E69C /* Help.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DD46C918A06D010008E69C /* Help.m */; };
+		C9DD46CC18A1579A0008E69C /* tasting-notes-database-paddb.sql in Resources */ = {isa = PBXBuildFile; fileRef = C9DD46CB18A1579A0008E69C /* tasting-notes-database-paddb.sql */; };
 		C9FE8973188C6547005AE859 /* ListObject+ListObjectHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FE8972188C6547005AE859 /* ListObject+ListObjectHelper.m */; };
 		C9FE8976188CBE24005AE859 /* SelectedListObject+SelectedListObject_Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FE8975188CBE24005AE859 /* SelectedListObject+SelectedListObject_Helper.m */; };
 /* End PBXBuildFile section */
@@ -145,6 +146,7 @@
 		C9D4D9531891CBAF00CC2B35 /* ReferenceOutput.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReferenceOutput.txt; sourceTree = "<group>"; };
 		C9DD46C818A06D010008E69C /* Help.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Help.h; sourceTree = "<group>"; };
 		C9DD46C918A06D010008E69C /* Help.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Help.m; sourceTree = "<group>"; };
+		C9DD46CB18A1579A0008E69C /* tasting-notes-database-paddb.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tasting-notes-database-paddb.sql"; sourceTree = "<group>"; };
 		C9FE8971188C6547005AE859 /* ListObject+ListObjectHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ListObject+ListObjectHelper.h"; sourceTree = "<group>"; };
 		C9FE8972188C6547005AE859 /* ListObject+ListObjectHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ListObject+ListObjectHelper.m"; sourceTree = "<group>"; };
 		C9FE8974188CBE24005AE859 /* SelectedListObject+SelectedListObject_Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SelectedListObject+SelectedListObject_Helper.h"; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 		C9C02D1118645EC200739C36 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C9DD46CB18A1579A0008E69C /* tasting-notes-database-paddb.sql */,
 				C9C02D1218645EC200739C36 /* TastingNotes-Info.plist */,
 				C9C02D1318645EC200739C36 /* InfoPlist.strings */,
 				C9C02D1618645EC200739C36 /* main.m */,
@@ -425,6 +428,7 @@
 				C9C02D2118645EC200739C36 /* Main_iPad.storyboard in Resources */,
 				C9C02D2618645EC200739C36 /* Images.xcassets in Resources */,
 				C9C02D1E18645EC200739C36 /* Main_iPhone.storyboard in Resources */,
+				C9DD46CC18A1579A0008E69C /* tasting-notes-database-paddb.sql in Resources */,
 				C9C02D1518645EC200739C36 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
