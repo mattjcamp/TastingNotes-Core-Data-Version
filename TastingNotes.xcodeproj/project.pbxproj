@@ -18,6 +18,7 @@
 		C962FECA187B5AB400208180 /* SQLiteUpgrade.m in Sources */ = {isa = PBXBuildFile; fileRef = C962FEC9187B5AB400208180 /* SQLiteUpgrade.m */; };
 		C962FED0187B821800208180 /* SQLiteUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = C962FECF187B821800208180 /* SQLiteUpdater.m */; };
 		C975D87F188E021600C5C9FB /* NotebookChooserTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C975D87E188E021600C5C9FB /* NotebookChooserTVC.m */; };
+		C97D723D18CE339E00477559 /* NoteTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C97D723C18CE339E00477559 /* NoteTVC.m */; };
 		C9A1C3B0188AEAE700B892B1 /* Content+Content_Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A1C3AF188AEAE700B892B1 /* Content+Content_Helper.m */; };
 		C9A1C3B3188AF98400B892B1 /* DataOutput.txt in Resources */ = {isa = PBXBuildFile; fileRef = C9A1C3B1188AF98400B892B1 /* DataOutput.txt */; };
 		C9A1C3B4188AF98400B892B1 /* SQLiteUpgrade_log.txt in Resources */ = {isa = PBXBuildFile; fileRef = C9A1C3B2188AF98400B892B1 /* SQLiteUpgrade_log.txt */; };
@@ -28,8 +29,6 @@
 		C9AD0F24188F1D410058D11D /* SelectedListObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AD0F23188F1D410058D11D /* SelectedListObject.m */; };
 		C9AD0F27188F1D420058D11D /* Content.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AD0F26188F1D420058D11D /* Content.m */; };
 		C9AD0F2A188F1D420058D11D /* Group_Template.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AD0F29188F1D420058D11D /* Group_Template.m */; };
-		C9BD476E189968F5002035AB /* NoteCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BD476D189968F5002035AB /* NoteCVC.m */; };
-		C9BD477118996C5B002035AB /* CCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BD477018996C5B002035AB /* CCVC.m */; };
 		C9C02D0B18645EC200739C36 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C02D0A18645EC200739C36 /* Foundation.framework */; };
 		C9C02D0D18645EC200739C36 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C02D0C18645EC200739C36 /* CoreGraphics.framework */; };
 		C9C02D0F18645EC200739C36 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C02D0E18645EC200739C36 /* UIKit.framework */; };
@@ -89,6 +88,8 @@
 		C962FECF187B821800208180 /* SQLiteUpdater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteUpdater.m; sourceTree = "<group>"; };
 		C975D87D188E021600C5C9FB /* NotebookChooserTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotebookChooserTVC.h; sourceTree = "<group>"; };
 		C975D87E188E021600C5C9FB /* NotebookChooserTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotebookChooserTVC.m; sourceTree = "<group>"; };
+		C97D723B18CE339E00477559 /* NoteTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteTVC.h; sourceTree = "<group>"; };
+		C97D723C18CE339E00477559 /* NoteTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteTVC.m; sourceTree = "<group>"; };
 		C9A1C3AE188AEAE700B892B1 /* Content+Content_Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Content+Content_Helper.h"; sourceTree = "<group>"; };
 		C9A1C3AF188AEAE700B892B1 /* Content+Content_Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Content+Content_Helper.m"; sourceTree = "<group>"; };
 		C9A1C3B1188AF98400B892B1 /* DataOutput.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DataOutput.txt; sourceTree = "<group>"; };
@@ -107,10 +108,6 @@
 		C9AD0F26188F1D420058D11D /* Content.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Content.m; sourceTree = "<group>"; };
 		C9AD0F28188F1D420058D11D /* Group_Template.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group_Template.h; sourceTree = "<group>"; };
 		C9AD0F29188F1D420058D11D /* Group_Template.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group_Template.m; sourceTree = "<group>"; };
-		C9BD476C189968F5002035AB /* NoteCVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteCVC.h; sourceTree = "<group>"; };
-		C9BD476D189968F5002035AB /* NoteCVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteCVC.m; sourceTree = "<group>"; };
-		C9BD476F18996C5B002035AB /* CCVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCVC.h; sourceTree = "<group>"; };
-		C9BD477018996C5B002035AB /* CCVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCVC.m; sourceTree = "<group>"; };
 		C9C02D0718645EC200739C36 /* TastingNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TastingNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9C02D0A18645EC200739C36 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C9C02D0C18645EC200739C36 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -209,10 +206,8 @@
 				C9A1C3B7188B066A00B892B1 /* NotesTVC.m */,
 				C975D87D188E021600C5C9FB /* NotebookChooserTVC.h */,
 				C975D87E188E021600C5C9FB /* NotebookChooserTVC.m */,
-				C9BD476C189968F5002035AB /* NoteCVC.h */,
-				C9BD476D189968F5002035AB /* NoteCVC.m */,
-				C9BD476F18996C5B002035AB /* CCVC.h */,
-				C9BD477018996C5B002035AB /* CCVC.m */,
+				C97D723B18CE339E00477559 /* NoteTVC.h */,
+				C97D723C18CE339E00477559 /* NoteTVC.m */,
 				C95A808C189FF77C00268FE2 /* ViewFactory.h */,
 				C95A808D189FF77C00268FE2 /* ViewFactory.m */,
 			);
@@ -451,7 +446,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9BD476E189968F5002035AB /* NoteCVC.m in Sources */,
 				C9C02D2418645EC200739C36 /* ViewController.m in Sources */,
 				C9C02DE51864DFFC00739C36 /* Group_Template+Group_Template_Helper.m in Sources */,
 				C9DD46CA18A06D010008E69C /* Help.m in Sources */,
@@ -459,11 +453,11 @@
 				C9FE8976188CBE24005AE859 /* SelectedListObject+SelectedListObject_Helper.m in Sources */,
 				C9C02DF71864E80A00739C36 /* Notebook+Notebook_Helper.m in Sources */,
 				C9C02DE21864DFAC00739C36 /* ContentType_Template+ContentType_Template_Helper.m in Sources */,
-				C9BD477118996C5B002035AB /* CCVC.m in Sources */,
 				C975D87F188E021600C5C9FB /* NotebookChooserTVC.m in Sources */,
 				C9AD0F27188F1D420058D11D /* Content.m in Sources */,
 				C9A1C3B0188AEAE700B892B1 /* Content+Content_Helper.m in Sources */,
 				C95A808E189FF77C00268FE2 /* ViewFactory.m in Sources */,
+				C97D723D18CE339E00477559 /* NoteTVC.m in Sources */,
 				C9C02D1B18645EC200739C36 /* AppDelegate.m in Sources */,
 				C9FE8973188C6547005AE859 /* ListObject+ListObjectHelper.m in Sources */,
 				C9AD0F24188F1D410058D11D /* SelectedListObject.m in Sources */,

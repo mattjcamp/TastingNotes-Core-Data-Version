@@ -7,7 +7,7 @@
 //
 
 #import "NotesTVC.h"
-#import "NoteCVC.h"
+#import "NoteTVC.h"
 
 @interface NotesTVC ()
 
@@ -65,7 +65,7 @@
     if([segue.identifier isEqualToString:@"ToNote"]){
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         Note *n = [self.notebook.notesByOrder objectAtIndex:indexPath.row];
-        NoteCVC *ncvc = segue.destinationViewController;
+        NoteTVC *ncvc = segue.destinationViewController;
         ncvc.note = n;
     }
 }
