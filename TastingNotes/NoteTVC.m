@@ -17,9 +17,13 @@
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    //return [self.note.belongsToNotebook groups].count;
-    //Group_Template *gt = [[self.note.belongsToNotebook groupsByOrder]objectAtIndex:indexPath.row];
-    return 1;
+    return [self.note.belongsToNotebook groups].count;
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    Group_Template *gt = [[self.note.belongsToNotebook groupsByOrder]objectAtIndex:section];
+    
+    return gt.name;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -30,7 +34,10 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"row:%i", indexPath.row];
+    Group_Template *gt = [[self.note.belongsToNotebook groupsByOrder]objectAtIndex:indexPath.section];
+    Content *c = [[self.note contentInThisGroup:gt] objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = c.stringData;
     
     return cell;
 }
