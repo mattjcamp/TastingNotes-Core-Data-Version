@@ -25,6 +25,10 @@
     [self.navbarTitleButton addTarget:self
                                action:@selector(presentNotebooks)
                      forControlEvents:UIControlEventTouchUpInside];
+    
+    UIFont *f = [self.navbarTitleButton.titleLabel.font fontWithSize:18];
+    self.navbarTitleButton.titleLabel.font = f;
+    
     self.navigationItem.titleView = self.navbarTitleButton;
 }
 

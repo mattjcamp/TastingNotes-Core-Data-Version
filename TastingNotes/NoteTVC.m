@@ -9,11 +9,18 @@
 #import "NoteTVC.h"
 #import "ViewFactory.h"
 
+@interface NoteTVC ()
+
+@end
+
 @implementation NoteTVC
 
 -(void)viewDidLoad{
     [super viewDidLoad];
     self.title = self.note.title;
+    
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{

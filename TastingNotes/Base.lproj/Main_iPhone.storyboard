@@ -44,17 +44,8 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="pId-RP-IaL">
                         <nil key="title"/>
-                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YWo-Pg-N7h">
-                            <rect key="frame" x="96" y="6" width="128" height="33"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <state key="normal" title="Button">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <segue destination="ZRL-du-abi" kind="modal" identifier="NBChooser" id="Sc8-vk-Beu"/>
-                            </connections>
-                        </button>
+                        <barButtonItem key="leftBarButtonItem" systemItem="compose" id="ejQ-DD-CP0"/>
+                        <barButtonItem key="rightBarButtonItem" image="icon-settings3.png" id="jLa-B1-O88"/>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qDS-iU-h96" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -90,16 +81,16 @@
         <scene sceneID="PjL-WL-mLw">
             <objects>
                 <tableViewController id="vPl-O0-L6J" customClass="NoteTVC" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="1Jv-GO-dB2">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="78" sectionHeaderHeight="22" sectionFooterHeight="22" id="1Jv-GO-dB2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="Esd-UP-25a">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" showsReorderControl="YES" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" editingAccessoryType="detailDisclosureButton" rowHeight="78" id="Esd-UP-25a">
+                                <rect key="frame" x="0.0" y="86" width="320" height="78"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Esd-UP-25a" id="mjC-cW-SqT">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="77"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -109,7 +100,9 @@
                             <outlet property="delegate" destination="vPl-O0-L6J" id="yz4-Fw-vWP"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="EYX-VG-0xp"/>
+                    <navigationItem key="navigationItem" id="EYX-VG-0xp">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="yoL-9e-6xn"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="edl-M4-vL0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -147,6 +140,9 @@
             <point key="canvasLocation" x="54" y="-379"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon-settings3.png" width="21" height="22"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

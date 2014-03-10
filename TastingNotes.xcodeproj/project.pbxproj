@@ -19,6 +19,7 @@
 		C962FED0187B821800208180 /* SQLiteUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = C962FECF187B821800208180 /* SQLiteUpdater.m */; };
 		C975D87F188E021600C5C9FB /* NotebookChooserTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C975D87E188E021600C5C9FB /* NotebookChooserTVC.m */; };
 		C97D723D18CE339E00477559 /* NoteTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C97D723C18CE339E00477559 /* NoteTVC.m */; };
+		C97D724118CE5A7500477559 /* icon-settings3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C97D724018CE5A7500477559 /* icon-settings3@2x.png */; };
 		C9A1C3B0188AEAE700B892B1 /* Content+Content_Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A1C3AF188AEAE700B892B1 /* Content+Content_Helper.m */; };
 		C9A1C3B3188AF98400B892B1 /* DataOutput.txt in Resources */ = {isa = PBXBuildFile; fileRef = C9A1C3B1188AF98400B892B1 /* DataOutput.txt */; };
 		C9A1C3B4188AF98400B892B1 /* SQLiteUpgrade_log.txt in Resources */ = {isa = PBXBuildFile; fileRef = C9A1C3B2188AF98400B892B1 /* SQLiteUpgrade_log.txt */; };
@@ -36,8 +37,6 @@
 		C9C02D1718645EC200739C36 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C02D1618645EC200739C36 /* main.m */; };
 		C9C02D1B18645EC200739C36 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C02D1A18645EC200739C36 /* AppDelegate.m */; };
 		C9C02D1E18645EC200739C36 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9C02D1C18645EC200739C36 /* Main_iPhone.storyboard */; };
-		C9C02D2118645EC200739C36 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9C02D1F18645EC200739C36 /* Main_iPad.storyboard */; };
-		C9C02D2418645EC200739C36 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C02D2318645EC200739C36 /* ViewController.m */; };
 		C9C02D2618645EC200739C36 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9C02D2518645EC200739C36 /* Images.xcassets */; };
 		C9C02D2D18645EC200739C36 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C02D2C18645EC200739C36 /* XCTest.framework */; };
 		C9C02D2E18645EC200739C36 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C02D0A18645EC200739C36 /* Foundation.framework */; };
@@ -90,6 +89,7 @@
 		C975D87E188E021600C5C9FB /* NotebookChooserTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotebookChooserTVC.m; sourceTree = "<group>"; };
 		C97D723B18CE339E00477559 /* NoteTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteTVC.h; sourceTree = "<group>"; };
 		C97D723C18CE339E00477559 /* NoteTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteTVC.m; sourceTree = "<group>"; };
+		C97D724018CE5A7500477559 /* icon-settings3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-settings3@2x.png"; sourceTree = "<group>"; };
 		C9A1C3AE188AEAE700B892B1 /* Content+Content_Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Content+Content_Helper.h"; sourceTree = "<group>"; };
 		C9A1C3AF188AEAE700B892B1 /* Content+Content_Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Content+Content_Helper.m"; sourceTree = "<group>"; };
 		C9A1C3B1188AF98400B892B1 /* DataOutput.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DataOutput.txt; sourceTree = "<group>"; };
@@ -119,9 +119,6 @@
 		C9C02D1918645EC200739C36 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C9C02D1A18645EC200739C36 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C9C02D1D18645EC200739C36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		C9C02D2018645EC200739C36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		C9C02D2218645EC200739C36 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		C9C02D2318645EC200739C36 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		C9C02D2518645EC200739C36 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C9C02D2B18645EC200739C36 /* TastingNotesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TastingNotesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9C02D2C18645EC200739C36 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -257,9 +254,6 @@
 				C9C02D8918648F7500739C36 /* AppContent.h */,
 				C9C02D8A18648F7500739C36 /* AppContent.m */,
 				C9C02D1C18645EC200739C36 /* Main_iPhone.storyboard */,
-				C9C02D1F18645EC200739C36 /* Main_iPad.storyboard */,
-				C9C02D2218645EC200739C36 /* ViewController.h */,
-				C9C02D2318645EC200739C36 /* ViewController.m */,
 				C9DD46C818A06D010008E69C /* Help.h */,
 				C9DD46C918A06D010008E69C /* Help.m */,
 				C9C02D2518645EC200739C36 /* Images.xcassets */,
@@ -271,6 +265,7 @@
 		C9C02D1118645EC200739C36 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C97D724018CE5A7500477559 /* icon-settings3@2x.png */,
 				C9DD46CB18A1579A0008E69C /* tasting-notes-database-paddb.sql */,
 				C9C02D1218645EC200739C36 /* TastingNotes-Info.plist */,
 				C9C02D1318645EC200739C36 /* InfoPlist.strings */,
@@ -420,9 +415,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9C02D2118645EC200739C36 /* Main_iPad.storyboard in Resources */,
 				C9C02D2618645EC200739C36 /* Images.xcassets in Resources */,
 				C9C02D1E18645EC200739C36 /* Main_iPhone.storyboard in Resources */,
+				C97D724118CE5A7500477559 /* icon-settings3@2x.png in Resources */,
 				C9DD46CC18A1579A0008E69C /* tasting-notes-database-paddb.sql in Resources */,
 				C9C02D1518645EC200739C36 /* InfoPlist.strings in Resources */,
 			);
@@ -446,7 +441,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9C02D2418645EC200739C36 /* ViewController.m in Sources */,
 				C9C02DE51864DFFC00739C36 /* Group_Template+Group_Template_Helper.m in Sources */,
 				C9DD46CA18A06D010008E69C /* Help.m in Sources */,
 				C9C02D8E18648F9000739C36 /* DataModel.xcdatamodeld in Sources */,
@@ -513,14 +507,6 @@
 				C9C02D1D18645EC200739C36 /* Base */,
 			);
 			name = Main_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		C9C02D1F18645EC200739C36 /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C9C02D2018645EC200739C36 /* Base */,
-			);
-			name = Main_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 		C9C02D3518645EC200739C36 /* InfoPlist.strings */ = {
