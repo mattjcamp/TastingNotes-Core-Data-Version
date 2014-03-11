@@ -1,7 +1,3 @@
-TastingNotes
-============
-
-Tasting Notes Source Code
 
 Tasting Notes is an iOS app for wine drinkers to keep track of their tasting notes.  What makes Tasting Notes
 different then most apps like this is the ability to create custom notebooks.  Users can change the content
