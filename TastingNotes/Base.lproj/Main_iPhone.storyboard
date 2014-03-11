@@ -45,12 +45,73 @@
                     <navigationItem key="navigationItem" id="pId-RP-IaL">
                         <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" systemItem="compose" id="ejQ-DD-CP0"/>
-                        <barButtonItem key="rightBarButtonItem" image="icon-settings3.png" id="jLa-B1-O88"/>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RHD-xg-mHD">
+                            <rect key="frame" x="96" y="6" width="128" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <segue destination="ZRL-du-abi" kind="modal" identifier="NBChooser" id="Vc4-KQ-7TC"/>
+                            </connections>
+                        </button>
+                        <barButtonItem key="rightBarButtonItem" image="icon-settings3.png" id="jLa-B1-O88">
+                            <connections>
+                                <segue destination="tB2-Cz-NvD" kind="modal" modalTransitionStyle="flipHorizontal" id="iGY-ou-eSb"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qDS-iU-h96" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="586" y="-379"/>
+        </scene>
+        <!--SettingsTVC - Settings-->
+        <scene sceneID="YBa-6A-jeM">
+            <objects>
+                <tableViewController id="Nfg-5t-VLQ" customClass="SettingsTVC" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="2aX-d8-vIe">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="QcE-c0-XCE">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QcE-c0-XCE" id="fMG-Wc-itj">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Settings" id="FMQ-Vz-k7X">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="7YF-bq-Jae">
+                            <connections>
+                                <action selector="doneButtonAction:" destination="Nfg-5t-VLQ" id="vW9-Pr-ACU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vgw-Hb-8FF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1120" y="-1834"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="TOB-va-ebp">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="tB2-Cz-NvD" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5No-7F-7HB">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Nfg-5t-VLQ" kind="relationship" relationship="rootViewController" id="eWV-uq-MIW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1FK-dE-YPK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="586" y="-1834"/>
         </scene>
         <!--Notebook ChooserTVC - Notebooks-->
         <scene sceneID="nvz-pL-BB2">
