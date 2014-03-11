@@ -10,13 +10,9 @@
 
 @interface ViewFactory : NSObject
 
-@property int totalHeight;
+-(id)initWithNote:(Note *)n;
 
--(id)initWithGroupTemplate:(Group_Template *)gt
-                   andNote:(Note *)n
-     forThisContainerFrame:(CGRect)frame;
-
--(UIView *)testView;
--(UIView *)viewForContentType:(ContentType_Template *)ct;
+-(UIView *)viewForThisGroupTemplate:(Group_Template *)gt
+                 andThisContentType:(ContentType_Template *)ct;
 
 @end

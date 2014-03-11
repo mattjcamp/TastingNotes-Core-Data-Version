@@ -11,6 +11,8 @@
 
 @interface NoteTVC ()
 
+@property ViewFactory *vf;
+
 @end
 
 @implementation NoteTVC
@@ -18,8 +20,8 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     self.title = self.note.title;
-    
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.vf = [[ViewFactory alloc]initWithNote:self.note];
     
 }
 
@@ -41,10 +43,12 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
+    
     Group_Template *gt = [[self.note.belongsToNotebook groupsByOrder]objectAtIndex:indexPath.section];
     Content *c = [[self.note contentInThisGroup:gt] objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = c.stringData;
+    [cell.contentView addSubview: [self.vf viewForThisGroupTemplate:gt
+                                                 andThisContentType:c.inThisContent_Type]];
     
     return cell;
 }
