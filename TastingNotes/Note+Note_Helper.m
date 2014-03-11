@@ -21,6 +21,7 @@
     
 }
 
+//Should be ordeded by content type order...
 -(NSArray *) contentInThisGroup:(Group_Template *)group{
     
     NSMutableArray *a = [[NSMutableArray alloc]init];
@@ -34,6 +35,7 @@
     return a;
 }
 
+//Seems suspect...
 -(Content *) contentInThisGroup:(Group_Template *)group
              andThisContentType:(ContentType_Template *)contentType{
     

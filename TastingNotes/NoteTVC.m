@@ -36,7 +36,9 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 3;
+    Group_Template *gt = [[self.note.belongsToNotebook groupsByOrder]objectAtIndex:section];
+
+    return [self.note contentInThisGroup:gt].count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -45,10 +47,11 @@
     
     
     Group_Template *gt = [[self.note.belongsToNotebook groupsByOrder]objectAtIndex:indexPath.section];
-    Content *c = [[self.note contentInThisGroup:gt] objectAtIndex:indexPath.row];
+    ContentType_Template *ct = [[gt contentTypesByOrder] objectAtIndex:indexPath.row];
+    Content *c = [self.note contentInThisGroup:gt andThisContentType:ct];
     
     [cell.contentView addSubview: [self.vf viewForThisGroupTemplate:gt
-                                                 andThisContentType:c.inThisContent_Type]];
+                                                     andThisContent:c]];
     
     return cell;
 }

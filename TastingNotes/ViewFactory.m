@@ -25,19 +25,33 @@
 }
 
 -(UIView *)viewForThisGroupTemplate:(Group_Template *)gt
-                 andThisContentType:(ContentType_Template *)ct{
+                     andThisContent:(Content *)c{
     UIView *v;
     
-    if([ct.type isEqualToString:@"SmallText"] || [ct.type isEqualToString:@"MultiText"])
-        v = [self smallTextViewThisGroupTemplate:gt andThisContentType:ct];
-    /*
-     if([ct.type isEqualToString:@"Picture"])
-     v = [self viewForPictureForContentType:ct];
-     
-     if(!v)
-     v = [self testView];*/
+    if([c.inThisContent_Type.type isEqualToString:@"SmallText"] || [c.inThisContent_Type.type isEqualToString:@"MultiText"])
+        v = [self smallTextViewThisGroupTemplate:gt andThisContent:c];
+    else
+        v = [self baseViewThisGroupTemplate:gt andThisContent:c];
     
     return v;
+}
+
+-(UIView *)baseViewThisGroupTemplate:(Group_Template *)gt
+                      andThisContent:(Content *)c{
+    CGRect r = [self getSizedRectangleWithThisHeight:50];
+    
+    UILabel *l = [[UILabel alloc]initWithFrame:r];
+    
+    
+    l.font = [UIFont fontWithName:@"Arial" size:12];
+    l.numberOfLines = 4;
+    l.backgroundColor = [UIColor whiteColor];
+    NSMutableString *m = [[NSMutableString alloc]init];
+    [m appendString:c.inThisContent_Type.name];
+    
+    l.text = m;
+    
+    return l;
 }
 
 /*-(UIView *)viewForPictureForContentType:(ContentType_Template *)ct{
@@ -57,25 +71,24 @@
  }
  */
 -(UIView *)smallTextViewThisGroupTemplate:(Group_Template *)gt
-                       andThisContentType:(ContentType_Template *)ct{
+                           andThisContent:(Content *)c{
     CGRect r = [self getSizedRectangleWithThisHeight:50];
     
     UILabel *l = [[UILabel alloc]initWithFrame:r];
-    //UILabel *l = [[UILabel alloc]init];
-
+    
     l.font = [UIFont fontWithName:@"Arial" size:12];
     l.numberOfLines = 4;
     l.backgroundColor = [UIColor whiteColor];
     NSMutableString *m = [[NSMutableString alloc]init];
-    [m appendString:ct.name];
+    [m appendString:c.inThisContent_Type.name];
     [m appendString:@"\n"];
-    Content *c = [self.note contentInThisGroup:gt
-                            andThisContentType:ct];
     
     if(c)
         [m appendString:c.stringData];
     
     l.text = m;
+    
+    [l setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
     
     return l;
 }
