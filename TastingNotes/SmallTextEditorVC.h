@@ -10,6 +10,6 @@
 
 @interface SmallTextEditorVC : UIViewController<UITextViewDelegate>
 
--(id)initWithContent:(Content *)c;
+-(id)initWithContent:(Content *)c andDoThisIfContentChanges:(void (^)())updateUI;
 
 @end

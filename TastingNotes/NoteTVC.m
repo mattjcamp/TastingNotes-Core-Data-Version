@@ -53,9 +53,14 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     
+    
     Group_Template *gt = [[self.note.belongsToNotebook groupsByOrder]objectAtIndex:indexPath.section];
     ContentType_Template *ct = [[gt contentTypesByOrder] objectAtIndex:indexPath.row];
     Content *c = [self.note contentInThisGroup:gt andThisContentType:ct];
+    
+    [cell.contentView.subviews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [obj removeFromSuperview];
+    }];
     
     [cell.contentView addSubview: [self.vf viewForThisGroupTemplate:gt
                                                      andThisContent:c]];
@@ -89,7 +94,28 @@
         ContentType_Template *ct = [[gt contentTypesByOrder] objectAtIndex:indexPath.row];
         Content *c = [self.note contentInThisGroup:gt andThisContentType:ct];
         UIViewController *vc = [self.vcef viewControllerForThisGroupTemplate:gt
-                                                              andThisContent:c];
+                                                              andThisContent:c
+                                                   andDoThisIfContentChanges:^{
+                                                       
+                                                       UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+                                                       
+                                                       Group_Template *gt = [[self.note.belongsToNotebook groupsByOrder]objectAtIndex:indexPath.section];
+                                                       ContentType_Template *ct = [[gt contentTypesByOrder] objectAtIndex:indexPath.row];
+                                                       Content *c = [self.note contentInThisGroup:gt andThisContentType:ct];
+                                                       
+                                                       [cell.contentView.subviews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                                                           [obj removeFromSuperview];
+                                                       }];
+                                                       
+                                                       [cell.contentView addSubview: [self.vf viewForThisGroupTemplate:gt
+                                                                                                        andThisContent:c]];
+                                                       
+                                                       if(self.inEditingMode)
+                                                           cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                                                       else
+                                                           cell.accessoryType = UITableViewCellAccessoryNone;
+                                                       
+                                                   }];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

@@ -26,10 +26,11 @@
 }
 
 -(UIViewController *)viewControllerForThisGroupTemplate:(Group_Template *)gt
-                                         andThisContent:(Content *)c{
+                                         andThisContent:(Content *)c
+                              andDoThisIfContentChanges:(void (^)())updateUI{
     
     if([c.inThisContent_Type.type isEqualToString:@"SmallText"]){
-        SmallTextEditorVC *steVC = [[SmallTextEditorVC alloc]initWithContent:c];
+        SmallTextEditorVC *steVC = [[SmallTextEditorVC alloc]initWithContent:c andDoThisIfContentChanges:updateUI];
         
         return steVC;
     }

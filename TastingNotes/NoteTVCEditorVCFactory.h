@@ -13,6 +13,7 @@
 -(id)initWithNote:(Note *)n;
 
 -(UIViewController *)viewControllerForThisGroupTemplate:(Group_Template *)gt
-                                         andThisContent:(Content *)c;
+                                         andThisContent:(Content *)c
+andDoThisIfContentChanges:(void (^)())updateUI;
 
 @end

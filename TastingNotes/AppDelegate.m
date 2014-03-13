@@ -15,7 +15,7 @@
     
     AppContent *ac = [AppContent sharedContent];
     //if(ac.notebooks.count == 0){
-        [[AppContent sharedContent]removeAllContent];
+        [ac removeAllContent];
         SQLiteUpdater *se = [[SQLiteUpdater alloc]init];
         [se importSQLtoCoreData];
     //}
