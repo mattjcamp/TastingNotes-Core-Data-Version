@@ -11,7 +11,7 @@
 		C90389661892E67A004B564D /* Notebook.m in Sources */ = {isa = PBXBuildFile; fileRef = C90389651892E67A004B564D /* Notebook.m */; };
 		C90389691892E67B004B564D /* AppState.m in Sources */ = {isa = PBXBuildFile; fileRef = C90389681892E67B004B564D /* AppState.m */; };
 		C935BD731892F97F00BEA7E7 /* SQLiteUpgrade_DrillDown.m in Sources */ = {isa = PBXBuildFile; fileRef = C935BD721892F97F00BEA7E7 /* SQLiteUpgrade_DrillDown.m */; };
-		C95A808E189FF77C00268FE2 /* ViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = C95A808D189FF77C00268FE2 /* ViewFactory.m */; };
+		C95A808E189FF77C00268FE2 /* NoteTVCViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = C95A808D189FF77C00268FE2 /* NoteTVCViewFactory.m */; };
 		C962FEC3187B57F100208180 /* SQLiteColumnMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = C962FEC0187B57F100208180 /* SQLiteColumnMetaData.m */; };
 		C962FEC4187B57F100208180 /* SQLiteDB.m in Sources */ = {isa = PBXBuildFile; fileRef = C962FEC2187B57F100208180 /* SQLiteDB.m */; };
 		C962FEC6187B583E00208180 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C962FEC5187B583E00208180 /* libsqlite3.0.dylib */; };
@@ -21,6 +21,7 @@
 		C97D723D18CE339E00477559 /* NoteTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C97D723C18CE339E00477559 /* NoteTVC.m */; };
 		C97D724118CE5A7500477559 /* icon-settings3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C97D724018CE5A7500477559 /* icon-settings3@2x.png */; };
 		C97D724418CF489400477559 /* SettingsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C97D724318CF489400477559 /* SettingsTVC.m */; };
+		C97D724A18D1EA4900477559 /* NoteTVCEditorVCFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = C97D724918D1EA4900477559 /* NoteTVCEditorVCFactory.m */; };
 		C9A1C3B0188AEAE700B892B1 /* Content+Content_Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A1C3AF188AEAE700B892B1 /* Content+Content_Helper.m */; };
 		C9A1C3B3188AF98400B892B1 /* DataOutput.txt in Resources */ = {isa = PBXBuildFile; fileRef = C9A1C3B1188AF98400B892B1 /* DataOutput.txt */; };
 		C9A1C3B4188AF98400B892B1 /* SQLiteUpgrade_log.txt in Resources */ = {isa = PBXBuildFile; fileRef = C9A1C3B2188AF98400B892B1 /* SQLiteUpgrade_log.txt */; };
@@ -76,8 +77,8 @@
 		C90389671892E67B004B564D /* AppState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppState.h; sourceTree = "<group>"; };
 		C90389681892E67B004B564D /* AppState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppState.m; sourceTree = "<group>"; };
 		C935BD721892F97F00BEA7E7 /* SQLiteUpgrade_DrillDown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteUpgrade_DrillDown.m; sourceTree = "<group>"; };
-		C95A808C189FF77C00268FE2 /* ViewFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewFactory.h; sourceTree = "<group>"; };
-		C95A808D189FF77C00268FE2 /* ViewFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewFactory.m; sourceTree = "<group>"; };
+		C95A808C189FF77C00268FE2 /* NoteTVCViewFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteTVCViewFactory.h; sourceTree = "<group>"; };
+		C95A808D189FF77C00268FE2 /* NoteTVCViewFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteTVCViewFactory.m; sourceTree = "<group>"; };
 		C962FEBF187B57F100208180 /* SQLiteColumnMetaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteColumnMetaData.h; sourceTree = "<group>"; };
 		C962FEC0187B57F100208180 /* SQLiteColumnMetaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteColumnMetaData.m; sourceTree = "<group>"; };
 		C962FEC1187B57F100208180 /* SQLiteDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteDB.h; sourceTree = "<group>"; };
@@ -93,6 +94,8 @@
 		C97D724018CE5A7500477559 /* icon-settings3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-settings3@2x.png"; sourceTree = "<group>"; };
 		C97D724218CF489400477559 /* SettingsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTVC.h; sourceTree = "<group>"; };
 		C97D724318CF489400477559 /* SettingsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTVC.m; sourceTree = "<group>"; };
+		C97D724818D1EA4900477559 /* NoteTVCEditorVCFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteTVCEditorVCFactory.h; sourceTree = "<group>"; };
+		C97D724918D1EA4900477559 /* NoteTVCEditorVCFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteTVCEditorVCFactory.m; sourceTree = "<group>"; };
 		C9A1C3AE188AEAE700B892B1 /* Content+Content_Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Content+Content_Helper.h"; sourceTree = "<group>"; };
 		C9A1C3AF188AEAE700B892B1 /* Content+Content_Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Content+Content_Helper.m"; sourceTree = "<group>"; };
 		C9A1C3B1188AF98400B892B1 /* DataOutput.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DataOutput.txt; sourceTree = "<group>"; };
@@ -189,6 +192,19 @@
 			name = SQLite;
 			sourceTree = "<group>";
 		};
+		C97D724B18D1EC0C00477559 /* Note */ = {
+			isa = PBXGroup;
+			children = (
+				C97D723B18CE339E00477559 /* NoteTVC.h */,
+				C97D723C18CE339E00477559 /* NoteTVC.m */,
+				C95A808C189FF77C00268FE2 /* NoteTVCViewFactory.h */,
+				C95A808D189FF77C00268FE2 /* NoteTVCViewFactory.m */,
+				C97D724818D1EA4900477559 /* NoteTVCEditorVCFactory.h */,
+				C97D724918D1EA4900477559 /* NoteTVCEditorVCFactory.m */,
+			);
+			name = Note;
+			sourceTree = "<group>";
+		};
 		C9A1C3AB188AE67700B892B1 /* Output */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,10 +222,7 @@
 				C9A1C3B7188B066A00B892B1 /* NotesTVC.m */,
 				C975D87D188E021600C5C9FB /* NotebookChooserTVC.h */,
 				C975D87E188E021600C5C9FB /* NotebookChooserTVC.m */,
-				C97D723B18CE339E00477559 /* NoteTVC.h */,
-				C97D723C18CE339E00477559 /* NoteTVC.m */,
-				C95A808C189FF77C00268FE2 /* ViewFactory.h */,
-				C95A808D189FF77C00268FE2 /* ViewFactory.m */,
+				C97D724B18D1EC0C00477559 /* Note */,
 				C97D724218CF489400477559 /* SettingsTVC.h */,
 				C97D724318CF489400477559 /* SettingsTVC.m */,
 			);
@@ -456,7 +469,8 @@
 				C975D87F188E021600C5C9FB /* NotebookChooserTVC.m in Sources */,
 				C9AD0F27188F1D420058D11D /* Content.m in Sources */,
 				C9A1C3B0188AEAE700B892B1 /* Content+Content_Helper.m in Sources */,
-				C95A808E189FF77C00268FE2 /* ViewFactory.m in Sources */,
+				C97D724A18D1EA4900477559 /* NoteTVCEditorVCFactory.m in Sources */,
+				C95A808E189FF77C00268FE2 /* NoteTVCViewFactory.m in Sources */,
 				C97D723D18CE339E00477559 /* NoteTVC.m in Sources */,
 				C9C02D1B18645EC200739C36 /* AppDelegate.m in Sources */,
 				C9FE8973188C6547005AE859 /* ListObject+ListObjectHelper.m in Sources */,

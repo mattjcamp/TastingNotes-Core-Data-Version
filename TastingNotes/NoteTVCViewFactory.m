@@ -6,15 +6,15 @@
 //  Copyright (c) 2014 Mobile App Mastery. All rights reserved.
 //
 
-#import "ViewFactory.h"
+#import "NoteTVCViewFactory.h"
 
-@interface ViewFactory()
+@interface NoteTVCViewFactory()
 
 @property Note *note;
 
 @end
 
-@implementation ViewFactory
+@implementation NoteTVCViewFactory
 
 -(id)initWithNote:(Note *)n{
     self = [super init];

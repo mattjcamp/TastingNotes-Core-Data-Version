@@ -7,11 +7,13 @@
 //
 
 #import "NoteTVC.h"
-#import "ViewFactory.h"
+#import "NoteTVCViewFactory.h"
+#import "NoteTVCEditorVCFactory.h"
 
 @interface NoteTVC ()
 
-@property ViewFactory *vf;
+@property NoteTVCViewFactory *vf;
+@property NoteTVCEditorVCFactory *vcef;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *editingButton;
 @property BOOL inEditingMode;
 
@@ -24,7 +26,8 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     self.title = self.note.title;
-    self.vf = [[ViewFactory alloc]initWithNote:self.note];
+    self.vf = [[NoteTVCViewFactory alloc]initWithNote:self.note];
+    self.vcef = [[NoteTVCEditorVCFactory alloc]initWithNote:self.note];
     self.inEditingMode = NO;
     self.editingButton.possibleTitles = [NSSet setWithObjects:@"Edit", @"Done", nil];
 }
@@ -77,6 +80,17 @@
         self.inEditingMode = YES;
         [self.editingButton setTitle:@"Done"];
         [self.tableView reloadData];
+    }
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if(self.inEditingMode){
+        Group_Template *gt = [[self.note.belongsToNotebook groupsByOrder]objectAtIndex:indexPath.section];
+        ContentType_Template *ct = [[gt contentTypesByOrder] objectAtIndex:indexPath.row];
+        Content *c = [self.note contentInThisGroup:gt andThisContentType:ct];
+        UIViewController *vc = [self.vcef viewControllerForThisGroupTemplate:gt
+                                                              andThisContent:c];
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 

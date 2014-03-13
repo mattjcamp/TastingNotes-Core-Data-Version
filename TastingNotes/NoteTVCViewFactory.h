@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ViewFactory : NSObject
+@interface NoteTVCViewFactory : NSObject
 
 -(id)initWithNote:(Note *)n;
 
