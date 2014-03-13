@@ -13,6 +13,6 @@
 -(id)initWithNote:(Note *)n;
 
 -(UIView *)viewForThisGroupTemplate:(Group_Template *)gt
-                 andThisContent:(Content *)c;
+                     andThisContent:(Content *)c;
 
 @end

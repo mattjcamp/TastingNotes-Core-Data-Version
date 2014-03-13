@@ -162,8 +162,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="EYX-VG-0xp">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="yoL-9e-6xn"/>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" style="plain" id="yoL-9e-6xn">
+                            <connections>
+                                <action selector="enterEditingMode:" destination="vPl-O0-L6J" id="iZI-jo-78Y"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="editingButton" destination="yoL-9e-6xn" id="aYD-of-1Nu"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="edl-M4-vL0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

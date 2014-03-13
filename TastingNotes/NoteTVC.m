@@ -12,6 +12,10 @@
 @interface NoteTVC ()
 
 @property ViewFactory *vf;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *editingButton;
+@property BOOL inEditingMode;
+
+-(IBAction)enterEditingMode:(id)sender;
 
 @end
 
@@ -20,9 +24,9 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     self.title = self.note.title;
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.vf = [[ViewFactory alloc]initWithNote:self.note];
-    
+    self.inEditingMode = NO;
+    self.editingButton.possibleTitles = [NSSet setWithObjects:@"Edit", @"Done", nil];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -37,7 +41,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     Group_Template *gt = [[self.note.belongsToNotebook groupsByOrder]objectAtIndex:section];
-
+    
     return [self.note contentInThisGroup:gt].count;
 }
 
@@ -53,7 +57,27 @@
     [cell.contentView addSubview: [self.vf viewForThisGroupTemplate:gt
                                                      andThisContent:c]];
     
+    [UIView animateWithDuration:.2 animations:^{
+        if(self.inEditingMode)
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        else
+            cell.accessoryType = UITableViewCellAccessoryNone;
+    }];
+    
     return cell;
+}
+
+-(IBAction)enterEditingMode:(id)sender {
+    if(self.inEditingMode){
+        self.inEditingMode = NO;
+        self.editingButton.title = @"Edit";
+        [self.tableView reloadData];
+    }
+    else{
+        self.inEditingMode = YES;
+        [self.editingButton setTitle:@"Done"];
+        [self.tableView reloadData];
+    }
 }
 
 @end
