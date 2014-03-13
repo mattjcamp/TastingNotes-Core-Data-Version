@@ -7,6 +7,7 @@
 //
 
 #import "NoteTVCEditorVCFactory.h"
+#import "SmallTextEditorVC.h"
 
 @interface NoteTVCEditorVCFactory()
 
@@ -26,6 +27,12 @@
 
 -(UIViewController *)viewControllerForThisGroupTemplate:(Group_Template *)gt
                                          andThisContent:(Content *)c{
+    
+    if([c.inThisContent_Type.type isEqualToString:@"SmallText"]){
+        SmallTextEditorVC *steVC = [[SmallTextEditorVC alloc]initWithContent:c];
+        
+        return steVC;
+    }
     
     UIViewController *vc = [[UIViewController alloc]init];
     vc.view.backgroundColor = [UIColor blueColor];

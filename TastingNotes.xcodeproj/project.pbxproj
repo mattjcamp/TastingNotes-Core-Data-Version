@@ -22,6 +22,8 @@
 		C97D724118CE5A7500477559 /* icon-settings3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C97D724018CE5A7500477559 /* icon-settings3@2x.png */; };
 		C97D724418CF489400477559 /* SettingsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C97D724318CF489400477559 /* SettingsTVC.m */; };
 		C97D724A18D1EA4900477559 /* NoteTVCEditorVCFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = C97D724918D1EA4900477559 /* NoteTVCEditorVCFactory.m */; };
+		C97D725618D1F0A800477559 /* SmallTextEditorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C97D725418D1F0A800477559 /* SmallTextEditorVC.m */; };
+		C97D725718D1F0A800477559 /* SmallTextEditorVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C97D725518D1F0A800477559 /* SmallTextEditorVC.xib */; };
 		C9A1C3B0188AEAE700B892B1 /* Content+Content_Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A1C3AF188AEAE700B892B1 /* Content+Content_Helper.m */; };
 		C9A1C3B3188AF98400B892B1 /* DataOutput.txt in Resources */ = {isa = PBXBuildFile; fileRef = C9A1C3B1188AF98400B892B1 /* DataOutput.txt */; };
 		C9A1C3B4188AF98400B892B1 /* SQLiteUpgrade_log.txt in Resources */ = {isa = PBXBuildFile; fileRef = C9A1C3B2188AF98400B892B1 /* SQLiteUpgrade_log.txt */; };
@@ -96,6 +98,9 @@
 		C97D724318CF489400477559 /* SettingsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTVC.m; sourceTree = "<group>"; };
 		C97D724818D1EA4900477559 /* NoteTVCEditorVCFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteTVCEditorVCFactory.h; sourceTree = "<group>"; };
 		C97D724918D1EA4900477559 /* NoteTVCEditorVCFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteTVCEditorVCFactory.m; sourceTree = "<group>"; };
+		C97D725318D1F0A800477559 /* SmallTextEditorVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmallTextEditorVC.h; sourceTree = "<group>"; };
+		C97D725418D1F0A800477559 /* SmallTextEditorVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmallTextEditorVC.m; sourceTree = "<group>"; };
+		C97D725518D1F0A800477559 /* SmallTextEditorVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmallTextEditorVC.xib; sourceTree = "<group>"; };
 		C9A1C3AE188AEAE700B892B1 /* Content+Content_Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Content+Content_Helper.h"; sourceTree = "<group>"; };
 		C9A1C3AF188AEAE700B892B1 /* Content+Content_Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Content+Content_Helper.m"; sourceTree = "<group>"; };
 		C9A1C3B1188AF98400B892B1 /* DataOutput.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DataOutput.txt; sourceTree = "<group>"; };
@@ -201,6 +206,9 @@
 				C95A808D189FF77C00268FE2 /* NoteTVCViewFactory.m */,
 				C97D724818D1EA4900477559 /* NoteTVCEditorVCFactory.h */,
 				C97D724918D1EA4900477559 /* NoteTVCEditorVCFactory.m */,
+				C97D725318D1F0A800477559 /* SmallTextEditorVC.h */,
+				C97D725418D1F0A800477559 /* SmallTextEditorVC.m */,
+				C97D725518D1F0A800477559 /* SmallTextEditorVC.xib */,
 			);
 			name = Note;
 			sourceTree = "<group>";
@@ -437,6 +445,7 @@
 				C9C02D1E18645EC200739C36 /* Main_iPhone.storyboard in Resources */,
 				C97D724118CE5A7500477559 /* icon-settings3@2x.png in Resources */,
 				C9DD46CC18A1579A0008E69C /* tasting-notes-database-paddb.sql in Resources */,
+				C97D725718D1F0A800477559 /* SmallTextEditorVC.xib in Resources */,
 				C9C02D1518645EC200739C36 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -479,6 +488,7 @@
 				C962FED0187B821800208180 /* SQLiteUpdater.m in Sources */,
 				C90389661892E67A004B564D /* Notebook.m in Sources */,
 				C9AD0F21188F1D410058D11D /* Note.m in Sources */,
+				C97D725618D1F0A800477559 /* SmallTextEditorVC.m in Sources */,
 				C9C02D8B18648F7500739C36 /* AppContent.m in Sources */,
 				C90389691892E67B004B564D /* AppState.m in Sources */,
 				C9AD0F1E188F1D410058D11D /* ContentType_Template.m in Sources */,
